@@ -1,0 +1,11 @@
+[Desktop Entry]
+Exec=emacs --daemon
+Icon=emacs
+Version=1.0
+Name=EmacsDaemon
+GenericName=Text Editor
+Comment=Emacs Daemon used to keep instance of Emacs open in the background.
+Type=Application
+Terminal=false
+StartupNotify=false
+X-KDE-AutostartScript=true
