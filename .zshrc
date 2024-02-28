@@ -18,6 +18,7 @@ alias cd=z
 alias cdi=zi
 alias ls=eza
 alias cat=bat
+alias grep=rg
 
 export PATH=/home/nathan/.config/emacs/bin/:$PATH
 
