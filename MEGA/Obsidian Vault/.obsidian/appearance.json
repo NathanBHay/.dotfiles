@@ -1,0 +1,13 @@
+{
+  "baseFontSize": 16,
+  "accentColor": "",
+  "theme": "obsidian",
+  "translucency": false,
+  "monospaceFontFamily": "Fira Code",
+  "cssTheme": "Catppuccin",
+  "interfaceFontFamily": "",
+  "enabledCssSnippets": [
+    "styles"
+  ],
+  "textFontFamily": "IBM Plex Sans"
+}

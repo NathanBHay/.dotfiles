@@ -1,0 +1,14 @@
+{
+  "blockSize": 99,
+  "preambleEnabled": true,
+  "preamblePath": ".obsidian/preamble.sty",
+  "preambleLoadedNotice": false,
+  "jsSettings": {
+    "indentSize": "1.2em",
+    "commentDelimiter": "  //",
+    "lineNumber": true,
+    "lineNumberPunc": "",
+    "noEnd": true,
+    "scopeLines": false
+  }
+}

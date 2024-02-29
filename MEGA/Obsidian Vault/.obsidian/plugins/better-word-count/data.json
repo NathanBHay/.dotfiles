@@ -1,0 +1,41 @@
+{
+  "statusBar": [
+    {
+      "prefix": "",
+      "suffix": " words ",
+      "metric": {
+        "type": 0,
+        "counter": 0
+      }
+    },
+    {
+      "prefix": " ",
+      "suffix": " daily words",
+      "metric": {
+        "type": 1,
+        "counter": 0
+      }
+    }
+  ],
+  "altBar": [
+    {
+      "prefix": "",
+      "suffix": " files ",
+      "metric": {
+        "type": 2,
+        "counter": 6
+      }
+    },
+    {
+      "prefix": " ",
+      "suffix": " words",
+      "metric": {
+        "type": 2,
+        "counter": 0
+      }
+    }
+  ],
+  "countComments": false,
+  "collectStats": true,
+  "pageWords": 300
+}
