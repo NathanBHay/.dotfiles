@@ -1737,7 +1737,7 @@ class BetterWordCountSettingsTab extends obsidian.PluginSettingTab {
     }
 }
 
-const STATS_FILE = ".obsidian/vault-stats.json";
+const STATS_FILE = ".stats/vault-stats.json";
 const MATCH_HTML_COMMENT = new RegExp("<!--[\\s\\S]*?(?:-->)?" +
     "<!---+>?" +
     "|<!(?![dD][oO][cC][tT][yY][pP][eE]|\\[CDATA\\[)[^>]*>?" +
