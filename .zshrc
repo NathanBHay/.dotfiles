@@ -14,8 +14,6 @@ bindkey '5~' kill-word
 
 # Aliases
 alias vim=nvim
-alias cd=z
-alias cdi=zi
 alias ls=eza
 alias cat=bat
 alias grep=rg
@@ -28,5 +26,5 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
 
