@@ -25,7 +25,9 @@
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
 
 (setq doom-theme 'catppuccin) ;; Theme I like
-(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 16 :weight 'medium))
+
+(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 16 :weight 'medium)
+      doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :size 8 :weight 'medium))
 
 ;; Ensure that Evil Mode Toggle Doesn't Work
 (map! :nvi "C-z" #'evil-undo)
@@ -52,7 +54,11 @@
 (setq org-directory "~/org/")
 
 ;; Org roam commands
-(setq org-roam-directory "~/test/")
+(setq org-roam-directory (file-truename "~/MEGA/Obsidian Vault/"))
+(setq org-roam-file-extensions '("org" "md"))
+(after! md-roam
+  (md-roam-mode 1))
+(org-roam-db-autosync-mode 1)
 
 ;; Org Roam Latex Preview
 ;; (setq org-preview-latex-default-process 'dvisvgm)
@@ -94,32 +100,11 @@
 ;; I like my inlay hints for Rust/Java
 (after! lsp-mode (setq lsp-inlay-hint-enable t))
 
-;; Treesitter language list, add links to treesitter repos here:
-(setq treesit-language-source-alist
-      '((bash "https://github.com/tree-sitter/tree-sitter-bash")
-        (cmake "https://github.com/uyha/tree-sitter-cmake")
-        (css "https://github.com/tree-sitter/tree-sitter-css")
-        (elisp "https://github.com/Wilfred/tree-sitter-elisp")
-        (go "https://github.com/tree-sitter/tree-sitter-go")
-        (haskell "https://github.com/tree-sitter/tree-sitter-haskell")
-        (html "https://github.com/tree-sitter/tree-sitter-html")
-        (javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
-        (json "https://github.com/tree-sitter/tree-sitter-json")
-        (latex "https://github.com/latex-lsp/tree-sitter-latex")
-        (make "https://github.com/alemuller/tree-sitter-make")
-        (markdown "https://github.com/ikatyang/tree-sitter-markdown")
-        (python "https://github.com/tree-sitter/tree-sitter-python")
-        (rust "https://github.com/tree-sitter/tree-sitter-rust")
-        (toml "https://github.com/tree-sitter/tree-sitter-toml")
-        (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
-        (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
-        (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
-
 ;; accept completion from copilot and fallback to company
 (use-package! copilot
   :hook (prog-mode . copilot-mode)
   :bind (:map copilot-completion-map
-              ("<tab>" . 'copilot-accept-completion)
-              ("TAB" . 'copilot-accept-completion)
+              ("<S-tab>" . 'copilot-accept-completion)
+              ("S-TAB" . 'copilot-accept-completion)
               ("C-TAB" . 'copilot-accept-completion-by-word)
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
