@@ -1,5 +1,4 @@
 /* Nathan's edits to pseudocode.js css for a cleaner look*/
-
 .ps-root {
 	padding: 0.05em;
 	color: var(--text-color);
@@ -20,3 +19,14 @@
 	margin-right: 0.75em;
 	/* width: 1em; */
 }
+
+/* Line numbers moved to the left */
+.markdown-source-view.mod-cm6 .cm-gutters {
+	margin-left: -4.9em;
+	margin-inline-end: 1.5em;
+}
+
+.ͼ1 .cm-lineNumbers .cm-gutterElement {
+	padding: 0em;
+}
+

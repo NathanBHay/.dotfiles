@@ -1,11 +1,9 @@
 [github]
 	user = NathanBHay
 	email = nathanblhay@gmail.com
-[credential]
-	helper = store
 [user]
 	email = 72686983+NathanBHay@users.noreply.github.com
-	name = Nathan B. Hay
+	name = Nathan Hay
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

@@ -17,6 +17,7 @@ alias vim=nvim
 alias ls=eza
 alias cat=bat
 alias grep=rg
+alias xclip='xclip -se c'
 
 export PATH=/home/nathan/.config/emacs/bin/:$PATH
 

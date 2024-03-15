@@ -1,18 +1,12 @@
 [
   "file-explorer",
-  "global-search",
-  "switcher",
   "graph",
   "backlink",
   "outgoing-link",
-  "tag-pane",
-  "properties",
   "page-preview",
   "note-composer",
   "command-palette",
   "editor-status",
   "random-note",
-  "outline",
-  "slides",
   "file-recovery"
 ]
