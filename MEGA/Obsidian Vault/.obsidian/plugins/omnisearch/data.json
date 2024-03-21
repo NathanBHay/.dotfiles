@@ -1,6 +1,6 @@
 {
   "useCache": true,
-  "hideExcluded": false,
+  "hideExcluded": true,
   "ignoreDiacritics": true,
   "indexedFileTypes": [],
   "PDFIndexing": false,

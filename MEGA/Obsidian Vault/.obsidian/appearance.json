@@ -4,10 +4,12 @@
   "theme": "obsidian",
   "translucency": false,
   "monospaceFontFamily": "Fira Code",
-  "cssTheme": "Catppuccin",
+  "cssTheme": "AnuPpuccin",
   "interfaceFontFamily": "",
   "enabledCssSnippets": [
-    "styles"
+    "pseudocode",
+    "relative-numbers",
+    "custom-rainbow-colors"
   ],
   "textFontFamily": "IBM Plex Sans"
 }

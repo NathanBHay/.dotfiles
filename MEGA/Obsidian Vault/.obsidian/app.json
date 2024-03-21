@@ -15,5 +15,10 @@
   },
   "showLineNumber": true,
   "rightToLeft": false,
-  "vimMode": true
+  "vimMode": true,
+  "newFileLocation": "current",
+  "attachmentFolderPath": "Pictures",
+  "userIgnoreFilters": [
+    "Pictures/"
+  ]
 }

@@ -1,7 +1,12 @@
 [
-  "oz-image-plugin",
-  "cm-editor-syntax-highlight-obsidian",
-  "pseudocode-in-obs",
   "better-word-count",
+  "cm-editor-syntax-highlight-obsidian",
+  "oz-image-plugin",
   "omnisearch",
+  "pseudocode-in-obs",
+  "dataview",
+  "obsidian-tasks-plugin",
+  "obsidian-style-settings",
+  "tasks-calendar-wrapper",
+  "google-calendar"
 ]

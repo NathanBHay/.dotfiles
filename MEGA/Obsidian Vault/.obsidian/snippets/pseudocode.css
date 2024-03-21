@@ -1,0 +1,21 @@
+/* Pseudocode code snippets to make them more condusive to obsidian written by Nathan */
+.ps-root {
+	padding: 0.05em;
+	color: var(--text-color);
+	background-color: var(--code-background);
+}
+
+.ps-root .ps-algorithm {
+	margin: 0.5em;
+	border-top: none;
+	border-bottom: none;
+}
+
+.ps-root .ps-algorithm.with-caption > .ps-line:first-child {
+	border-bottom: none;
+}
+
+.ps-root .ps-linenum {
+	margin-right: 0.75em;
+	/* width: 1em; */
+}
