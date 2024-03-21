@@ -1,7 +1,7 @@
 {
   "legacyEditor": false,
   "livePreview": true,
-  "promptDelete": false,
+  "promptDelete": true,
   "spellcheck": true,
   "spellcheckLanguages": null,
   "tabSize": 4,
