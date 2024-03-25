@@ -17,15 +17,14 @@
   "anuppuccin-theme-settings@@h5-font": "IBM Plex Sans",
   "anuppuccin-theme-settings@@h6-font": "IBM Plex Sans",
   "anuppuccin-theme-settings@@anp-decoration-toggle": true,
-  "anuppuccin-theme-settings@@anp-bold-custom": "anp-bold-mauve",
-  "anuppuccin-theme-settings@@anp-h2-color-custom": "anp-h2-lavender",
-  "anuppuccin-theme-settings@@anp-h1-color-custom": "anp-h1-mauve",
+  "anuppuccin-theme-settings@@anp-bold-custom": "anp-bold-blue",
+  "anuppuccin-theme-settings@@anp-h2-color-custom": "anp-h2-sapphire",
   "anuppuccin-theme-settings@@anp-h3-color-custom": "anp-h3-teal",
   "anuppuccin-theme-settings@@bold-weight": "600",
   "anuppuccin-theme-settings@@anp-custom-vault-toggle": false,
   "anuppuccin-theme-settings@@anp-h4-color-custom": "anp-h4-green",
-  "anuppuccin-theme-settings@@anp-h5-color-custom": "anp-h5-peach",
-  "anuppuccin-theme-settings@@anp-h6-color-custom": "anp-h6-red",
+  "anuppuccin-theme-settings@@anp-h5-color-custom": "anp-h5-yellow",
+  "anuppuccin-theme-settings@@anp-h6-color-custom": "anp-h6-peach",
   "anuppuccin-theme-settings@@anp-status-bar-select": "none",
   "anuppuccin-theme-settings@@anp-alt-tab-style": "anp-safari-tab-toggle",
   "anuppuccin-theme-settings@@anp-disable-newtab-align": true,
@@ -67,5 +66,6 @@
   "anp-custom-rainbow-colors@@rainbow-color-9-default": "rainbow-color-9-peach",
   "anp-custom-rainbow-colors@@rainbow-color-10-default": "rainbow-color-10-maroon",
   "anp-custom-rainbow-colors@@rainbow-color-11-default": "rainbow-color-11-red",
-  "anuppuccin-theme-settings@@anp-collapse-folders": true
+  "anuppuccin-theme-settings@@anp-collapse-folders": true,
+  "anuppuccin-theme-settings@@anp-h1-color-custom": "anp-h1-lavender"
 }

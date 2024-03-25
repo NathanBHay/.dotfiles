@@ -160,6 +160,8 @@ require('lazy').setup {
   require 'plugins.lsp',
   require 'plugins.git',
   require 'plugins.navigation',
+  require 'plugins.debug',
+  -- require 'plugins.lint',
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`

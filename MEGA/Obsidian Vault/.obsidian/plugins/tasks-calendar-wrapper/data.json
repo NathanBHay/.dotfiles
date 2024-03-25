@@ -1,7 +1,8 @@
 {
   "filterEmpty": true,
   "excludePaths": [
-    "Refactor List.md"
+    "Projects/Refactor List.md",
+    "Projects/Linux Configuration.md"
   ],
   "includePaths": [],
   "useIncludeTags": false,

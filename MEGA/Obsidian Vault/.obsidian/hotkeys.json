@@ -33,7 +33,7 @@
       "key": "M"
     }
   ],
-  "google-calendar:open-google-calendar-week-view": [
+  "app:toggle-right-sidebar": [
     {
       "modifiers": [
         "Mod"
@@ -41,12 +41,20 @@
       "key": "]"
     }
   ],
-  "tasks-calendar-wrapper:open-tasks-timeline-view": [
+  "app:toggle-left-sidebar": [
     {
       "modifiers": [
         "Mod"
       ],
       "key": "["
+    }
+  ],
+  "google-calendar:open-google-calendar-week-view": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "\\"
     }
   ]
 }
