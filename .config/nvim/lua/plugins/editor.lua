@@ -16,7 +16,11 @@ return {
   {
     'm4xshen/autoclose.nvim',
     event = 'InsertEnter',
-    opts = {},
+    opts = {
+      options = {
+        disable_when_touch = true,
+      },
+    },
   },
 
   { -- Autoformat
