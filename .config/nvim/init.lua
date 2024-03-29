@@ -78,6 +78,16 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Automatically enable spell checking for markdown files
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'markdown',
+  desc = 'Enable spell checking for markdown files',
+  group = vim.api.nvim_create_augroup('kickstart-markdown-spell', { clear = true }),
+  callback = function()
+    vim.opt.spell = true
+  end,
+})
+
 -- [[ Basic Keymaps ]]
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode

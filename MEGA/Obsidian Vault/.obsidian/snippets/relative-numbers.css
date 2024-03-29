@@ -1,220 +1,26 @@
 /* Line numbers moved to the left */
-.markdown-source-view.mod-cm6 .cm-gutters {
-	margin-left: -3.2em;
+.cm-gutters {
+	margin-left: -2em;
 	margin-inline-end: 1.5em;
+	font-size: var(--font-ui-small)
 }
 
 .ͼ1 .cm-lineNumbers .cm-gutterElement {
 	padding: 0em;
 }
 
-/* relative line numbers (for vim mode) */
-body:not(.is-mobile) .cm-lineNumbers .cm-gutterElement:not(.cm-active) {
-	font-size: 0;
+.cm-gutters {
+	position: relative;
 }
 
-body:not(.is-mobile) .cm-lineNumbers .cm-active,
-body:not(.is-mobile) .cm-lineNumbers *::before {
-	font-size: 0.85rem;
+.cm-gutter {
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 
-/* numbers before */
-body:not(.is-mobile) .cm-lineNumbers *:has(+ .cm-active)::before { content: "1"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+ .cm-active)::before { content: "2"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+ .cm-active)::before { content: "3"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+ .cm-active)::before { content: "4"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+ .cm-active)::before { content: "5"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+ .cm-active)::before { content: "6"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+ .cm-active)::before { content: "7"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+ .cm-active)::before { content: "8"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "9"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "10"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "11"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "12"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "13"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "14"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "15"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "16"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "17"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "18"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "19"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "20"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "21"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "22"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "23"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "24"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "25"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "26"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "27"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "28"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "29"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "30"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "31"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "32"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "33"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "34"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "35"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "36"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "37"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "38"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "39"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "40"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "41"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "42"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "43"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "44"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "45"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "46"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "47"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "48"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "49"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "50"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "51"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "52"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "53"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "54"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "55"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "56"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "57"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "58"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "59"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "60"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "61"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "62"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "63"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "64"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "65"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "66"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "67"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "68"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "69"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "70"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "71"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "72"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "73"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "74"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "75"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "76"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "77"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "78"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "79"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "80"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "81"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "82"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "83"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "84"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "85"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "86"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "87"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "88"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "89"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "90"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "91"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "92"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "93"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "94"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "95"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "96"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "97"; }
-body:not(.is-mobile) .cm-lineNumbers *:has(+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+ .cm-active)::before { content: "98"; }
-
-/* numbers after */
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*::before { content: "1"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*::before { content: "2"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*::before { content: "3"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*::before { content: "4"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*::before { content: "5"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*::before { content: "6"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*::before { content: "7"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*::before { content: "8"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*::before { content: "9"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*::before { content: "10"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*::before { content: "11"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "12"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "13"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "14"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "15"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "16"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "17"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "18"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "19"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "20"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "21"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "22"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "23"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "24"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "25"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "26"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "27"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "28"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "29"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "30"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "31"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "32"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "33"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "34"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "35"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "36"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "37"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "38"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "39"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "40"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "41"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "42"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "43"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "44"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "45"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "46"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "47"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "48"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "49"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "50"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "51"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "52"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "53"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "54"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "55"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "56"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "57"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "58"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "59"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "60"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "61"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "62"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "63"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "64"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "65"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "66"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "67"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "68"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "69"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "70"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "71"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "72"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "73"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "74"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "75"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "76"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "77"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "78"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "79"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "80"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "81"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "82"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "83"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "84"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "85"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "86"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "87"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "88"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "89"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "90"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "91"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "92"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "93"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "94"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "95"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "96"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "97"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "98"; }
-body:not(.is-mobile) .cm-lineNumbers .cm-active+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*::before { content: "99"; }
+/* Color Changes */
+.cm-gutter > .cm-active {
+	font-weight: bold;
+	color: var(--text-accent);
+}

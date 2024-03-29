@@ -55,6 +55,15 @@ return {
         [[\   _-'                                                                `-_   /]],
         [[ `''                                                                      ``' ]],
       }
+      dashboard.section.buttons.val = {
+        dashboard.button('e', '  New file', ':enew<CR>'),
+        dashboard.button('f', '  Find file', ':Telescope find_files<CR>'),
+        dashboard.button('r', '  Recently opened files', ':Telescope oldfiles<CR>'),
+        dashboard.button('k', '  Keymaps', ':Telescope keymaps<CR>'),
+        dashboard.button('p', '󰂖  Plugins', ':Lazy<CR>'),
+        dashboard.button('c', '  Config', ':Telescope find_files cwd=' .. vim.fn.stdpath 'config' .. '<CR>'),
+        dashboard.button('q', '  Quit', ':qa<CR>'),
+      }
       require('alpha').setup(dashboard.config)
       vim.api.nvim_create_autocmd('User', {
         callback = function()
