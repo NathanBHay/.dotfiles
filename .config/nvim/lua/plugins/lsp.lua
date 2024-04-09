@@ -116,7 +116,11 @@ return {
         -- See `:help lspconfig-all` for a list of all the pre-configured LSPs
         pyright = {},
         rust_analyzer = {},
-        clangd = {},
+        clangd = {
+          capabilities = {
+            offsetEncoding = 'utf-8',
+          },
+        },
         asm_lsp = {
           filetypes = { 'asm', 'nasm', 's', 'vmasm' },
         },
