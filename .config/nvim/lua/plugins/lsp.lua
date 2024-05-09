@@ -121,6 +121,7 @@ return {
             offsetEncoding = 'utf-8',
           },
         },
+        jdtls = {},
         asm_lsp = {
           filetypes = { 'asm', 'nasm', 's', 'vmasm' },
         },

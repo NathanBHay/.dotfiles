@@ -9,7 +9,9 @@
   "enabledCssSnippets": [
     "pseudocode",
     "relative-numbers",
-    "custom-rainbow-colors"
+    "custom-rainbow-colors",
+    "filehide",
+    "borders"
   ],
   "textFontFamily": "IBM Plex Sans"
 }

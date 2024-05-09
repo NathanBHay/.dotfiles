@@ -19,6 +19,7 @@
   "newFileLocation": "current",
   "attachmentFolderPath": "Pictures",
   "userIgnoreFilters": [
-    "Pictures/"
+    "Pictures/",
+    "README.md"
   ]
 }

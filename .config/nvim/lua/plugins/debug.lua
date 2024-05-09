@@ -1,15 +1,6 @@
 -- Debugger for Neovim, looks like a real IDE now!
 return {
   {
-    'folke/trouble.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    opts = {},
-    keys = {
-      -- stylua: ignore
-      { '<leader>t', function () require('trouble').toggle() end, desc = 'Toggle [T]rouble'},
-    },
-  },
-  {
     'mfussenegger/nvim-dap',
     -- NOTE: And you can specify dependencies as well
     dependencies = {

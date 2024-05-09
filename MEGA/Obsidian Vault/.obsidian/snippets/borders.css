@@ -1,0 +1,4 @@
+/* Adds split border between pains back */
+.workspace-leaf-resize-handle {
+	border-color: var(--background-modifier-border)
+}
