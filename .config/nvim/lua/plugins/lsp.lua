@@ -23,6 +23,20 @@ return {
     end,
   },
 
+  {
+    'CopilotC-Nvim/CopilotChat.nvim',
+    branch = 'canary',
+    dependencies = {
+      { 'zbirenbaum/copilot.lua' }, -- or github/copilot.vim
+      { 'nvim-lua/plenary.nvim' }, -- for curl, log wrapper
+    },
+    opts = {},
+    keys = {
+      --stylua: ignore
+      { '<S-TAB>', function() require('CopilotChat').toggle { window = { layout = 'float' } } end, desc = 'Toggle Copilot Chat'},
+    },
+  },
+
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
