@@ -84,6 +84,31 @@ return {
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
+
+      -- Shortcut for searching your dotfiles
+      vim.keymap.set('n', '<leader>sc', function()
+        builtin.find_files { cwd = os.getenv 'HOME' .. '/.dotfiles' }
+      end, { desc = '[S]earch dotfiles [C]onfig' })
+    end,
+  },
+  {
+    'debugloop/telescope-undo.nvim',
+    dependencies = {
+      {
+        'nvim-telescope/telescope.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+      },
+    },
+    keys = {
+      {
+        '<leader>u',
+        '<cmd>Telescope undo<cr>',
+        desc = 'undo history',
+      },
+    },
+    config = function(_, opts)
+      require('telescope').setup(opts)
+      require('telescope').load_extension 'undo'
     end,
   },
 }

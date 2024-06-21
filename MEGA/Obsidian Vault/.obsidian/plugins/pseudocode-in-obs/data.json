@@ -5,7 +5,7 @@
   "preambleLoadedNotice": false,
   "jsSettings": {
     "indentSize": "1.2em",
-    "commentDelimiter": "  //",
+    "commentDelimiter": "  // ",
     "lineNumber": true,
     "lineNumberPunc": "",
     "noEnd": true,

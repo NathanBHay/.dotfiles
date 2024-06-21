@@ -4,6 +4,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Exports
+export EDITOR=nvim
+export VISUAL=nvim
+export BROWSER='brave'
 export WORDCHARS=${WORDCHARS/\/}
 export FZF_DEFAULT_COMMAND='fd . --hidden --exclude ".git"'
 export FZF_DEFAULT_OPTS=" \
@@ -15,14 +18,20 @@ export FZF_DEFAULT_OPTS=" \
 
 # Aliases
 alias vim=nvim
+alias lg=lazygit
 alias ls=eza
 alias la='ls -a'
 alias ld='ls -D'
 alias lf='ls -f'
 alias cat=bat
 alias xclip='xclip -se c'
+alias grep='grep --color=auto'
+alias du=dust
+alias df='df -h'
+alias filex='dolphin file:$PWD &!'
 
 # Ctrl-Binds
+bindkey -e
 bindkey  "^[[H"   beginning-of-line
 bindkey  "^[[F"   end-of-line
 bindkey  "^[[3~"  delete-char
@@ -37,7 +46,7 @@ bindkey "^[[B" history-search-forward
 
 # History
 HISTFILE=~/.zsh_history
-HISTS=4096
+HISTS=8192
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
 setopt appendhistory
