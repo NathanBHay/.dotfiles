@@ -1,7 +1,7 @@
-/MEGA/Obsidian\ Vault/.obsidian/workspace.json
-/.config/nvim/lazy-lock.json
-/MEGA/Obsidian\ Vault/.obsidian/plugins/google-calendar/data.json
-/MEGA/Obsidian\ Vault/.obsidian/plugins/*/*.js
-/MEGA/Obsidian\ Vault/.obsidian/plugins/*/*.css
-/MEGA/Obsidian\ Vault/.obsidian/plugins/*/manifest.json
-/MEGA/Obsidian\ Vault/.obsidian/themes
+.dotfiles/MEGA/Obsidian\ Vault/.obsidian/workspace.json
+.dotfiles/.config/nvim/lazy-lock.json
+.dotfiles/MEGA/Obsidian\ Vault/.obsidian/plugins/google-calendar/data.json
+.dotfiles/MEGA/Obsidian\ Vault/.obsidian/plugins/*/*.js
+.dotfiles/MEGA/Obsidian\ Vault/.obsidian/plugins/*/*.css
+.dotfiles/MEGA/Obsidian\ Vault/.obsidian/plugins/*/manifest.json
+.dotfiles/MEGA/Obsidian\ Vault/.obsidian/themes

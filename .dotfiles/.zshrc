@@ -29,6 +29,7 @@ alias grep='grep --color=auto'
 alias du=dust
 alias df='df -h'
 alias filex='dolphin file:$PWD &!'
+alias nixup='sudo nixos-rebuild switch --flake ~/.nixos#default'
 
 # Ctrl-Binds
 bindkey -e
@@ -68,10 +69,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 -T --color=always $realpath'
 zstyle ':fzf-tab:complete:*' fzf-preview 'bat -p --color=always $realpath'
 
 # Plugins
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/fzf-tab-source/fzf-tab.plugin.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+source ".zshsrc"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Commands

@@ -32,6 +32,9 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
   # Set your time zone.
   time.timeZone = "Australia/Melbourne";
 
@@ -71,31 +74,33 @@
       "nathan" = import ./home.nix;
     };
   };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim
     git
-    zsh
     hyprland
-    wget
-    brave
-    kitty
-    efibootmgr
     dunst
     libnotify
     sddm
+    neovim
+    wget
+    brave
+    kitty
     fzf
     lazygit
+    nerdfonts
+    stow
   ];
 
+  # Hyprland
   programs.hyprland.enable = true;
-
-  programs.zsh.enable = true;
+  programs.hyprland.xwayland = {
+    enable = true;
+    # hidpi = true;
+  };
 
   programs.neovim = {
     enable = true;
