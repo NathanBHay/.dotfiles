@@ -1,2 +1,5 @@
 # Nathan Hay's Dot File Repository
-This is a repository for my system's dotfiles 
+This is my system's configuration files for Nixos and general applications. Application specific files can be found within the `.dotfiles` directory. Rebuilding of the flakes can be done with:
+```
+sudo nixos-rebuild switch --flake ~/.nixos/default
+```
