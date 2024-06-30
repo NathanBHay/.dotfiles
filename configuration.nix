@@ -1,7 +1,7 @@
 { config, pkgs, inputs, dotfiles, ... }:
 {
   imports = [
-    ./hardware-configuration.nix
+    ./hosts/laptop/hardware-configuration.nix
     inputs.home-manager.nixosModules.default
   ];
 
@@ -14,15 +14,22 @@
     device = "nodev";
     useOSProber = true;
     efiSupport = true;
+    configurationLimit = 50;
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Networking & Bluetooth
-  networking.networkmanager.enable = true;
-  networking.hostName = "NathanLaptop";
+  networking = {
+    hostName = "NathanLaptop";
+    networkmanager.enable = true;
+  };
 
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
+  security.rtkit.enable = true;
 
   # Sound Settings
   services.pipewire = {
@@ -31,6 +38,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
+    wireplumber.enable = true;
   };
 
   # User Account
@@ -39,6 +47,7 @@
     description = "Nathan Hay";
     extraGroups = [ "networkmanager" "wheel" "video" "audio" "lp" "scanner" ];
   };
+  nix.settings.allowed-users = [ "@wheel" ];
 
   # Location Properties
   time.timeZone = "Australia/Melbourne";
@@ -70,83 +79,30 @@
     enable = true;
     wlr.enable = true;
     config.common.default = "*";
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    xdgOpenUsePortal = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
   };
 
+  # Packages
   home-manager = {
+    useGlobalPkgs = true;
     extraSpecialArgs = {inherit inputs dotfiles;};
-    users = {
-      "nathan" = import ./home.nix;
+    users.nathan = {
+      home = {
+        username = "nathan";
+        homeDirectory = "/home/nathan";
+        stateVersion = "24.05";
+      };
+      imports = [ ./modules ];
+      programs.home-manager.enable = true;
     };
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # Packages
-  environment.systemPackages = with pkgs; [
-    # DE
-    hyprland
-    waybar
-    dunst
-    libnotify
-    sddm
-
-    # Apps
-    ark
-    bitwarden
-    brave
-    discord
-    dolphin
-    kitty
-    # megasync
-    mpv
-    neovim
-    obsidian
-    qbittorrent
-
-    # Shell
-    zsh
-    zsh-autosuggestions
-    zsh-fzf-tab
-    zsh-powerlevel10k
-    zsh-syntax-highlighting
-
-    # CLI Tools
-    aspell
-    bat
-    dust
-    efibootmgr
-    eza
-    fd
-    fzf
-    git
-    gzip
-    htop
-    lazygit
-    neofetch
-    ripgrep
-    unzip
-    usbutils
-    wget
-    zoxide
-
-    # Compilers
-    gcc
-    cargo
-    nodejs
-  ];
-
-  # Font Packages
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
-  ];
-
-  # Hyprland
-  programs.hyprland.enable = true;
-  programs.hyprland.xwayland.enable = true;
-  programs.waybar.enable = true;
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Shell
   programs.zsh.enable = true;
@@ -154,14 +110,6 @@
 
   # SSH Daemon
   services.openssh.enable = true;
-
-  # NVIM
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    vimAlias = true;
-    viAlias = true;
-  };
 
   system.stateVersion = "24.05";
 

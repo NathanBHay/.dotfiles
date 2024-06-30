@@ -5,4 +5,3 @@
 .dotfiles/MEGA/Obsidian\ Vault/.obsidian/plugins/*/*.css
 .dotfiles/MEGA/Obsidian\ Vault/.obsidian/plugins/*/manifest.json
 .dotfiles/MEGA/Obsidian\ Vault/.obsidian/themes
-flake.lock
