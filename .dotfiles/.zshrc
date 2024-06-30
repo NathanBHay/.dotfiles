@@ -29,7 +29,8 @@ alias grep='grep --color=auto'
 alias du=dust
 alias df='df -h'
 alias filex='dolphin file:$PWD &!'
-alias nixup='sudo nixos-rebuild switch --flake ~/.nixos#default'
+alias nixre='sudo nixos-rebuild switch --flake ~/.nixos#default'
+alias nixup='sudo nix flake update ~/.nixos'
 
 # Ctrl-Binds
 bindkey -e

@@ -11,7 +11,8 @@
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
-    let 
+    let
+      # Configuration Variables
       dotfiles = ./.dotfiles;
     in {
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {

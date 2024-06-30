@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, dotfiles, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -66,10 +66,15 @@
   # Display Manager
   services.displayManager.sddm.enable = true;
 
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    config.common.default = "*";
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = {inherit inputs dotfiles;};
     users = {
       "nathan" = import ./home.nix;
     };
@@ -78,22 +83,63 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # Packages
   environment.systemPackages = with pkgs; [
-    git
+    # DE
     hyprland
+    waybar
     dunst
     libnotify
     sddm
-    neovim
-    wget
+
+    # Apps
+    ark
+    bitwarden
     brave
+    discord
+    dolphin
     kitty
+    # megasync
+    mpv
+    neovim
+    obsidian
+    qbittorrent
+
+    # Shell
+    zsh
+    zsh-autosuggestions
+    zsh-fzf-tab
+    zsh-powerlevel10k
+    zsh-syntax-highlighting
+
+    # CLI Tools
+    aspell
+    bat
+    dust
+    efibootmgr
+    eza
+    fd
     fzf
+    git
+    gzip
+    htop
     lazygit
-    nerdfonts
-    stow
+    neofetch
+    ripgrep
+    unzip
+    usbutils
+    wget
+    zoxide
+
+    # Compilers
+    gcc
+    cargo
+    nodejs
+  ];
+
+  # Font Packages
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
 
   # Hyprland
@@ -109,9 +155,12 @@
   # SSH Daemon
   services.openssh.enable = true;
 
+  # NVIM
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    vimAlias = true;
+    viAlias = true;
   };
 
   system.stateVersion = "24.05";

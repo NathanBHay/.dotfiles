@@ -1,30 +1,31 @@
-{ config, pkgs, ... }:
-
+{ config, pkgs, dotfiles, ... }:
 {
   home = {
     username = "nathan";
     homeDirectory = "/home/nathan";
     stateVersion = "24.05";
-    packages = with pkgs; [
-      zsh
-    ];
     file = {
-      ".zshrc".source = ./.dotfiles/.zshrc;
+      # ZSH config & plugins
+      ".zshrc".source = "${dotfiles}/.zshrc";
+      ".zshsrc".text = ''
+        source "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+        source "${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+        source "${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh"
+        source "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
+      '';
+
+      # Misc configs
+      ".p10k.zsh".source = "${dotfiles}/.p10k.zsh";
+      ".gitconfig".source = "${dotfiles}/.gitconfig";
+      ".ssh/config".source = "${dotfiles}/.ssh/config";
     };
-    sessionVariables = {};
   };
-  programs.zsh.enable = true;
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
 
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+  # Configs located in .config 
+  xdg.configFile = {
+    nvim.source = "${dotfiles}/nvim";
+    kitty.source = "${dotfiles}/kitty";
+  };
 
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
