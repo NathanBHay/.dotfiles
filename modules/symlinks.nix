@@ -21,6 +21,5 @@
     nvim.source = "${dotfiles}/nvim";
     kitty.source = "${dotfiles}/kitty";
     bat.source = "${dotfiles}/bat";
-    hypr.source = "${dotfiles}/hypr";
   };
 }

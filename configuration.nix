@@ -7,6 +7,7 @@
 
   # Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.extraOptions = ''warn-dirty = false'';
 
   # Bootloader
   boot.loader.grub = {
@@ -17,6 +18,7 @@
     configurationLimit = 50;
   };
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelParams = [ "snd-intel-dspcfg.dsp_driver=1" ];
 
   # Networking & Bluetooth
   networking = {
@@ -65,6 +67,9 @@
     LC_TIME = "en_AU.UTF-8";
   };
 
+  # Core Packages
+  environment.systemPackages = with pkgs; [ git hyprland sddm systemd ];
+
   # Configure xserver
   services.xserver.enable = true;
   services.xserver.xkb = {
@@ -72,8 +77,14 @@
     variant = "";
   };
 
-  # Display Manager
+  # Display Manager & Hyprland
   services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   xdg.portal = {
     enable = true;
