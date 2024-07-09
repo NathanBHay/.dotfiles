@@ -16,9 +16,14 @@
     useOSProber = true;
     efiSupport = true;
     configurationLimit = 50;
+    catppuccin.enable = true;
   };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [ "snd-intel-dspcfg.dsp_driver=1" ];
+  # # options snd-hda-intel model=alc285-hp-amp-init
+  # boot.extraModprobeConfig = ''
+  #   options snd-hda-intel model=mute-led-gpio
+  # '';
 
   # Networking & Bluetooth
   networking = {
@@ -78,13 +83,24 @@
   };
 
   # Display Manager & Hyprland
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    catppuccin.enable = true;
+    package = pkgs.kdePackages.sddm;
+  };
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables = {
+    XDG_CURRENT_DESKTOP = "hyprland";
+    XDG_SESSION_TYPE = "wayland";
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+    QT_STYLE_OVERRIDE="kvantum";
+    GDK_BACKEND = "wayland";
+    NIXOS_OZONE_WL = "1";
+  };
 
   xdg.portal = {
     enable = true;

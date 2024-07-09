@@ -21,5 +21,6 @@
     nvim.source = "${dotfiles}/nvim";
     kitty.source = "${dotfiles}/kitty";
     bat.source = "${dotfiles}/bat";
+    "vesktop/themes/custom.css".source = "${dotfiles}/vesktop/custom.css";
   };
 }

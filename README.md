@@ -3,3 +3,12 @@ This is my system's configuration files for Nixos and general applications. Appl
 ```
 sudo nixos-rebuild switch --flake ~/.nixos/default
 ```
+
+A current TODO list for the Nixos configuration:
+- Add lock screen.
+- Screenshot tools, clipboard history.
+- Rofi theme.
+- Widgets.
+- Mute button LED.
+- Add Nvidia proprietary driver support.
+- Create ISO installation medium.

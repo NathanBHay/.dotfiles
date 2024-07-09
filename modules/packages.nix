@@ -5,7 +5,7 @@
     ark          # Archieve Previewer
     bitwarden    # Password Manager
     brave        # Browser
-    discord      # Messaging
+    vesktop      # Messaging
     dolphin      # File Explorer
     flameshot    # Screenshot
     kitty        # Terminal Emulator
@@ -15,6 +15,10 @@
     obsidian     # Notes App
     qbittorrent  # Torrent Client
 
+    # Themes
+    papirus-folders                  # Icon Pack
+    libsForQt5.qt5ct                 # QT5
+    libsForQt5.qtstyleplugin-kvantum # QT5 Theme
     # Shell
     zsh
     zsh-autosuggestions
@@ -25,6 +29,7 @@
     # CLI Tools
     aspell      # Spell Correction
     bat         # Cat Replacment
+    btop        # Resource Monitor
     dust        # Folder Storage
     efibootmgr  # Boot Entry Manager
     eza         # Ls Replacement
@@ -32,7 +37,6 @@
     fzf         # Fuzzy-Finder
     git         # Version Control
     gzip        # Expanded Zip
-    htop        # Resource Monitor
     lazygit     # Git GUI
     neofetch    # Fetch
     ripgrep     # Recursive Grep
@@ -49,7 +53,7 @@
     noto-fonts
     fira
     ibm-plex
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    (nerdfonts.override { fonts = [ "FiraCode" "FiraMono" ]; })
   ];
 
   fonts.fontconfig.enable = true;
