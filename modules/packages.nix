@@ -2,29 +2,30 @@
 {
   home.packages = with pkgs; [
     # Apps
-    ark          # Archieve Previewer
+    ark          # Archive Previewer
     bitwarden    # Password Manager
     brave        # Browser
     vesktop      # Messaging
     dolphin      # File Explorer
     flameshot    # Screenshot
     kitty        # Terminal Emulator
-    # megasync     # Drive Sync
+    megasync     # Drive Sync
     mpv          # Media Player
     neovim       # Text Editor
     obsidian     # Notes App
     qbittorrent  # Torrent Client
 
     # Themes
-    papirus-folders                  # Icon Pack
-    libsForQt5.qt5ct                 # QT5
-    libsForQt5.qtstyleplugin-kvantum # QT5 Theme
+    papirus-folders                   # Icon Pack
+    libsForQt5.qt5ct                  # QT5
+    libsForQt5.qtstyleplugin-kvantum  # QT5 Theme
+
     # Shell
-    zsh
-    zsh-autosuggestions
-    zsh-fzf-tab
-    zsh-powerlevel10k
-    zsh-syntax-highlighting
+    zsh                      # Shell
+    zsh-autosuggestions      # Shell Recommendations
+    zsh-fzf-tab              # Shell FZF Integration
+    zsh-powerlevel10k        # Shell theme
+    zsh-syntax-highlighting  # Shell highlights
 
     # CLI Tools
     aspell      # Spell Correction
@@ -57,4 +58,5 @@
   ];
 
   fonts.fontconfig.enable = true;
+  services.megasync.enable = true;
 }

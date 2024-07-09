@@ -19,11 +19,11 @@ export FZF_DEFAULT_OPTS=" \
 # Aliases
 alias vim=nvim
 alias lg=lazygit
-alias ls=eza
+alias ls='eza --icons'
 alias la='ls -a'
 alias ld='ls -D'
 alias lf='ls -f'
-alias cat=bat
+alias cat='bat --theme="Catppuccin Mocha"'
 alias xclip='xclip -se c'
 alias grep='grep --color=auto'
 alias du=dust

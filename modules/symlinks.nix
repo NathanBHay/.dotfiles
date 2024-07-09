@@ -14,6 +14,10 @@
     ".p10k.zsh".source = "${dotfiles}/.p10k.zsh";
     ".gitconfig".source = "${dotfiles}/.gitconfig";
     ".ssh/config".source = "${dotfiles}/.ssh/config";
+    "MEGA/Obsidian Vault/.obsidian" = {
+      source = "${dotfiles}/.obsidian";
+      recursive = true;
+    };
   };
 
   # Configs located in .config 
