@@ -14,6 +14,8 @@ in {
     libnotify
     sddm
     rofi-wayland
+    wl-clipboard
+    cliphist
   ];
 
   # Hyprland

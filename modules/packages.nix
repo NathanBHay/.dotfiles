@@ -28,22 +28,27 @@
     zsh-syntax-highlighting  # Shell highlights
 
     # CLI Tools
-    aspell      # Spell Correction
-    bat         # Cat Replacment
-    btop        # Resource Monitor
-    dust        # Folder Storage
-    efibootmgr  # Boot Entry Manager
-    eza         # Ls Replacement
-    fd          # Find Replacement
-    fzf         # Fuzzy-Finder
-    git         # Version Control
-    gzip        # Expanded Zip
-    lazygit     # Git GUI
-    neofetch    # Fetch
-    ripgrep     # Recursive Grep
-    unzip       # Normal Zip
-    wget        # Internet Download
-    zoxide      # CD Replacement
+    aspell        # Spell Correction
+    bat           # Cat Replacment
+    btop          # Resource Monitor
+    cliphist      # Clipboard History
+    dust          # Folder Storage
+    efibootmgr    # Boot Entry Manager
+    eza           # Ls Replacement
+    fd            # Find Replacement
+    fzf           # Fuzzy-Finder
+    git           # Version Control
+    grim          # Screenshot
+    gzip          # Expanded Zip
+    lazygit       # Git GUI
+    neofetch      # Fetch
+    ripgrep       # Recursive Grep
+    slurp         # Screenshot Area Selector
+    swappy        # Screenshot Modifier
+    unzip         # Normal Zip
+    wget          # Internet Download
+    wl-clipboard  # Clipboard Manager
+    zoxide        # CD Replacement
 
     # Compilers
     gcc     # C++ Compiler
