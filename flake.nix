@@ -8,6 +8,8 @@
 
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
+    ags.url = "github:Aylur/ags";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

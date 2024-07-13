@@ -24,7 +24,7 @@
   xdg.configFile = {
     nvim.source = "${dotfiles}/nvim";
     kitty.source = "${dotfiles}/kitty";
-    bat.source = "${dotfiles}/bat";
+    rofi.source = "${dotfiles}/rofi";
     swappy.source = "${dotfiles}/swappy";
     swaync.source = "${dotfiles}/swaync";
     "vesktop/themes/custom.css".source = "${dotfiles}/vesktop/custom.css";

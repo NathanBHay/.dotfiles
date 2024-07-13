@@ -9,13 +9,12 @@ in {
     brightnessctl # Control Brightness
     playerctl     # Control media players
     swww          # Wallpaper
-    waybar
-    dunst # TODO: rice
     libnotify
     sddm
     rofi-wayland
-    wl-clipboard
-    cliphist
+    wluma
+
+    dart-sass
   ];
 
   # Hyprland
@@ -23,5 +22,10 @@ in {
     enable = true;
     xwayland.enable = true;
     extraConfig = readDirStr "/.dotfiles/hypr/";
+  };
+
+  programs.ags = {
+    enable = true;
+    configDir = ../.dotfiles/ags;
   };
 }

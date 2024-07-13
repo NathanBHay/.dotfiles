@@ -8,6 +8,7 @@
     vesktop      # Messaging
     dolphin      # File Explorer
     flameshot    # Screenshot
+    kdePackages.kdegraphics-thumbnailers
     kitty        # Terminal Emulator
     megasync     # Drive Sync
     mpv          # Media Player
