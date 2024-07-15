@@ -11,6 +11,8 @@ export default ({
   const window = Widget.Window({
     name,
     visible: false,
+    keymode: "on-demand",
+    popup: true,
     ...props,
 
     child: Widget.Box({
@@ -39,6 +41,7 @@ export default ({
         },
       }),
     }),
+    setup: (self) => self.keybind("Escape", () => App.closeWindow(name)),
   });
   window.getChild = () => window.child.children[0].child;
   window.setChild = (newChild) => {

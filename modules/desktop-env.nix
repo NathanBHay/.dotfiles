@@ -9,7 +9,6 @@ in {
     brightnessctl # Control Brightness
     playerctl     # Control media players
     swww          # Wallpaper
-    libnotify
     sddm
     rofi-wayland
     wluma

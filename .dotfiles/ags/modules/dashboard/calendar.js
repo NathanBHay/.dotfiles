@@ -1,7 +1,8 @@
 import Gtk from 'gi://Gtk';
 const { Box } = Widget;
+import { DashboardWindow } from './dashboardwindow.js';
 
-export const CalendarWidget = () => Box({
+const CalendarWidget = () => Box({
     className: "calendar",
     vpack: 'end',
     vertical: true,
@@ -13,3 +14,5 @@ export const CalendarWidget = () => Box({
         })
     ]
 })
+
+export const Calendar = () => DashboardWindow("calendar", [CalendarWidget()]);

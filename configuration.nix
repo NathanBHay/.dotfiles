@@ -36,7 +36,11 @@
     powerOnBoot = true;
   };
 
-  security.rtkit.enable = true;
+  # Firmware
+  hardware.enableAllFirmware = true;
+
+  # Power Management
+  services.upower.enable = true;
 
   # Sound Settings
   services.pipewire = {
@@ -47,6 +51,7 @@
     jack.enable = true;
     wireplumber.enable = true;
   };
+  security.rtkit.enable = true;
 
   # User Account
   users.users.nathan = {

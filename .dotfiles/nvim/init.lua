@@ -1,7 +1,6 @@
 --[[
 
 =====================================================================
-==================== READ THIS BEFORE CONTINUING ====================
 =====================================================================
 ========                                    .-----.          ========
 ========         .----------------------.   | === |          ========
@@ -81,6 +80,17 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+-- Auto enable transparent background
+vim.api.nvim_create_autocmd('ColorScheme', {
+  pattern = '*',
+  desc = 'Transparent background',
+  group = vim.api.nvim_create_augroup('kickstart-transparent-background', { clear = true }),
+  callback = function()
+    vim.cmd('highlight Normal guibg=none')
+    vim.cmd('highlight NonText guibg=none')
+  end,
+})
 
 -- Automatically enable spell checking for markdown files
 vim.api.nvim_create_autocmd('FileType', {

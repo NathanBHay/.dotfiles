@@ -5,4 +5,8 @@
     color: $text;
     font-weight: bold;
     padding: 1px 15px;
+    &:hover {
+        color: $accent;
+        border: 3px solid $accent;
+    }
 }

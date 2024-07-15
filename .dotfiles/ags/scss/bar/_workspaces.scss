@@ -23,5 +23,9 @@
             background: $accent;
             min-width: 32px;
         }
+
+        &.empty {
+            background: $base1;
+        }
     }
 }

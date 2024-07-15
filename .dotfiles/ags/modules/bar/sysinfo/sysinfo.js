@@ -12,8 +12,8 @@ export const SysInfo = () => Widget.Button({
         children: [
             NetworkWidget(),
             BluetoothWidget(),
-            Volume(), 
-            // BatteryWidget(),
+            Volume(),
+            BatteryWidget(),
         ]
     }),
 });

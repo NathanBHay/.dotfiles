@@ -80,14 +80,17 @@ return {
         }
       end, { desc = '[S]earch [/] in Open Files' })
 
+      -- NixOS directory
+      local nixos = os.getenv 'HOME' .. '/.nixos/'
+
       -- Shortcut for searching your neovim configuration files
       vim.keymap.set('n', '<leader>sn', function()
-        builtin.find_files { cwd = vim.fn.stdpath 'config' }
+        builtin.find_files { cwd = nixos .. '.dotfiles/nvim'}
       end, { desc = '[S]earch [N]eovim files' })
 
       -- Shortcut for searching your dotfiles
       vim.keymap.set('n', '<leader>sc', function()
-        builtin.find_files { cwd = os.getenv 'HOME' .. '/.dotfiles' }
+        builtin.find_files { cwd = nixos }
       end, { desc = '[S]earch dotfiles [C]onfig' })
     end,
   },

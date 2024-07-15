@@ -11,10 +11,10 @@ import { sysTray } from "./tray.js";
 import { Clock } from "./clock.js";
 
 const Left = () => Box({
-    children: [Workspaces(), Title()],
+    children: [Workspaces()], // removed Title()
 });
 const Center = () => Box({
-    children: [Media()],
+    children: [], // removed Media()
 });
 const Right = () => Box({
     hpack: "end",
@@ -24,7 +24,7 @@ const Right = () => Box({
 export const Bar = () => Window({
     name: "bar",
     anchor: ["top", "right", "left"],
-    margins: [10, 15, 0],
+    margins: [5, 10, 0],
     exclusivity: "exclusive",
     child: CenterBox({
         className: "bar",

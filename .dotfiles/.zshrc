@@ -23,14 +23,25 @@ alias ls='eza --icons'
 alias la='ls -a'
 alias ld='ls -D'
 alias lf='ls -f'
+alias lt='ls -T'
 alias cat='bat --theme="Catppuccin Mocha"'
 alias xclip='xclip -se c'
 alias grep='grep --color=auto'
 alias du=dust
 alias df='df -h'
 alias filex='dolphin file:$PWD &!'
-alias nixre='sudo nixos-rebuild switch --flake ~/.nixos#default'
+
+# Nix Commands
 alias nixup='sudo nix flake update ~/.nixos'
+nixre() {
+  sudo nixos-rebuild switch --flake ~/.nixos#default
+
+  # Rebuild GUI
+  if [[ "$1" == "-g" ]]; then
+    pkill -f 'ags-wrapped'
+    nohup ags > /dev/null 2>&1 &
+  fi
+}
 
 # Ctrl-Binds
 bindkey -e
