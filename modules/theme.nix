@@ -21,6 +21,10 @@ in {
       ];
     };
   };
+  catppuccin.pointerCursor = {
+    enable = true;
+    accent = "lavender";
+  };
   qt = {
     enable = true;
     style.name = "kvantum";

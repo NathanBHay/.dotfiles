@@ -1,0 +1,212 @@
+@use 'sass:color';
+
+$bar-spacing: $spacing * .3;
+$button-radius: $radius;
+
+@mixin panel-button($flat: true, $reactive: true) {
+    @include accs-button($flat, $reactive);
+
+    >* {
+        border-radius: $button-radius;
+        margin: $bar-spacing;
+    }
+
+    label {
+        font-size: .95em; // Clock Time Size
+        font-weight: bold;
+    }
+    image {
+        font-weight: bold;
+    }
+
+    >* {
+        padding: $padding * 0.4 $padding * 0.8;
+    }
+}
+
+.bar {
+    transition: $transition;
+    background-color: $bg;
+    opacity: 0.95;
+
+    .panel-button {
+        @include panel-button;
+
+        &:not(.flat) {
+
+            @include accs-button($flat: false);
+        }
+    }
+
+    .launcher {
+        .colored {
+            font-size: 1.4em; // Nix Logo Size
+            color: transparentize($primary-bg, 0.2);
+        }
+
+        &:hover .colored {
+            color: $primary-bg;
+        }
+
+        &:active .colored,
+        &.active .colored {
+            color: $primary-fg;
+        }
+    }
+
+    .workspaces {
+        label {
+            font-size: 0;
+            min-width: 5pt;
+            min-height: 5pt;
+            border-radius: $radius*.6;
+            box-shadow: inset 0 0 0 $border-width $border-color;
+            margin: 0 $padding * .5;
+            transition: $transition* .5;
+            background-color: transparentize($fg, .8);
+
+            &.occupied {
+                background-color: transparentize($fg, .2);
+                min-width: 7pt;
+                min-height: 7pt;
+            }
+
+            &.active {
+                // background-color: $primary-bg;
+                background-image: $active-gradient;
+                min-width: 20pt;
+                min-height: 12pt;
+            }
+        }
+
+        &.active,
+        &:active {
+            label {
+                background-color: transparentize($primary-fg, .3);
+
+                &.occupied {
+                    background-color: transparentize($primary-fg, .15);
+                }
+
+                &.active {
+                    background-color: $primary-fg;
+                }
+            }
+        }
+    }
+
+    .media label {
+        margin: 0 ($spacing * .5)
+    }
+
+    .sys-tray {
+        margin: 0 ($spacing * .2);
+    }
+
+    .tray-item {
+        margin: 0 ($spacing * -.2);
+    }
+
+    .taskbar .indicator.active {
+        background-color: $primary-bg;
+        border-radius: $radius;
+        min-height: 4pt;
+        min-width: 6pt;
+        margin: 2pt;
+    }
+
+    .powermenu.colored,
+    .recorder {
+        image {
+            color: transparentize($error-bg, 0.3);
+        }
+
+        &:hover image {
+            color: transparentize($error-bg, 0.15);
+        }
+
+        &:active image {
+            color: $primary-fg;
+        }
+    }
+
+    .quicksettings>box>box {
+        @include spacing($spacing: if($bar-spacing==0, $padding / 2, $bar-spacing));
+    }
+
+    .quicksettings .bluetooth label {
+        font-size: $font-size * 0.7;
+    }
+
+    .quicksettings:not(.active):not(:active) {
+        .bluetooth {
+            color: $primary-bg;
+
+            label {
+                color: $fg;
+                text-shadow: $text-shadow;
+            }
+        }
+    }
+
+    .battery-bar {
+        >* {
+            padding: 0;
+        }
+
+        &.bar-hidden>box {
+            padding: 0 $spacing * .5;
+
+            image {
+                margin: 0;
+            }
+        }
+
+        .regular image {
+            margin-left: $spacing * .5;
+            margin-right: $spacing * .5;
+        }
+
+        &.low image {
+            color: $error-bg
+        }
+
+        &.charging image {
+            color: $charging-bg
+        }
+
+        &:active image {
+            color: $primary-fg
+        }
+    }
+}
+
+.bar.transparent {
+    background-color: transparent;
+
+    .panel-button {
+        &:hover>* {
+            box-shadow: 1px 1px 3px 0 $shadow-color, inset 0 0 0 $border-width $border-color;
+            background-color: $bg;
+        }
+
+        &:not(:hover):not(.active) {
+
+            label,
+            image {
+                text-shadow: $text-shadow;
+                -gtk-icon-shadow: $text-shadow;
+            }
+        }
+    }
+
+    .workspaces label {
+        box-shadow: inset 0 0 0 $border-width $border-color,
+            1px 1px 3px 0 $shadow-color;
+    }
+
+    .battery-bar trough {
+        box-shadow: 1px 1px 3px 0 $shadow-color;
+
+    }
+}

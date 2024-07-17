@@ -1,17 +1,14 @@
 {  pkgs, lib, config, ... }:
-with builtins;
-let
-  readFileRel = x: readFile (../. + x);
-  readDirList = x: attrNames (readDir  (../. + x));
-  readDirStr = x: foldl' (y: z: y + readFileRel (x + z)) "\n" (readDirList x);
-in {
+with (import ./functions.nix);
+{
   home.packages = with pkgs; [
     brightnessctl # Control Brightness
     playerctl     # Control media players
     swww          # Wallpaper
     sddm
-    rofi-wayland
     wluma
+    hyprlock
+    pavucontrol
 
     dart-sass
   ];

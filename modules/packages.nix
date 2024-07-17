@@ -8,13 +8,15 @@
     vesktop      # Messaging
     dolphin      # File Explorer
     flameshot    # Screenshot
-    kdePackages.kdegraphics-thumbnailers
+    # kdePackages.kdegraphics-thumbnailers
     kitty        # Terminal Emulator
     megasync     # Drive Sync
     mpv          # Media Player
     neovim       # Text Editor
     obsidian     # Notes App
     qbittorrent  # Torrent Client
+    networkmanagerapplet
+    asusctl
 
     # Themes
     papirus-folders                   # Icon Pack
@@ -39,7 +41,6 @@
     fd            # Find Replacement
     fzf           # Fuzzy-Finder
     git           # Version Control
-    grim          # Screenshot
     gzip          # Expanded Zip
     lazygit       # Git GUI
     neofetch      # Fetch
@@ -47,13 +48,14 @@
     slurp         # Screenshot Area Selector
     swappy        # Screenshot Modifier
     unzip         # Normal Zip
+    wayshot       # Screenshot
     wget          # Internet Download
     wl-clipboard  # Clipboard Manager
     zoxide        # CD Replacement
 
     # Compilers
+    bun
     gcc     # C++ Compiler
-    cargo   # Rust Package Manager
     nodejs  # JS Backend
 
     # Fonts
@@ -64,5 +66,4 @@
   ];
 
   fonts.fontconfig.enable = true;
-  services.megasync.enable = true;
 }
