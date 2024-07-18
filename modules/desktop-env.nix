@@ -1,4 +1,4 @@
-{  pkgs, lib, config, ... }:
+{  pkgs, ... }:
 with (import ./functions.nix);
 {
   home.packages = with pkgs; [

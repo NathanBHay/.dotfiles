@@ -28,12 +28,12 @@ return {
     branch = 'canary',
     dependencies = {
       { 'zbirenbaum/copilot.lua' }, -- or github/copilot.vim
-      { 'nvim-lua/plenary.nvim' }, -- for curl, log wrapper
+      { 'nvim-lua/plenary.nvim' },  -- for curl, log wrapper
     },
     opts = {},
     keys = {
       --stylua: ignore
-      { '<S-TAB>', function() require('CopilotChat').toggle { window = { layout = 'float' } } end, desc = 'Toggle Copilot Chat'},
+      { '<S-TAB>', function() require('CopilotChat').toggle { window = { layout = 'float' } } end, desc = 'Toggle Copilot Chat' },
     },
   },
 
@@ -135,6 +135,7 @@ return {
         asm_lsp = {
           filetypes = { 'asm', 'nasm', 's', 'vmasm' },
         },
+        nixd = {},
         lua_ls = {
           -- cmd = {...},
           -- capabilities = {},
@@ -161,6 +162,11 @@ return {
           },
         },
       }
+
+      -- Add LSP servers to the setup
+      for server, config in pairs(servers) do
+        require('lspconfig')[server].setup(config)
+      end
     end,
   },
 

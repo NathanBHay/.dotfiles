@@ -19,16 +19,17 @@
   outputs = { self, nixpkgs, ... }@inputs:
     let
       # Configuration Variables
+      system = "x86_64-linux";
       dotfiles = ./.dotfiles;
     in {
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        system = system;
         specialArgs = {inherit inputs dotfiles;};
         modules = [
           ./configuration.nix
           inputs.home-manager.nixosModules.default
           inputs.catppuccin.nixosModules.catppuccin
         ];
+      };
     };
-  };
 }

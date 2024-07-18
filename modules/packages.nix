@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     # Apps
@@ -15,6 +15,7 @@
     neovim       # Text Editor
     obsidian     # Notes App
     qbittorrent  # Torrent Client
+    zotero       # Research Manager
     networkmanagerapplet
     asusctl
 

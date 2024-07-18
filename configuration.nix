@@ -1,12 +1,13 @@
-{ config, pkgs, inputs, dotfiles, ... }:
+{ pkgs, inputs, dotfiles, ... }:
 {
   imports = [
     ./hosts/laptop/hardware-configuration.nix
     inputs.home-manager.nixosModules.default
   ];
 
-  # Flakes
+  # Nix Configuration
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.optimise.automatic = true;
   nix.extraOptions = ''warn-dirty = false'';
 
   # Bootloader
@@ -19,7 +20,6 @@
     catppuccin.enable = true;
   };
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelParams = [ "snd-intel-dspcfg.dsp_driver=1" ];
   # # options snd-hda-intel model=alc285-hp-amp-init
   # boot.extraModprobeConfig = ''
   #   options snd-hda-intel model=mute-led-gpio
@@ -143,6 +143,16 @@
 
   # SSH Daemon
   services.openssh.enable = true;
+
+  services.logind = {
+    lidSwitch = "suspend-then-hibernate";
+    extraConfig = ''
+      HandlePowerKey=suspend-then-hibernate
+      IdleAction=suspend-then-hibernate
+      IdleActionSec=5min
+    '';
+  };
+  systemd.sleep.extraConfig = "HibernateDelaySec=2h";
 
   system.stateVersion = "24.05";
 

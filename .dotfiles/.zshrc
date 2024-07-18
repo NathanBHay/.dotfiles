@@ -24,6 +24,9 @@ alias la='ls -a'
 alias ld='ls -D'
 alias lf='ls -f'
 alias lt='ls -T'
+alias mv='mv -v'
+alias cp='cp -v'
+alias rm='rm -v'
 alias cat='bat --theme="Catppuccin Mocha"'
 alias xclip='xclip -se c'
 alias grep='grep --color=auto'
@@ -81,7 +84,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 -T --color=always $realpath'
 zstyle ':fzf-tab:complete:*' fzf-preview 'bat -p --color=always $realpath'
 
 # Plugins
-source ".zshsrc"
+source "${HOME}/.zshsrc"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Commands
