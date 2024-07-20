@@ -1,4 +1,4 @@
-{  pkgs, ... }:
+{ pkgs, dotfiles, ... }:
 with (import ./functions.nix);
 {
   home.packages = with pkgs; [
@@ -10,18 +10,19 @@ with (import ./functions.nix);
     hyprlock
     pavucontrol
 
-    dart-sass
+    bun           # JS Bundler
+    dart-sass     # AGS Style Sheets
   ];
 
   # Hyprland
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-    extraConfig = readDirStr "/.dotfiles/hypr/";
+    extraConfig = readDirStr "/dotfiles/hypr/";
   };
 
   programs.ags = {
     enable = true;
-    configDir = ../.dotfiles/ags;
+    configDir = "${dotfiles}/ags";
   };
 }

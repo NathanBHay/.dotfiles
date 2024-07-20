@@ -20,7 +20,7 @@
     let
       # Configuration Variables
       system = "x86_64-linux";
-      dotfiles = ./.dotfiles;
+      dotfiles = ./dotfiles;
     in {
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
         system = system;

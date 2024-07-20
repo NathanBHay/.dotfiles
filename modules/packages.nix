@@ -15,9 +15,8 @@
     neovim       # Text Editor
     obsidian     # Notes App
     qbittorrent  # Torrent Client
-    zotero       # Research Manager
+    zotero-beta  # Research Manager
     networkmanagerapplet
-    asusctl
 
     # Themes
     papirus-folders                   # Icon Pack
@@ -55,7 +54,6 @@
     zoxide        # CD Replacement
 
     # Compilers
-    bun
     gcc     # C++ Compiler
     nodejs  # JS Backend
 

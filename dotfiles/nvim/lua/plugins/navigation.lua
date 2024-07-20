@@ -85,7 +85,7 @@ return {
 
       -- Shortcut for searching your neovim configuration files
       vim.keymap.set('n', '<leader>sn', function()
-        builtin.find_files { cwd = nixos .. '.dotfiles/nvim'}
+        builtin.find_files { cwd = nixos .. 'dotfiles/nvim' }
       end, { desc = '[S]earch [N]eovim files' })
 
       -- Shortcut for searching your dotfiles
