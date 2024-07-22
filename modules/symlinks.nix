@@ -12,8 +12,8 @@ with (import ./functions.nix);
     '';
 
     # Misc configs
-    ".p10k.zsh".source = "${dotfiles}/.p10k.zsh";
     ".gitconfig".source = "${dotfiles}/.gitconfig";
+    ".p10k.zsh".source = "${dotfiles}/.p10k.zsh";
     ".ssh/config".source = "${dotfiles}/.ssh/config";
     "MEGA/Obsidian Vault/.obsidian" = {
       source = "${dotfiles}/.obsidian";
@@ -23,10 +23,12 @@ with (import ./functions.nix);
 
   # Configs located in .config 
   xdg.configFile = {
-    nvim.source = "${dotfiles}/nvim";
+    bat.source = "${dotfiles}/bat";
+    hypr.source = "${dotfiles}/hypr";
     kitty.source = "${dotfiles}/kitty";
+    nvim.source = "${dotfiles}/nvim";
     swappy.source = "${dotfiles}/swappy";
-    swaync.source = "${dotfiles}/swaync";
     "vesktop/themes/custom.css".source = "${dotfiles}/vesktop/custom.css";
+    yazi.source = "${dotfiles}/yazi";
   };
 }

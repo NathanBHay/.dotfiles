@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, dotfiles, ... }:
 {
   home.packages = with pkgs; [
     # Apps
@@ -6,9 +6,7 @@
     bitwarden    # Password Manager
     brave        # Browser
     vesktop      # Messaging
-    dolphin      # File Explorer
     flameshot    # Screenshot
-    # kdePackages.kdegraphics-thumbnailers
     kitty        # Terminal Emulator
     megasync     # Drive Sync
     mpv          # Media Player
@@ -33,6 +31,7 @@
     # CLI Tools
     aspell        # Spell Correction
     bat           # Cat Replacment
+    brightnessctl # Control Brightness
     btop          # Resource Monitor
     cliphist      # Clipboard History
     dust          # Folder Storage
@@ -40,22 +39,32 @@
     eza           # Ls Replacement
     fd            # Find Replacement
     fzf           # Fuzzy-Finder
-    git           # Version Control
     gzip          # Expanded Zip
     lazygit       # Git GUI
     neofetch      # Fetch
+    pavucontrol   # Audio Control
+    playerctl     # Control media players
     ripgrep       # Recursive Grep
     slurp         # Screenshot Area Selector
     swappy        # Screenshot Modifier
+    swww          # Wallpaper
+    trash-cli     # Trash
     unzip         # Normal Zip
     wayshot       # Screenshot
     wget          # Internet Download
     wl-clipboard  # Clipboard Manager
+    yazi
     zoxide        # CD Replacement
 
+    # Processes
+    hyprlock  # Screen Lock
+    hypridle  # Screen Idle
+
     # Compilers
-    gcc     # C++ Compiler
-    nodejs  # JS Backend
+    bun           # JS Bundler
+    dart-sass     # CSS Compiler
+    gcc           # C++ Compiler
+    nodejs        # JS Backend
 
     # Fonts
     noto-fonts
@@ -65,4 +74,9 @@
   ];
 
   fonts.fontconfig.enable = true;
+
+  programs.ags = {
+    enable = true;
+    configDir = "${dotfiles}/ags";
+  };
 }

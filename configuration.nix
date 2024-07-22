@@ -78,7 +78,7 @@
   };
 
   # Core Packages
-  environment.systemPackages = with pkgs; [ git hyprland sddm systemd ];
+  environment.systemPackages = with pkgs; [ git systemd ];
 
   # Configure xserver
   services.xserver.enable = true;
@@ -88,16 +88,22 @@
   };
 
   # Display Manager & Hyprland
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-    catppuccin.enable = true;
-    package = pkgs.kdePackages.sddm;
+  services.displayManager = {
+    sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
+    autoLogin = {
+      enable = true;
+      user = "nathan";
+    };
   };
+
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
+
   environment.sessionVariables = {
     XDG_CURRENT_DESKTOP = "hyprland";
     XDG_SESSION_DESKTOP = "hyprland";
@@ -108,6 +114,7 @@
     NIXOS_OZONE_WL = "1";
   };
 
+  # Portal
   xdg.portal = {
     enable = true;
     wlr.enable = true;

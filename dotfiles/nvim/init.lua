@@ -45,6 +45,9 @@ vim.cmd.aunmenu { 'PopUp.-1-' }
 -- Don't show the mode, since it's already in status line
 vim.opt.showmode = false
 
+-- Sync the system clipboard with vim
+vim.opt.clipboard = 'unnamedplus'
+
 -- Enable break indent
 vim.opt.breakindent = true
 

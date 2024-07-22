@@ -2,9 +2,10 @@
 with builtins;
 rec {
   readFileRel = x: readFile (../. + x);
-  readDirList = x: attrNames (readDir  (../. + x));
-  dirCMap = f: x: foldl' (y: z: y + (f z)) "" (readDirList x);
-  readDirStr = x: dirCMap (y: readFileRel (x + y)) x;
+  readDirList = x: g: filter g (attrNames (readDir  (../. + x)));
+  dirCMap = f: x: g: foldl' (y: z: y + (f z)) "" (readDirList x g);
+  readDirStr = x: g: dirCMap (y: readFileRel (x + y)) x g;
+  neq = x: y: x != y;
 
   shellAlias = x: y: "alias nix-${y}='nix develop ~/.nixos${x}#${y} -c zsh'\n";
   regex = "^\# Shells:([[:alnum:][:blank:]]*).*";

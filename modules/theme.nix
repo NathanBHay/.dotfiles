@@ -3,10 +3,6 @@ let
   spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
 in {
   programs = {
-    bat = {
-      enable = true;
-      catppuccin.enable = true;
-    };
     btop = {
       enable = true;
       catppuccin.enable = true;
@@ -23,7 +19,7 @@ in {
   };
   catppuccin.pointerCursor = {
     enable = true;
-    accent = "lavender";
+    accent = "light";
   };
   qt = {
     enable = true;

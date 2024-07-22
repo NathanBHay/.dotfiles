@@ -45,7 +45,7 @@ const options = mkOptions(OPTIONS, {
 
     font: {
         size: opt(10),
-        name: opt("Ubuntu Nerd Font"),
+        name: opt("FiraMono Nerd Font"),
     },
 
     bar: {
@@ -148,7 +148,7 @@ const options = mkOptions(OPTIONS, {
     },
 
     powermenu: {
-        sleep: opt("systemctl suspend"),
+        sleep: opt("systemctl suspend-then-hibernate"),
         reboot: opt("systemctl reboot"),
         logout: opt("pkill Hyprland"),
         shutdown: opt("shutdown now"),
@@ -158,7 +158,7 @@ const options = mkOptions(OPTIONS, {
 
     quicksettings: {
         avatar: {
-            image: opt(`/var/lib/AccountsService/icons/${Utils.USER}`),
+            image: opt(`~/Pictures/.avatar.jpg`),
             size: opt(70),
         },
         width: opt(380),

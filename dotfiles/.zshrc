@@ -28,12 +28,20 @@ alias lt='ls -T'
 alias mv='mv -v'
 alias cp='cp -v'
 alias rm='rm -v'
+alias rt='trash-put -v'
 alias cat='bat --theme="Catppuccin Mocha"'
 alias xclip='xclip -se c'
 alias grep='grep --color=auto'
 alias du=dust
 alias df='df -h'
-alias filex='dolphin file:$PWD &!'
+function yy() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
 
 # Nix Commands
 alias nixup='sudo nix flake update ~/.nixos'
