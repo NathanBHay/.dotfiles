@@ -1,7 +1,6 @@
 { pkgs, inputs, dotfiles, ... }:
 {
   imports = [
-    ./hosts/laptop/hardware-configuration.nix
     inputs.home-manager.nixosModules.default
   ];
 
@@ -20,27 +19,12 @@
     catppuccin.enable = true;
   };
   boot.loader.efi.canTouchEfiVariables = true;
-  # # options snd-hda-intel model=alc285-hp-amp-init
-  # boot.extraModprobeConfig = ''
-  #   options snd-hda-intel model=mute-led-gpio
-  # '';
 
-  # Networking & Bluetooth
-  networking = {
-    hostName = "NathanLaptop";
-    networkmanager.enable = true;
-  };
-
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
+  # Networking
+  networking.networkmanager.enable = true;
 
   # Firmware
   hardware.enableAllFirmware = true;
-
-  # Power Management
-  services.upower.enable = true;
 
   # Sound Settings
   services.pipewire = {
@@ -154,6 +138,10 @@
     silent = true;
     nix-direnv.enable = true;
   };
+
+  # Automount USB
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
 
   # SSH Daemon
   services.openssh.enable = true;

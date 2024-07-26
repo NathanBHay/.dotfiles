@@ -46,10 +46,14 @@ function yy() {
 # Nix Commands
 alias nixup='sudo nix flake update ~/.nixos'
 nixre() {
-  sudo nixos-rebuild switch --flake ~/.nixos#default
+  local m=""
+  if [[ " ${hosts[*]} " == *" $1 "* ]]; then
+    m=$1
+  fi
+  sudo nixos-rebuild switch --flake "$HOME/.nixos#$m"
 
   # Rebuild GUI
-  if [[ "$1" == "-g" ]]; then
+  if [[ "$1" == "-g" || "$2" == "-g" ]]; then
     pkill -f 'ags-wrapped'
     nohup ags > /dev/null 2>&1 &
   fi
