@@ -34,13 +34,17 @@ alias xclip='xclip -se c'
 alias grep='grep --color=auto'
 alias du=dust
 alias df='df -h'
-function yy() {
-  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-  yazi "$@" --cwd-file="$tmp"
-  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-    cd -- "$cwd"
+alias yy=yazi
+
+# Drive Mount
+function md() {
+  if [[ -z "$1" ]]; then
+    device=$(dmesg | grep -i 'sd' | grep -o 'sd[b-z]' | tail -n 1)
+    device="${device}1"
+  else
+    device="$1"
   fi
-  rm -f -- "$tmp"
+  udisksctl mount -b "/dev/$device"
 }
 
 # Nix Commands

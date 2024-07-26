@@ -2,7 +2,7 @@
 {
   imports = [
     inputs.catppuccin.homeManagerModules.catppuccin
-    inputs.spicetify-nix.homeManagerModule
+    inputs.spicetify-nix.homeManagerModules.default
     inputs.ags.homeManagerModules.default
     ./packages.nix
     ./symlinks.nix

@@ -1,4 +1,4 @@
-# Shells: dotfiles python rust
+# Shells: dotfiles python rust cpp write
 {
   description = "Various Development Shells";
 
@@ -28,6 +28,7 @@
               pyright    # LSP
 
               # Packages
+              python312Packages.jupyterlab
               python312Packages.torch  # Neural Nets
           ];
         };
@@ -36,6 +37,19 @@
           packages = with pkgs; [
             cargo          # Package manager
             rust-analyzer  # LSP
+          ];
+        };
+
+        cpp = pkgs.mkShell {
+          packages = with pkgs; [
+            ccls
+          ];
+        };
+
+        write = pkgs.mkShell {
+          packages = with pkgs; [
+            pandoc        # Text Converter
+            texliveSmall  # Latex
           ];
         };
       };

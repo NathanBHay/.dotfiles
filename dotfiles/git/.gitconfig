@@ -4,10 +4,6 @@
 [user]
 	email = 72686983+NathanBHay@users.noreply.github.com
 	name = Nathan Hay
-[filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
 [core]
 	editor = nvim
+	excludesfile = ~/.config/.gitignore

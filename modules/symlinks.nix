@@ -12,7 +12,7 @@ with (import ./functions.nix);
     '';
 
     # Misc configs
-    ".gitconfig".source = "${dotfiles}/.gitconfig";
+    ".gitconfig".source = "${dotfiles}/git/.gitconfig";
     ".p10k.zsh".source = "${dotfiles}/.p10k.zsh";
     ".ssh/config".source = "${dotfiles}/.ssh/config";
     "MEGA/Obsidian Vault/.obsidian" = {
@@ -24,6 +24,7 @@ with (import ./functions.nix);
   # Configs located in .config 
   xdg.configFile = {
     bat.source = "${dotfiles}/bat";
+    ".gitignore".source = "${dotfiles}/git/.gitignore";
     hypr.source = "${dotfiles}/hypr";
     kitty.source = "${dotfiles}/kitty";
     nvim.source = "${dotfiles}/nvim";

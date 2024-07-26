@@ -6,7 +6,10 @@
 
     catppuccin.url = "github:catppuccin/nix";
 
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     ags.url = "github:Aylur/ags";
 
@@ -22,14 +25,27 @@
       system = "x86_64-linux";
       dotfiles = ./dotfiles;
     in {
-      nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-        system = system;
-        specialArgs = {inherit inputs dotfiles;};
-        modules = [
-          ./configuration.nix
-          inputs.home-manager.nixosModules.default
-          inputs.catppuccin.nixosModules.catppuccin
-        ];
+      nixosConfigurations = {
+        NathanDesktop = nixpkgs.lib.nixosSystem {
+          system = system;
+          specialArgs = {inherit inputs dotfiles;};
+          modules = [
+            ./configuration.nix
+            ./hosts/desktop
+            inputs.home-manager.nixosModules.default
+            inputs.catppuccin.nixosModules.catppuccin
+          ];
+        };
+        NathanLaptop = nixpkgs.lib.nixosSystem {
+          system = system;
+          specialArgs = {inherit inputs dotfiles;};
+          modules = [
+            ./configuration.nix
+            ./hosts/laptop
+            inputs.home-manager.nixosModules.default
+            inputs.catppuccin.nixosModules.catppuccin
+          ];
+        };
       };
     };
 }
