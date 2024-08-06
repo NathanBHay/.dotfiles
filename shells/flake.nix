@@ -43,6 +43,12 @@
         cpp = pkgs.mkShell {
           packages = with pkgs; [
             ccls
+            gdb
+            valgrind
+            lcov
+          ];
+          nativeBuildInputs = with pkgs; [
+            pkg-config
           ];
         };
 

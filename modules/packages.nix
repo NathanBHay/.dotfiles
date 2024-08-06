@@ -42,6 +42,7 @@
     gzip          # Expanded Zip
     lazygit       # Git GUI
     neofetch      # Fetch
+    nmap          # Internet Scanner
     pavucontrol   # Audio Control
     playerctl     # Control media players
     ripgrep       # Recursive Grep
@@ -49,11 +50,13 @@
     swappy        # Screenshot Modifier
     swww          # Wallpaper
     trash-cli     # Trash
+    tldr          # Help Pages
     unzip         # Normal Zip
     wayshot       # Screenshot
     wget          # Internet Download
     wl-clipboard  # Clipboard Manager
-    yazi
+    yazi          # File Explorer
+    zip           # Compression
     zoxide        # CD Replacement
 
     # Processes

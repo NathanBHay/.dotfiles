@@ -30,8 +30,8 @@ alias cp='cp -v'
 alias rm='rm -v'
 alias rt='trash-put -v'
 alias cat='bat --theme="Catppuccin Mocha"'
-alias xclip='xclip -se c'
 alias grep='grep --color=auto'
+alias pandoc='pandoc -V geometry:margin=3cm'
 alias du=dust
 alias df='df -h'
 alias yy=yazi

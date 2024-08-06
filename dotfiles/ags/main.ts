@@ -15,6 +15,8 @@ import { forMonitors } from "lib/utils"
 import { setupQuickSettings } from "widget/quicksettings/QuickSettings"
 import { setupDateMenu } from "widget/datemenu/DateMenu"
 
+const Hyprland = await Service.import("hyprland")
+
 App.config({
     onConfigParsed: () => {
         setupQuickSettings()
@@ -39,3 +41,8 @@ App.config({
         Verification(),
     ],
 })
+
+// This is a workaround, rerendering would be better
+const restart = "hyprctl dispatch exec 'sleep 0.5; ags -q; ags'";
+Hyprland.connect("monitor-added", () => Utils.exec(restart));
+Hyprland.connect("monitor-removed", () => Utils.exec(restart));

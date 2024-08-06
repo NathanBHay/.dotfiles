@@ -7,7 +7,6 @@ const notifications = await Service.import("notifications")
 const bluetooth = await Service.import("bluetooth")
 const audio = await Service.import("audio")
 const network = await Service.import("network")
-const powerprof = await Service.import("powerprofiles")
 
 
 const MicrophoneIndicator = () => Widget.Icon()
