@@ -33,7 +33,7 @@
   boot.resumeDevice = "/dev/disk/by-uuid/897fdd9b-934d-4927-9b25-2d05f590291d";
   boot.kernelParams = [
     "mem_sleep_default=deep"
-    "resume=220606464"
+    "resume_offset=220606464"
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

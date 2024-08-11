@@ -39,5 +39,5 @@
   "collectStats": true,
   "displaySectionCounts": false,
   "pageWords": 300,
-  "statsPath": ".stats/vault-stats.json"
+  "statsPath": "vault-stats.json"
 }

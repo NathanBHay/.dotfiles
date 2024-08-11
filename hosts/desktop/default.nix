@@ -16,4 +16,5 @@ in {
     enable = true;
     enable32Bit = true;
   };
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 }

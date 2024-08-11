@@ -1,0 +1,58 @@
+{ pkgs, ... }:
+{
+
+  # Home Manager Modules
+  home-manager.users.nathan.imports = [
+    ./desktop.nix
+    ./theme.nix
+  ];
+
+  # Configure xserver
+  services.xserver.enable = true;
+  services.xserver.xkb = {
+    layout = "au";
+    variant = "";
+  };
+
+  # Display Manager & Hyprland
+  services.displayManager = {
+    sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
+    autoLogin = {
+      enable = true;
+      user = "nathan";
+    };
+  };
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  environment.sessionVariables = {
+    XDG_CURRENT_DESKTOP = "hyprland";
+    XDG_SESSION_DESKTOP = "hyprland";
+    XDG_SESSION_TYPE = "wayland";
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+    QT_STYLE_OVERRIDE = "kvantum";
+    GDK_BACKEND = "wayland";
+    NIXOS_OZONE_WL = "1";
+  };
+
+  # Portal
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    config.common.default = "*";
+    xdgOpenUsePortal = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
+  };
+
+  # Bootloader Theme
+  boot.loader.grub.catppuccin.enable = true;
+}

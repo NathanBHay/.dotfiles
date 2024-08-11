@@ -7,3 +7,5 @@
 [core]
 	editor = nvim
 	excludesfile = ~/.config/.gitignore
+[include]
+	path = ./.gitsafe

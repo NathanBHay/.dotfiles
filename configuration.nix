@@ -1,13 +1,10 @@
-{ pkgs, inputs, dotfiles, ... }:
-{
-  imports = [
-    inputs.home-manager.nixosModules.default
-  ];
+{ pkgs, inputs, dotfiles, ... }: {
+  imports = [ inputs.home-manager.nixosModules.default ];
 
   # Nix Configuration
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.optimise.automatic = true;
-  nix.extraOptions = ''warn-dirty = false'';
+  nix.extraOptions = "warn-dirty = false";
 
   # Bootloader
   boot.loader.grub = {
@@ -16,7 +13,6 @@
     useOSProber = true;
     efiSupport = true;
     configurationLimit = 50;
-    catppuccin.enable = true;
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -42,6 +38,7 @@
     isNormalUser = true;
     description = "Nathan Hay";
     extraGroups = [ "networkmanager" "wheel" "video" "audio" "lp" "scanner" ];
+    initialPassword = "1234";
   };
   nix.settings.allowed-users = [ "@wheel" ];
 
@@ -62,65 +59,19 @@
   };
 
   # Core Packages
-  environment.systemPackages = with pkgs; [ git systemd ];
-
-  # Configure xserver
-  services.xserver.enable = true;
-  services.xserver.xkb = {
-    layout = "au";
-    variant = "";
-  };
-
-  # Display Manager & Hyprland
-  services.displayManager = {
-    sddm = {
-      enable = true;
-      wayland.enable = true;
-    };
-    autoLogin = {
-      enable = true;
-      user = "nathan";
-    };
-  };
-
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
-  environment.sessionVariables = {
-    XDG_CURRENT_DESKTOP = "hyprland";
-    XDG_SESSION_DESKTOP = "hyprland";
-    XDG_SESSION_TYPE = "wayland";
-    QT_QPA_PLATFORMTHEME = "qt5ct";
-    QT_STYLE_OVERRIDE="kvantum";
-    GDK_BACKEND = "wayland";
-    NIXOS_OZONE_WL = "1";
-  };
-
-  # Portal
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    config.common.default = "*";
-    xdgOpenUsePortal = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-gtk
-    ];
-  };
+  environment.systemPackages = with pkgs; [ git systemd nfs-utils ];
 
   # Packages
   home-manager = {
     useGlobalPkgs = true;
-    extraSpecialArgs = {inherit inputs dotfiles;};
+    extraSpecialArgs = { inherit inputs dotfiles; };
     users.nathan = {
       home = {
         username = "nathan";
         homeDirectory = "/home/nathan";
         stateVersion = "24.05";
       };
-      imports = [ ./modules ];
+      imports = [ ./modules/cli.nix ];
       programs.home-manager.enable = true;
     };
   };

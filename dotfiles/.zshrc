@@ -49,6 +49,8 @@ function md() {
 
 # Nix Commands
 alias nixup='sudo nix flake update ~/.nixos'
+alias nixup_shells='sudo nix flake update ~/.nixos/shells'
+alias nixpack='nix-build -E "with import <nixpkgs> {}; callPackage ./default.nix {}"'
 nixre() {
   local m=""
   if [[ " ${hosts[*]} " == *" $1 "* ]]; then
@@ -58,9 +60,12 @@ nixre() {
 
   # Rebuild GUI
   if [[ "$1" == "-g" || "$2" == "-g" ]]; then
-    pkill -f 'ags-wrapped'
-    nohup ags > /dev/null 2>&1 &
+    ags -q; nohup ags > /dev/null 2>&1 &
   fi
+}
+nixiso () {
+  local f=${2:-iso}
+  nix run nixpkgs#nixos-generators -- --format "$f" --flake "$HOME/.nixos#$1" -o "$HOME/.nixos/result"
 }
 
 # Ctrl-Binds

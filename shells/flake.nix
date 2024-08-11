@@ -8,56 +8,68 @@
   };
 
   outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system: let
-      pkgs = import nixpkgs { inherit system; };
-    in
-    {
-      devShells = {
-        dotfiles = pkgs.mkShell {
-          packages = with pkgs; [
-            nixd                 # Nix LSP
-            lua-language-server  # LUA LSP
-          ];
-        };
+    flake-utils.lib.eachDefaultSystem (system:
+      let
+        pkgs = import nixpkgs { inherit system; };
+      in
+      {
+        devShells = {
+          dotfiles = pkgs.mkShell {
+            packages = with pkgs; [
+              nixd                 # Nix LSP
+              lua-language-server  # LUA LSP
+              nixfmt               # Nix Formatter
+            ];
+          };
 
-        python = pkgs.mkShell {
-          packages = with pkgs; [
-              python312  # Language
-              black      # Linter
-              isort      # Linter
-              pyright    # LSP
+          python = pkgs.mkShell {
+            packages = with pkgs; [
+              python312 # Language
+              black # Linter
+              isort # Linter
+              pyright # LSP
 
               # Packages
-              python312Packages.jupyterlab
-              python312Packages.torch  # Neural Nets
-          ];
-        };
+              python312Packages.jupyterlab  # Juptyer
+              python312Packages.nibabel     # Medical Imaging
+              python312Packages.matplotlib  # Graphing
+              python312Packages.numpy       # Math
+              python312Packages.pandas      # Data Analysis
+              python312Packages.torch       # Neural Nets
+            ];
+          };
 
-        rust = pkgs.mkShell {
-          packages = with pkgs; [
-            cargo          # Package manager
-            rust-analyzer  # LSP
-          ];
-        };
+          rust = pkgs.mkShell {
+            packages = with pkgs; [
+              cargo          # Package manager
+              rust-analyzer  # LSP
+            ];
+          };
 
-        cpp = pkgs.mkShell {
-          packages = with pkgs; [
-            ccls
-            gdb
-            valgrind
-            lcov
-          ];
-          nativeBuildInputs = with pkgs; [
-            pkg-config
-          ];
-        };
+          cpp = pkgs.mkShell {
+            packages = with pkgs; [
+              ccls      # LSP
+              gdb       # Debugger
+              valgrind  # Memory Profiler
 
-        write = pkgs.mkShell {
-          packages = with pkgs; [
-            pandoc        # Text Converter
-            texliveSmall  # Latex
-          ];
+              python312
+              lcov
+              (pkgs.callPackage ../packages/assemblyline { })
+            ];
+            nativeBuildInputs = with pkgs; [
+              autoconf
+              automake
+              libtool
+              pkg-config
+            ];
+          };
+
+          write = pkgs.mkShell {
+            packages = with pkgs; [
+              pandoc        # Text Converter
+              texliveSmall  # Latex
+            ];
+          };
         };
-      };
-    });
+      });
 }

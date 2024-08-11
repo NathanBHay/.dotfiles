@@ -34,7 +34,7 @@
   boot.kernelParams = [
     "snd-intel-dspcfg.dsp_driver=1"
     "mem_sleep_default=deep"
-    "resume=4667392"
+    "resume_offset=4667392"
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
