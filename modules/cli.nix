@@ -1,6 +1,9 @@
 { pkgs, dotfiles, ... }:
 let
   readShells = (import ./functions.nix).readShells;
+  windowDup = pkgs.writeShellScriptBin "windowdup" ''
+    ${dotfiles}/bin/windowdup.sh
+  ''; # TODO: auto script to add binaries from folder
 in {
   home.packages = with pkgs; [
     # Shell
@@ -37,8 +40,12 @@ in {
     zip           # Compression
     zoxide        # CD Replacement
 
+    # User Scripts
+    windowDup # Window Duplication
+
     # Compilers
-    gcc           # C++ Compiler
+    gcc # C++ Compiler
+    cmake # Build System
 
     # Fonts
     (nerdfonts.override { fonts = [ "FiraCode" "FiraMono" ]; })
@@ -71,7 +78,10 @@ in {
   xdg.configFile = {
     bat.source = "${dotfiles}/bat";
     ".gitignore".source = "${dotfiles}/git/.gitignore";
-    nvim.source = "${dotfiles}/nvim";
+    nvim = {
+      source = "${dotfiles}/nvim";
+      recursive = true;
+    };
     yazi.source = "${dotfiles}/yazi";
   };
 }

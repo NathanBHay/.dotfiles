@@ -32,6 +32,7 @@ alias rt='trash-put -v'
 alias cat='bat --theme="Catppuccin Mocha"'
 alias grep='grep --color=auto'
 alias pandoc='pandoc -V geometry:margin=3cm'
+alias neofetch='neofetch --ascii_distro nixos_old'
 alias du=dust
 alias df='df -h'
 alias yy=yazi
@@ -52,11 +53,7 @@ alias nixup='sudo nix flake update ~/.nixos'
 alias nixup_shells='sudo nix flake update ~/.nixos/shells'
 alias nixpack='nix-build -E "with import <nixpkgs> {}; callPackage ./default.nix {}"'
 nixre() {
-  local m=""
-  if [[ " ${hosts[*]} " == *" $1 "* ]]; then
-    m=$1
-  fi
-  sudo nixos-rebuild switch --flake "$HOME/.nixos#$m"
+  sudo nixos-rebuild switch --flake "$HOME/.nixos"
 
   # Rebuild GUI
   if [[ "$1" == "-g" || "$2" == "-g" ]]; then
@@ -84,7 +81,7 @@ bindkey "^[[B" history-search-forward
 
 # History
 HISTFILE=~/.zsh_history
-HISTS=8192
+HISTS=12000
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
 setopt appendhistory
@@ -94,6 +91,8 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 setopt globdots
+
+autoload zcalc
 
 # Completions
 eval "$(dircolors -b)"
