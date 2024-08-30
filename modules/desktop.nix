@@ -1,5 +1,4 @@
-{ pkgs, inputs, dotfiles, ... }:
-{
+{ pkgs, inputs, dotfiles, ... }: {
   imports = [
     inputs.catppuccin.homeManagerModules.catppuccin
     inputs.spicetify-nix.homeManagerModules.default
@@ -7,34 +6,35 @@
   ];
   home.packages = with pkgs; [
     # Apps
-    ark          # Archive Previewer
-    bitwarden    # Password Manager
-    brave        # Browser
-    vesktop      # Messaging
-    flameshot    # Screenshot
-    kitty        # Terminal Emulator
-    megasync     # Drive Sync
-    mpv          # Media Player
-    neovim       # Text Editor
-    obsidian     # Notes App
-    qbittorrent  # Torrent Client
-    zotero-beta  # Research Manager
+    ark # Archive Previewer
+    bitwarden # Password Manager
+    brave # Browser
+    vesktop # Messaging
+    flameshot # Screenshot
+    kitty # Terminal Emulator
+    megasync # Drive Sync
+    mpv # Media Player
+    neovim # Text Editor
+    obsidian # Notes App
+    qbittorrent # Torrent Client
+    xfce.thunar # File Manager
+    zotero-beta # Research Manager
 
     # CLI Tools
     brightnessctl # Control Brightness
-    slurp         # Screenshot Area Selector
-    swappy        # Screenshot Modifier
-    swww          # Wallpaper
-    wayshot       # Screenshot
+    slurp # Screenshot Area Selector
+    swappy # Screenshot Modifier
+    swww # Wallpaper
+    wayshot # Screenshot
 
     # Processes
-    hyprlock  # Screen Lock
-    hypridle  # Screen Idle
+    hyprlock # Screen Lock
+    hypridle # Screen Idle
 
     # Compilers
-    bun           # JS Bundler
-    dart-sass     # CSS Compiler
-    nodejs        # JS Backend
+    bun # JS Bundler
+    dart-sass # CSS Compiler
+    nodejs # JS Backend
 
     # Fonts
     fira
@@ -48,6 +48,12 @@
   programs.ags = {
     enable = true;
     configDir = "${dotfiles}/ags";
+  };
+
+  # Configs located in $HOME
+  home.file."MEGA/Obsidian Vault/.obsidian" = {
+    source = "${dotfiles}/obsidian";
+    recursive = true;
   };
 
   # Configs located in .config

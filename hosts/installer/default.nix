@@ -1,8 +1,7 @@
-{ pkgs, lib, ... }:
-{
+{ pkgs, lib, ... }: {
   # Nix Configuration
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.extraOptions = ''warn-dirty = false'';
+  nix.extraOptions = "warn-dirty = false";
 
   # Bootloader
   boot.loader.grub = {

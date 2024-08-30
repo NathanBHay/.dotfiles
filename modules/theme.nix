@@ -1,6 +1,5 @@
 { inputs, pkgs, ... }:
-let
-  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+let spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in {
   programs = {
     btop = {

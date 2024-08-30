@@ -1,10 +1,7 @@
-{ ... }:
-let
-  gpu = "amdgpu";
+{ pkgs, ... }:
+let gpu = "amdgpu";
 in {
-  imports = [
-    ./hardware-configuration.nix
-  ];
+  imports = [ ./hardware-configuration.nix ];
 
   # Networking & Bluetooth
   networking.hostName = "NathanDesktop";
@@ -17,4 +14,6 @@ in {
     enable32Bit = true;
   };
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
+  services.hardware.openrgb.enable = true;
 }

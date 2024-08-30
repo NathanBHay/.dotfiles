@@ -7,38 +7,38 @@ let
 in {
   home.packages = with pkgs; [
     # Shell
-    zsh                      # Shell
-    zsh-autosuggestions      # Shell Recommendations
-    zsh-fzf-tab              # Shell FZF Integration
-    zsh-powerlevel10k        # Shell theme
-    zsh-syntax-highlighting  # Shell highlights
+    zsh # Shell
+    zsh-autosuggestions # Shell Recommendations
+    zsh-fzf-tab # Shell FZF Integration
+    zsh-powerlevel10k # Shell theme
+    zsh-syntax-highlighting # Shell highlights
 
     # CLI Tools
-    aspell        # Spell Correction
-    bat           # Cat Replacment
-    btop          # Resource Monitor
-    cliphist      # Clipboard History
-    dust          # Folder Storage
-    efibootmgr    # Boot Entry Manager
-    eza           # Ls Replacement
-    fd            # Find Replacement
-    fzf           # Fuzzy-Finder
-    gzip          # Expanded Zip
-    lazygit       # Git GUI
-    lsof          # Process Finder
-    neofetch      # Fetch
-    nmap          # Internet Scanner
-    pavucontrol   # Audio Control
-    playerctl     # Control media players
-    ripgrep       # Recursive Grep
-    trash-cli     # Trash
-    tldr          # Help Pages
-    unzip         # Normal Zip
-    wget          # Internet Download
-    wl-clipboard  # Clipboard Manager
-    yazi          # File Explorer
-    zip           # Compression
-    zoxide        # CD Replacement
+    aspell # Spell Correction
+    bat # Cat Replacment
+    btop # Resource Monitor
+    cliphist # Clipboard History
+    dust # Folder Storage
+    efibootmgr # Boot Entry Manager
+    eza # Ls Replacement
+    fd # Find Replacement
+    fzf # Fuzzy-Finder
+    gzip # Expanded Zip
+    lazygit # Git GUI
+    lsof # Process Finder
+    neofetch # Fetch
+    nmap # Internet Scanner
+    pavucontrol # Audio Control
+    playerctl # Control media players
+    ripgrep # Recursive Grep
+    trash-cli # Trash
+    tldr # Help Pages
+    unzip # Normal Zip
+    wget # Internet Download
+    wl-clipboard # Clipboard Manager
+    yazi # File Explorer
+    zip # Compression
+    zoxide # CD Replacement
 
     # User Scripts
     windowDup # Window Duplication
@@ -67,14 +67,10 @@ in {
     # Misc configs
     ".gitconfig".source = "${dotfiles}/git/.gitconfig";
     ".p10k.zsh".source = "${dotfiles}/.p10k.zsh";
-    ".ssh/config".source = "${dotfiles}/.ssh/config";
-    "MEGA/Obsidian Vault/.obsidian" = {
-      source = "${dotfiles}/.obsidian";
-      recursive = true;
-    };
+    ".ssh/config".source = "${dotfiles}/ssh/config";
   };
 
-  # Configs located in .config 
+  # Configs located in .config
   xdg.configFile = {
     bat.source = "${dotfiles}/bat";
     ".gitignore".source = "${dotfiles}/git/.gitignore";

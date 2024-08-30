@@ -1,8 +1,5 @@
-{ ... }:
-{
-  imports = [
-    ./hardware-configuration.nix
-  ];
+{ ... }: {
+  # imports = [ ./hardware-configuration.nix ];
 
   # Networking & Bluetooth
   networking.hostName = "NathanPi";
