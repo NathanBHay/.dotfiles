@@ -21,7 +21,7 @@ return {
     },
   },
 
-  -- Highlight todo, notes, etc in comments
+  -- Highlight todo, notes, perf, hack, fix, warning
   {
     'folke/todo-comments.nvim',
     event = 'VimEnter',

@@ -1,7 +1,7 @@
 { pkgs, ... }: {
 
   # Home Manager Modules
-  home-manager.users.nathan.imports = [ ./desktop.nix ./theme.nix ];
+  home-manager.users.nathan.imports = [ ./applications.nix ./theme.nix ];
 
   # Configure xserver
   services.xserver.enable = true;

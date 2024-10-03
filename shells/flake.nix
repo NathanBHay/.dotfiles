@@ -1,4 +1,4 @@
-# Shells: dotfiles python python39 rust cpp write
+# Shells: dotfiles python rust cpp write
 {
   description = "Various Development Shells";
 
@@ -35,27 +35,13 @@
               python312Packages.numpy # Math
               python312Packages.pandas # Data Analysis
               python312Packages.torch # Neural Nets
+              python312Packages.torchvision # Vision
               python312Packages.pydicom # Dicom Files
               python312Packages.scipy # Math
               python312Packages.tqdm # Progress Bar
               python312Packages.snakeviz # Profiler
-            ];
-          };
-
-          python39 = pkgs.mkShell {
-            packages = with pkgs; [
-              python312 # Language
-              black # Linter
-              isort # Linter
-              pyright # LSP
-
-              # Packages
-              python312Packages.numpy # Math
-              python312Packages.scipy # Math
               python312Packages.tkinter # GUI
-              python312Packages.tqdm # Progress Bar
               python312Packages.tabulate # Table
-              python312Packages.pandas # Data Analysis
             ];
           };
 

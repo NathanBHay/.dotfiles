@@ -1,12 +1,16 @@
 " Leader key
 unmap <Space>
 
-" System clipboard"
+" System clipboard
 set clipboard=unnamed
 
 " Open graph
 exmap openGraph obcommand graph:open
 nmap <Space>og :openGraph
+
+" Spell check
+exmap spellCheck obcommand editor:toggle-spellcheck
+nmap z= :spellCheck
 
 " Omnisearch hotkeys
 exmap omnisearch obcommand omnisearch:show-modal
