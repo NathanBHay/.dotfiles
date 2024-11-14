@@ -69,7 +69,7 @@
       home = {
         username = "nathan";
         homeDirectory = "/home/nathan";
-        stateVersion = "24.05";
+        stateVersion = "24.11";
       };
       imports = [ ./modules/cli.nix ];
       programs.home-manager.enable = true;
@@ -107,6 +107,6 @@
   };
   systemd.sleep.extraConfig = "HibernateDelaySec=2h";
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
 
 }

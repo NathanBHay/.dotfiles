@@ -22,7 +22,6 @@ alias vim=nvim
 alias lg=lazygit
 alias ls='eza --icons'
 alias la='ls -a'
-alias ld='ls -D'
 alias lf='ls -f'
 alias lt='ls -T'
 alias mv='mv -v'
@@ -33,6 +32,7 @@ alias cat='bat --theme="Catppuccin Mocha"'
 alias grep='grep --color=auto'
 alias pandoc='pandoc -V geometry:margin=3cm'
 alias neofetch='neofetch --ascii_distro nixos_old'
+alias ssh='kitty +kitten ssh'
 alias du=dust
 alias df='df -h'
 alias yy=yazi
@@ -47,13 +47,13 @@ function md() {
   fi
   udisksctl mount -b "/dev/$device"
 }
-
 # Nix Commands
-alias nixup='sudo nix flake update ~/.nixos'
-alias nixup_shells='sudo nix flake update ~/.nixos/shells'
+local NIX_LOC="$HOME/.nixos"
+alias nixup="sudo nix flake update '$NIX_LOC'"
+alias nixup_shells="sudo nix flake update $NIX_LOC/shells"
 alias nixpack='nix-build -E "with import <nixpkgs> {}; callPackage ./default.nix {}"'
 nixre() {
-  sudo nixos-rebuild switch --flake "$HOME/.nixos"
+  sudo nixos-rebuild switch --flake "$NIX_LOC"
 
   # Rebuild GUI
   if [[ "$1" == "-g" || "$2" == "-g" ]]; then
@@ -62,7 +62,7 @@ nixre() {
 }
 nixiso () {
   local f=${2:-iso}
-  nix run nixpkgs#nixos-generators -- --format "$f" --flake "$HOME/.nixos#$1" -o "$HOME/.nixos/result"
+  nix run nixpkgs#nixos-generators -- --format "$f" --flake "$NIX_LOC#$1" -o "$NIX_LOC/result"
 }
 
 # Ctrl-Binds
@@ -81,7 +81,7 @@ bindkey "^[[B" history-search-forward
 
 # History
 HISTFILE=~/.zsh_history
-HISTS=12000
+HISTS=32000
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
 setopt appendhistory
@@ -92,7 +92,6 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 setopt globdots
 
-autoload zcalc
 
 # Completions
 eval "$(dircolors -b)"

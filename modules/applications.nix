@@ -6,7 +6,6 @@
   ];
   home.packages = with pkgs; [
     # Apps
-    ark # Archive Previewer
     bitwarden # Password Manager
     brave # Browser
     vesktop # Messaging
@@ -16,6 +15,8 @@
     mpv # Media Player
     neovim # Text Editor
     obsidian # Notes App
+    pavucontrol # Audio Control
+    qalculate-qt # Calculator
     qbittorrent # Torrent Client
     xfce.thunar # File Manager
     zotero-beta # Research Manager

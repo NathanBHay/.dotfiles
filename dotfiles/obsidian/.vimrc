@@ -9,7 +9,7 @@ exmap openGraph obcommand graph:open
 nmap <Space>og :openGraph
 
 " Spell check
-exmap spellCheck obcommand editor:toggle-spellcheck
+exmap spellCheck obcommand editor:context-menu
 nmap z= :spellCheck
 
 " Omnisearch hotkeys

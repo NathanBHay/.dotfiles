@@ -25,10 +25,10 @@ in {
     fzf # Fuzzy-Finder
     gzip # Expanded Zip
     lazygit # Git GUI
+    libqalculate # Calculator
     lsof # Process Finder
     neofetch # Fetch
     nmap # Internet Scanner
-    pavucontrol # Audio Control
     playerctl # Control media players
     ripgrep # Recursive Grep
     trash-cli # Trash
