@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, user, ... }: {
   # Nix Configuration
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.extraOptions = "warn-dirty = false";
@@ -20,7 +20,7 @@
   hardware.enableAllFirmware = true;
 
   # User Account
-  users.users.nathan = {
+  users.users."${user}" = {
     isNormalUser = true;
     description = "Nathan Hay";
     extraGroups = [ "networkmanager" "wheel" "video" "audio" "lp" "scanner" ];

@@ -29,6 +29,7 @@ in {
     lsof # Process Finder
     neofetch # Fetch
     nmap # Internet Scanner
+    p7zip # Compression
     playerctl # Control media players
     ripgrep # Recursive Grep
     trash-cli # Trash

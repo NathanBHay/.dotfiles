@@ -1,7 +1,7 @@
-{ pkgs, ... }: {
+{ pkgs, user, ... }: {
 
   # Home Manager Modules
-  home-manager.users.nathan.imports = [ ./applications.nix ./theme.nix ];
+  home-manager.users."${user}".imports = [ ./applications.nix ./theme.nix ];
 
   # Configure xserver
   services.xserver.enable = true;
@@ -18,7 +18,7 @@
     };
     autoLogin = {
       enable = true;
-      user = "nathan";
+      user = "${user}";
     };
   };
 

@@ -1,4 +1,4 @@
-{ pkgs, inputs, dotfiles, ... }: {
+{ pkgs, inputs, dotfiles, user, ... }: {
   imports = [ inputs.home-manager.nixosModules.default ];
 
   # Nix Configuration
@@ -34,10 +34,11 @@
   security.rtkit.enable = true;
 
   # User Account
-  users.users.nathan = {
+  users.users."${user}" = {
     isNormalUser = true;
     description = "Nathan Hay";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" "lp" "scanner" ];
+    extraGroups =
+      [ "networkmanager" "wheel" "video" "audio" "lp" "scanner" "libvirtd" ];
     initialPassword = "1234";
   };
   nix.settings.allowed-users = [ "@wheel" ];
@@ -65,10 +66,10 @@
   home-manager = {
     useGlobalPkgs = true;
     extraSpecialArgs = { inherit inputs dotfiles; };
-    users.nathan = {
+    users."${user}" = {
       home = {
-        username = "nathan";
-        homeDirectory = "/home/nathan";
+        username = "${user}";
+        homeDirectory = "/home/${user}";
         stateVersion = "24.11";
       };
       imports = [ ./modules/cli.nix ];

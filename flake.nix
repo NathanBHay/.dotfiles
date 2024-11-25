@@ -21,6 +21,7 @@
 
   outputs = { self, nixpkgs, ... }@inputs:
     let
+      user = "nathan";
       dotfiles = ./dotfiles;
       coreModules = x:
         [ x ]
@@ -32,22 +33,21 @@
       nixosConfigurations = {
         NathanDesktop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs dotfiles; };
+          specialArgs = { inherit inputs dotfiles user; };
           modules = desktopModules ./hosts/desktop;
         };
         NathanLaptop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs dotfiles; };
+          specialArgs = { inherit inputs dotfiles user; };
           modules = desktopModules ./hosts/laptop;
         };
-        NathanPi = nixpkgs.lib.nixosSystem {
+        rpi0 = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
-          specialArgs = { inherit inputs dotfiles; };
+          specialArgs = { inherit inputs dotfiles user; };
           modules = coreModules ./hosts/pi;
         };
-        NathanInstall = nixpkgs.lib.nixosSystem {
-          system = "aarch64-linux";
-          specialArgs = { inherit inputs; };
+        NathanInstall = nixpkgs.nixos {
+          specialArgs = { inherit inputs user; };
           modules = [ ./hosts/installer ];
         };
       };
