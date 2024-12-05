@@ -23,22 +23,20 @@ in {
     eza # Ls Replacement
     fd # Find Replacement
     fzf # Fuzzy-Finder
-    gzip # Expanded Zip
     lazygit # Git GUI
     libqalculate # Calculator
     lsof # Process Finder
     neofetch # Fetch
     nmap # Internet Scanner
-    p7zip # Compression
     playerctl # Control media players
     ripgrep # Recursive Grep
     trash-cli # Trash
     tldr # Help Pages
-    unzip # Normal Zip
+    unzip # Unzip Files
     wget # Internet Download
     wl-clipboard # Clipboard Manager
     yazi # File Explorer
-    zip # Compression
+    zip # Zip Files
     zoxide # CD Replacement
 
     # User Scripts

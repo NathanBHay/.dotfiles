@@ -170,6 +170,7 @@ return {
           filetypes = { 'asm', 'nasm', 's', 'vmasm' },
         },
         nixd = {},
+        ts_ls = {},
         lua_ls = {
           settings = {
             Lua = {
