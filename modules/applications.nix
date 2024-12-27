@@ -5,6 +5,7 @@
   ];
   home.packages = with pkgs; [
     # Apps
+    albert # Application Launcher
     bitwarden # Password Manager
     brave # Browser
     vesktop # Messaging
@@ -51,6 +52,7 @@
 
   # Configs located in .config
   xdg.configFile = {
+    albert.source = "${dotfiles}/albert";
     hypr.source = "${dotfiles}/hypr";
     kitty.source = "${dotfiles}/kitty";
     swappy.source = "${dotfiles}/swappy";

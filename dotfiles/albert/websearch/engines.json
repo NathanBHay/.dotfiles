@@ -1,0 +1,58 @@
+[
+    {
+        "fallback": true,
+        "iconPath": ":gpt",
+        "id": "ccc8199b",
+        "name": "Chat GPT",
+        "trigger": "gpt",
+        "url": "https://chat.openai.com/?q=%s"
+    },
+    {
+        "fallback": false,
+        "iconPath": ":github",
+        "id": "083f0bb2",
+        "name": "GitHub",
+        "trigger": "gh",
+        "url": "https://github.com/search?utf8=✓&q=%s"
+    },
+    {
+        "fallback": true,
+        "iconPath": ":google",
+        "id": "44724227",
+        "name": "Google",
+        "trigger": "gg",
+        "url": "https://www.google.com/search?q=%s"
+    },
+    {
+        "fallback": false,
+        "iconPath": ":maps",
+        "id": "2c0cd3fd",
+        "name": "Google Maps",
+        "trigger": "maps",
+        "url": "https://www.google.com/maps/search/%s/"
+    },
+    {
+        "fallback": false,
+        "iconPath": ":scholar",
+        "id": "58f706c3",
+        "name": "Google Scholar",
+        "trigger": "scholar",
+        "url": "https://scholar.google.com/scholar?q=%s"
+    },
+    {
+        "fallback": false,
+        "iconPath": ":google_translate",
+        "id": "c2c805c3",
+        "name": "Google Translate",
+        "trigger": "gt",
+        "url": "https://translate.google.com/?text=%s"
+    },
+    {
+        "fallback": false,
+        "iconPath": ":youtube",
+        "id": "2e9219fe",
+        "name": "YouTube",
+        "trigger": "yt",
+        "url": "https://www.youtube.com/results?search_query=%s"
+    }
+]
