@@ -1,4 +1,4 @@
-{ dotfiles, ... }:
+{ dotfiles, pkgs, ... }:
 let gpu = "amdgpu";
 in {
   imports = [ ./hardware-configuration.nix ];
@@ -23,6 +23,8 @@ in {
       configFile = "${dotfiles}/kanata.kbd";
     };
   };
+
+  environment.systemPackages = with pkgs; [ v4l-utils streamdeck-ui ];
 
   services.hardware.openrgb.enable = true;
 }

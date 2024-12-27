@@ -52,8 +52,13 @@ local NIX_LOC="$HOME/.nixos"
 alias nixup="sudo nix flake update '$NIX_LOC'"
 alias nixup_shells="sudo nix flake update $NIX_LOC/shells"
 alias nixpack='nix-build -E "with import <nixpkgs> {}; callPackage ./default.nix {}"'
+alias nix-clean="sudo nix-collect-garbage -d && sudo nix-store --optimise"
 nixre() {
-  sudo nixos-rebuild switch --flake "$NIX_LOC"
+  if [[ "$1" == "-b" || "$2" == "-b" ]]; then
+    sudo nixos-rebuild boot --flake "$NIX_LOC"
+  else
+    sudo nixos-rebuild switch --flake "$NIX_LOC"
+  fi
 
   # Rebuild GUI
   if [[ "$1" == "-g" || "$2" == "-g" ]]; then

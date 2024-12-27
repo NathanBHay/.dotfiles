@@ -1,4 +1,4 @@
-# Shells: dotfiles zip python rust cpp js cryptopt write neuralnets
+# Shells: dotfiles zip python rust cpp js cryptopt write neuralnet
 {
   # TODO: Automate above
   description = "Various Development Shells";
