@@ -2,7 +2,6 @@
   imports = [
     inputs.catppuccin.homeManagerModules.catppuccin
     inputs.spicetify-nix.homeManagerModules.default
-    inputs.ags.homeManagerModules.default
   ];
   home.packages = with pkgs; [
     # Apps
@@ -18,7 +17,6 @@
     pavucontrol # Audio Control
     qalculate-qt # Calculator
     qbittorrent # Torrent Client
-    xfce.thunar # File Manager
     zotero-beta # Research Manager
 
     # CLI Tools
@@ -44,12 +42,6 @@
   ];
 
   fonts.fontconfig.enable = true;
-
-  # Symlinks
-  programs.ags = {
-    enable = true;
-    configDir = "${dotfiles}/ags";
-  };
 
   # Configs located in $HOME
   home.file."MEGA/Obsidian Vault/.obsidian" = {

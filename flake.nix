@@ -9,8 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ags.url = "github:Aylur/ags";
-
     catppuccin.url = "github:catppuccin/nix";
 
     spicetify-nix = {

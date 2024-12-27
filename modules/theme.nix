@@ -2,10 +2,6 @@
 let spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in {
   programs = {
-    btop = {
-      enable = true;
-      catppuccin.enable = true;
-    };
     spicetify = {
       enable = true;
       theme = spicePkgs.themes.catppuccin;
@@ -16,14 +12,18 @@ in {
       ];
     };
   };
-  catppuccin.pointerCursor = {
-    enable = true;
-    accent = "light";
+  catppuccin = {
+    btop.enable = true;
+    cursors = {
+      enable = true;
+      accent = "light";
+    };
+    kvantum.enable = true;
   };
+  # TODO: Perhaps delete this part?
   qt = {
     enable = true;
     style.name = "kvantum";
-    style.catppuccin.enable = true;
     platformTheme.name = "kvantum";
   };
   gtk = {

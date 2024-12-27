@@ -45,12 +45,7 @@ in {
     # Compilers
     gcc # C++ Compiler
     cmake # Build System
-
-    # Fonts
-    (nerdfonts.override { fonts = [ "FiraCode" "FiraMono" ]; })
   ];
-
-  fonts.fontconfig.enable = true;
 
   # Symlinks
   home.file = {

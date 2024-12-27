@@ -48,5 +48,5 @@
   };
 
   # Bootloader Theme
-  boot.loader.grub.catppuccin.enable = true;
+  catppuccin.grub.enable = true;
 }

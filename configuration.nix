@@ -62,6 +62,8 @@
   # Core Packages
   environment.systemPackages = with pkgs; [ git systemd nfs-utils ];
 
+  fonts.packages = with pkgs.nerd-fonts; [ fira-code fira-mono ];
+
   # Packages
   home-manager = {
     useGlobalPkgs = true;

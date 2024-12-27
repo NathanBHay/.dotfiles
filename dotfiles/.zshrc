@@ -49,8 +49,8 @@ function md() {
 }
 # Nix Commands
 local NIX_LOC="$HOME/.nixos"
-alias nixup="sudo nix flake update '$NIX_LOC'"
-alias nixup_shells="sudo nix flake update $NIX_LOC/shells"
+alias nixup="sudo nix flake update --flake '$NIX_LOC'"
+alias nixup_shells="sudo nix flake update --flake $NIX_LOC/shells"
 alias nixpack='nix-build -E "with import <nixpkgs> {}; callPackage ./default.nix {}"'
 alias nix-clean="sudo nix-collect-garbage -d && sudo nix-store --optimise"
 nixre() {
