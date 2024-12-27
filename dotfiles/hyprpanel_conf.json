@@ -1,0 +1,119 @@
+{
+  "bar.customModules.updates.pollingInterval": 1440000,
+  "menus.power.lowBatteryNotification": true,
+  "theme.font.weight": 600,
+  "menus.transition": "crossfade",
+  "theme.bar.menus.opacity": 85,
+  "theme.bar.transparent": false,
+  "bar.customModules.weather.unit": "metric",
+  "menus.clock.time.military": false,
+  "menus.clock.time.hideSeconds": false,
+  "menus.clock.weather.unit": "metric",
+  "theme.bar.floating": false,
+  "theme.bar.location": "bottom",
+  "theme.bar.buttons.enableBorders": false,
+  "theme.bar.opacity": 100,
+  "theme.bar.buttons.background_opacity": 0,
+  "scalingPriority": "gdk",
+  "theme.bar.scaling": 70,
+  "theme.notification.scaling": 70,
+  "theme.osd.scaling": 70,
+  "theme.bar.menus.menu.dashboard.scaling": 60,
+  "theme.bar.menus.menu.dashboard.confirmation_scaling": 70,
+  "theme.bar.menus.menu.media.scaling": 70,
+  "theme.bar.menus.menu.volume.scaling": 70,
+  "theme.bar.menus.popover.scaling": 70,
+  "theme.tooltip.scaling": 70,
+  "theme.bar.menus.menu.power.scaling": 70,
+  "theme.bar.menus.menu.notifications.scaling": 70,
+  "theme.bar.menus.menu.clock.scaling": 70,
+  "theme.bar.menus.menu.battery.scaling": 70,
+  "theme.bar.menus.menu.bluetooth.scaling": 70,
+  "theme.bar.menus.menu.network.scaling": 70,
+  "theme.font.name": "FiraMono Nerd Font",
+  "menus.dashboard.shortcuts.left.shortcut1.command": "brave",
+  "bar.layouts": {
+    "0": {
+      "left": [
+        "dashboard",
+        "workspaces"
+      ],
+      "middle": [],
+      "right": [
+        "systray",
+        "volume",
+        "network",
+        "bluetooth",
+        "battery",
+        "clock",
+        "notifications"
+      ]
+    },
+    "1": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "clock",
+        "notifications"
+      ]
+    },
+    "2": {
+      "left": [
+        "dashboard",
+        "workspaces"
+      ],
+      "middle": [],
+      "right": [
+        "volume",
+        "clock",
+        "notifications"
+      ]
+    }
+  },
+  "bar.launcher.icon": "",
+  "bar.battery.label": false,
+  "bar.bluetooth.label": false,
+  "bar.network.showWifiInfo": true,
+  "bar.network.label": false,
+  "bar.volume.label": false,
+  "bar.workspaces.show_icons": false,
+  "bar.workspaces.show_numbered": false,
+  "bar.workspaces.showWsIcons": false,
+  "bar.workspaces.showApplicationIcons": false,
+  "bar.workspaces.spacing": 0.7,
+  "bar.workspaces.workspaces": 7,
+  "bar.workspaces.workspaceMask": false,
+  "theme.bar.buttons.spacing": "0.1em",
+  "theme.bar.buttons.padding_x": "0.5rem",
+  "theme.bar.buttons.bluetooth.spacing": "0.5em",
+  "bar.autoHide": "never",
+  "theme.bar.border.location": "none",
+  "bar.launcher.autoDetectIcon": true,
+  "theme.bar.outer_spacing": "0.8em",
+  "theme.bar.buttons.systray.enableBorder": false,
+  "menus.dashboard.powermenu.avatar.image": "/home/nathan/Pictures/.avatar.jpg",
+  "menus.dashboard.shortcuts.left.shortcut1.icon": "",
+  "menus.dashboard.shortcuts.left.shortcut1.tooltip": "Brave",
+  "menus.dashboard.shortcuts.left.shortcut3.command": "vesktop",
+  "menus.dashboard.directories.left.directory3.label": "󰚝 MEGA",
+  "menus.dashboard.directories.left.directory3.command": "bash -c \"xdg-open $HOME/MEGA/\"",
+  "bar.customModules.ram.pollingInterval": 20000,
+  "bar.customModules.cpu.pollingInterval": 20000,
+  "bar.customModules.cpuTemp.pollingInterval": 20000,
+  "bar.customModules.storage.pollingInterval": 20000,
+  "bar.customModules.netstat.pollingInterval": 20000,
+  "menus.dashboard.shortcuts.left.shortcut2.command": "spotify",
+  "menus.dashboard.shortcuts.left.shortcut4.command": "echo -n toggle | nc -U ~/.cache/albert/ipc_socket",
+  "menus.dashboard.shortcuts.enabled": false,
+  "menus.clock.weather.location": "Melbourne",
+  "menus.clock.weather.interval": 1000000,
+  "menus.clock.weather.key": "/home/nathan/.config/.weather.json",
+  "theme.notification.opacity": 85
+}

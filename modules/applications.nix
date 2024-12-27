@@ -54,6 +54,7 @@
   xdg.configFile = {
     albert.source = "${dotfiles}/albert";
     hypr.source = "${dotfiles}/hypr";
+    "hyprpanel/config.json".source = "${dotfiles}/hyprpanel_conf.json";
     kitty.source = "${dotfiles}/kitty";
     swappy.source = "${dotfiles}/swappy";
     "vesktop/themes/custom.css".source = "${dotfiles}/vesktop/custom.css";
