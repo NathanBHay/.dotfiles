@@ -4,7 +4,8 @@ let
   windowDup = pkgs.writeShellScriptBin "windowdup" ''
     ${dotfiles}/bin/windowdup.sh
   ''; # TODO: auto script to add binaries from folder
-in {
+in
+{
   home.packages = with pkgs; [
     # Shell
     zsh # Shell
@@ -50,13 +51,15 @@ in {
   # Symlinks
   home.file = {
     # ZSH config & plugins
-    ".zshrc".source = "${dotfiles}/.zshrc";
-    ".zshsrc".text = readShells "/shells" + ''
-      source "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-      source "${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-      source "${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh"
-      source "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
-    '';
+    ".zshrc".source = "${dotfiles}/zshrc";
+    ".zshsrc".text =
+      readShells "/shells"
+      + ''
+        source "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+        source "${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+        source "${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh"
+        source "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
+      '';
 
     # Misc configs
     ".gitconfig".source = "${dotfiles}/git/.gitconfig";

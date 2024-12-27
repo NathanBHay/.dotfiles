@@ -8,16 +8,24 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils, }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = import nixpkgs { inherit system; };
-      in {
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        pkgs = import nixpkgs { inherit system; };
+      in
+      {
         devShells = rec {
           dotfiles = pkgs.mkShell {
             packages = with pkgs; [
               nixd # Nix LSP
               lua-language-server # LUA LSP
-              nixfmt-classic # Nix Formatter
+              nixfmt-rfc-style # Nix Formatter
             ];
           };
 
@@ -100,7 +108,11 @@
           };
 
           cryptopt = pkgs.mkShell {
-            inputsFrom = [ cpp python js ];
+            inputsFrom = [
+              cpp
+              python
+              js
+            ];
             packages = with pkgs; [
               lcov # Code Coverage
               python312Packages.lcov-cobertura
@@ -119,5 +131,6 @@
             ];
           };
         };
-      });
+      }
+    );
 }

@@ -19,21 +19,31 @@
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs =
+    { self, nixpkgs, ... }@inputs:
     let
       user = "nathan";
       dotfiles = ./dotfiles;
-      overlays = { nixpkgs.overlays = [ inputs.hyprpanel.overlay ]; };
-      coreModules = x:
+      overlays = {
+        nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
+      };
+      coreModules =
+        x:
         [ x ]
-        ++ [ ./configuration.nix inputs.home-manager.nixosModules.default ];
-      desktopModules = x:
-        (coreModules x) ++ [
+        ++ [
+          ./configuration.nix
+          inputs.home-manager.nixosModules.default
+        ];
+      desktopModules =
+        x:
+        (coreModules x)
+        ++ [
           ./modules/display.nix
           inputs.catppuccin.nixosModules.catppuccin
           overlays
         ];
-    in {
+    in
+    {
       nixosConfigurations = {
         NathanDesktop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";

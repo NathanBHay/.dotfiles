@@ -1,7 +1,11 @@
-{ pkgs, user, ... }: {
+{ pkgs, user, ... }:
+{
 
   # Home Manager Modules
-  home-manager.users."${user}".imports = [ ./applications.nix ./theme.nix ];
+  home-manager.users."${user}".imports = [
+    ./applications.nix
+    ./theme.nix
+  ];
 
   # Configure xserver
   services.xserver.enable = true;
@@ -45,8 +49,10 @@
     wlr.enable = true;
     config.common.default = "*";
     xdgOpenUsePortal = true;
-    extraPortals =
-      [ pkgs.xdg-desktop-portal-hyprland pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
   };
 
   # Bootloader Theme

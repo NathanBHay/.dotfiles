@@ -1,8 +1,11 @@
 # Common Functions for NixOS
-with builtins; rec {
+with builtins;
+rec {
   readFileRel = x: readFile (../. + x);
   readDirList = x: g: filter g (attrNames (readDir (../. + x)));
-  dirCMap = f: x: g: foldl' (y: z: y + (f z)) "" (readDirList x g);
+  dirCMap =
+    f: x: g:
+    foldl' (y: z: y + (f z)) "" (readDirList x g);
   readDirStr = x: g: dirCMap (y: readFileRel (x + y)) x g;
 
   shellPath = x: y: ''

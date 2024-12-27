@@ -1,4 +1,5 @@
-{ dotfiles, ... }: {
+{ dotfiles, ... }:
+{
   imports = [ ./hardware-configuration.nix ];
 
   # Networking & Bluetooth

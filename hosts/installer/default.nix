@@ -1,6 +1,15 @@
-{ pkgs, lib, user, ... }: {
+{
+  pkgs,
+  lib,
+  user,
+  ...
+}:
+{
   # Nix Configuration
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nix.extraOptions = "warn-dirty = false";
 
   # Bootloader
@@ -23,7 +32,14 @@
   users.users."${user}" = {
     isNormalUser = true;
     description = "Nathan Hay";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" "lp" "scanner" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+      "audio"
+      "lp"
+      "scanner"
+    ];
     initialPassword = "1234";
   };
   nix.settings.allowed-users = [ "@wheel" ];
@@ -32,7 +48,10 @@
   nixpkgs.config.allowUnfree = true;
 
   # Core Packages
-  environment.systemPackages = with pkgs; [ git systemd ];
+  environment.systemPackages = with pkgs; [
+    git
+    systemd
+  ];
 
   # Shell
   programs.zsh.enable = true;

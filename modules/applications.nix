@@ -1,4 +1,10 @@
-{ pkgs, inputs, dotfiles, ... }: {
+{
+  pkgs,
+  inputs,
+  dotfiles,
+  ...
+}:
+{
   imports = [
     inputs.catppuccin.homeManagerModules.catppuccin
     inputs.spicetify-nix.homeManagerModules.default

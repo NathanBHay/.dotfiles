@@ -1,8 +1,18 @@
-{ pkgs, inputs, dotfiles, user, ... }: {
+{
+  pkgs,
+  inputs,
+  dotfiles,
+  user,
+  ...
+}:
+{
   imports = [ inputs.home-manager.nixosModules.default ];
 
   # Nix Configuration
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nix.optimise.automatic = true;
   nix.extraOptions = "warn-dirty = false";
 
@@ -37,8 +47,15 @@
   users.users."${user}" = {
     isNormalUser = true;
     description = "Nathan Hay";
-    extraGroups =
-      [ "networkmanager" "wheel" "video" "audio" "lp" "scanner" "libvirtd" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+      "audio"
+      "lp"
+      "scanner"
+      "libvirtd"
+    ];
     initialPassword = "1234";
   };
   nix.settings.allowed-users = [ "@wheel" ];
@@ -60,9 +77,16 @@
   };
 
   # Core Packages
-  environment.systemPackages = with pkgs; [ git systemd nfs-utils ];
+  environment.systemPackages = with pkgs; [
+    git
+    systemd
+    nfs-utils
+  ];
 
-  fonts.packages = with pkgs.nerd-fonts; [ fira-code fira-mono ];
+  fonts.packages = with pkgs.nerd-fonts; [
+    fira-code
+    fira-mono
+  ];
 
   # Packages
   home-manager = {
