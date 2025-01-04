@@ -1,4 +1,4 @@
-# Shells: dotfiles zip python rust cpp js cryptopt write neuralnet
+# Shells: dotfiles zip python rust cpp js cryptopt write neuralnet ags
 {
   # TODO: Automate above
   description = "Various Development Shells";
@@ -6,18 +6,20 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    ags.url = "github:Aylur/ags";
   };
 
   outputs =
     {
       self,
       nixpkgs,
-      flake-utils,
-    }:
-    flake-utils.lib.eachDefaultSystem (
+      ...
+    }@inputs:
+    inputs.flake-utils.lib.eachDefaultSystem (
       system:
       let
         pkgs = import nixpkgs { inherit system; };
+        x86 = "x86_64-linux";
       in
       {
         devShells = rec {
@@ -104,7 +106,34 @@
               typescript # Language
               prettierd # Formatter
               typescript-language-server # LSP
+              dart-sass # SCSS
             ];
+          };
+
+          ags = pkgs.mkShell {
+            inputsFrom = [ js ];
+            GI_TYPELIB_PATH = "/run/current-system/sw/lib/girepository-1.0/";
+            packages = [
+              pkgs.python3
+              pkgs.libgtop
+              (inputs.ags.packages.${x86}.default.override {
+                extraPackages = with inputs.ags.packages.${x86}; [
+                  io
+                  battery
+                  hyprland
+                  mpris
+                  wireplumber
+                  network
+                  bluetooth
+                  notifd
+                  powerprofiles
+                  cava
+                  tray
+                ];
+              })
+            ];
+            buildInputs = [ pkgs.glib ];
+            nativeBuildInputs = [ pkgs.gobject-introspection ];
           };
 
           cryptopt = pkgs.mkShell {

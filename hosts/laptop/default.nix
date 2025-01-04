@@ -5,11 +5,6 @@
   # Networking & Bluetooth
   networking.hostName = "NathanLaptop";
 
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
-
   # Keyboard Configuration
   services.kanata = {
     enable = true;

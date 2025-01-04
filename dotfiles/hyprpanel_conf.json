@@ -36,7 +36,8 @@
     "0": {
       "left": [
         "dashboard",
-        "workspaces"
+        "workspaces",
+        "windowtitle"
       ],
       "middle": [],
       "right": [
