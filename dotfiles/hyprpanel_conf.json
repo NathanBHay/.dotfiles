@@ -3,7 +3,7 @@
   "menus.power.lowBatteryNotification": true,
   "theme.font.weight": 600,
   "menus.transition": "crossfade",
-  "theme.bar.menus.opacity": 85,
+  "theme.bar.menus.opacity": 90,
   "theme.bar.transparent": false,
   "bar.customModules.weather.unit": "metric",
   "menus.clock.time.military": false,
@@ -84,6 +84,7 @@
   "bar.network.showWifiInfo": true,
   "bar.network.label": false,
   "bar.volume.label": false,
+  "bar.workspaces.monitorSpecific": false,
   "bar.workspaces.show_icons": false,
   "bar.workspaces.show_numbered": false,
   "bar.workspaces.showWsIcons": false,
@@ -116,5 +117,8 @@
   "menus.clock.weather.location": "Melbourne",
   "menus.clock.weather.interval": 1000000,
   "menus.clock.weather.key": "/home/nathan/.config/.weather.json",
+  "notifications.ignore": [
+    "spotify"
+  ],
   "theme.notification.opacity": 85
 }

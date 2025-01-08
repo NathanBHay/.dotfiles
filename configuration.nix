@@ -50,7 +50,7 @@
   security.rtkit.enable = true;
 
   # User Account
-  users.users."${user}" = {
+  users.users.nathan = {
     isNormalUser = true;
     description = "Nathan Hay";
     extraGroups = [
@@ -63,6 +63,9 @@
       "libvirtd"
     ];
     initialPassword = "1234";
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGWmSH7SLD2WH4ii1eW4oDMsBycOhq02LQP2z2Wq8JqS nathan"
+    ];
   };
   nix.settings.allowed-users = [ "@wheel" ];
 
@@ -128,7 +131,14 @@
   services.udisks2.enable = true;
 
   # SSH Daemon
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;
+      X11Forwarding = false;
+      AllowUsers = [ "nathan" ];
+    };
+  };
 
   services.logind = {
     lidSwitch = "suspend-then-hibernate";
