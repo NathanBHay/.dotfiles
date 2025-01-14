@@ -79,7 +79,6 @@
     }
   },
   "bar.launcher.icon": "",
-  "bar.battery.label": false,
   "bar.bluetooth.label": false,
   "bar.network.showWifiInfo": true,
   "bar.network.label": false,
