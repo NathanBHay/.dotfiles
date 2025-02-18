@@ -6,7 +6,7 @@ Host bitbucket.org
 	User git
 	AddKeysToAgent yes
 	IdentityFile ~/.ssh/id_bitbucket
-Host opi*
+Host opi0 opi1 opi2
 	User nathan
 	AddKeysToAgent yes
 	IdentityFile ~/.ssh/id_opi

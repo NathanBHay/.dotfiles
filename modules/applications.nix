@@ -4,6 +4,10 @@
   dotfiles,
   ...
 }:
+let
+  obsidianVault = "MEGA/Obsidian Vault/";
+  obsidianVaultConf = "${obsidianVault}.obsidian/";
+in
 {
   imports = [
     inputs.catppuccin.homeManagerModules.catppuccin
@@ -24,10 +28,12 @@
     pavucontrol # Audio Control
     qalculate-qt # Calculator
     qbittorrent # Torrent Client
+    tor-browser # Anonymous Browser
     zotero-beta # Research Manager
 
     # CLI Tools
     brightnessctl # Control Brightness
+    pdfannots2json # For Obsidian Zotero Plugin
     slurp # Screenshot Area Selector
     swappy # Screenshot Modifier
     swww # Wallpaper
@@ -51,9 +57,14 @@
   fonts.fontconfig.enable = true;
 
   # Configs located in $HOME
-  home.file."MEGA/Obsidian Vault/.obsidian" = {
-    source = "${dotfiles}/obsidian";
-    recursive = true;
+  home.file = {
+    "${obsidianVaultConf}" = {
+      source = "${dotfiles}/obsidian";
+      recursive = true;
+    };
+    "${obsidianVault}/Zotero Template.md".source = "${dotfiles}/obsidian/zotero-template.md";
+    "${obsidianVaultConf}/plugins/obsidian-zotero-desktop-connector/pdfannots2json".source =
+      "${pkgs.pdfannots2json}/bin/pdfannots2json";
   };
 
   # Configs located in .config

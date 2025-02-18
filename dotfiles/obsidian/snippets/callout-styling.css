@@ -1,0 +1,42 @@
+/* See https://lucide.dev for icon codes */
+
+/* annotation */
+.callout[data-callout="annotation-yellow"] {
+  --callout-color: var(--color-yellow-rgb);
+  --callout-icon: lucide-highlighter
+}
+
+.callout[data-callout="annotation-red"] {
+  --callout-color: var(--color-red-rgb);
+  --callout-icon: lucide-highlighter
+}
+
+.callout[data-callout="annotation-green"] {
+  --callout-color: var(--color-green-rgb);
+  --callout-icon: lucide-highlighter
+}
+
+.callout[data-callout="annotation-blue"] {
+  --callout-color: var(--color-blue-rgb);
+  --callout-icon: lucide-highlighter
+}
+
+.callout[data-callout="annotation-pink"] {
+  --callout-color: var(--color-purple-rgb);
+  --callout-icon: lucide-highlighter
+}
+
+.callout[data-callout="annotation-magenta"] {
+  --callout-color: var(--color-pink-rgb);
+  --callout-icon: lucide-highlighter
+}
+
+.callout[data-callout="annotation-orange"] {
+  --callout-color: var(--color-orange-rgb);
+  --callout-icon: lucide-highlighter
+}
+
+.callout[data-callout="annotation-gray"] {
+  --callout-color: var(--color-base-60);
+  --callout-icon: lucide-highlighter
+}

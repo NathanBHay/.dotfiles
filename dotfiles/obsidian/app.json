@@ -20,6 +20,7 @@
   "attachmentFolderPath": "Pictures",
   "userIgnoreFilters": [
     "Pictures/",
-    "README.md"
+    "README.md",
+    "Zotero Template.md"
   ]
 }
