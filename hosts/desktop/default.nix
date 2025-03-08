@@ -21,14 +21,14 @@ in
   services.kanata = {
     enable = true;
     keyboards.internalKeyboard = {
-      devices = [ "/dev/input/by-path/usb-ROYUAN_Akko_keyboard-event-kbd" ];
+      devices = [ "/dev/input/by-id/usb-ROYUAN_Akko_keyboard-event-kbd" ];
       configFile = "${dotfiles}/kanata.kbd";
     };
   };
 
   environment.systemPackages = with pkgs; [
-    v4l-utils
-    streamdeck-ui
+    v4l-utils # Webcam
+    streamdeck-ui # Streamdeck
   ];
 
   services.hardware.openrgb.enable = true;

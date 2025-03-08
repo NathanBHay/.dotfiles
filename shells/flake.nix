@@ -159,6 +159,12 @@
               texliveSmall # Latex
             ];
           };
+          constraint = pkgs.mkShell {
+            packages = with pkgs; [
+              minizinc
+              minizincide
+            ];
+          };
         };
       }
     );

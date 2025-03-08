@@ -28,6 +28,7 @@ in
     pavucontrol # Audio Control
     qalculate-qt # Calculator
     qbittorrent # Torrent Client
+    ticktick # Calendar
     tor-browser # Anonymous Browser
     zotero-beta # Research Manager
 
