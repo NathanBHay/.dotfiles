@@ -7,7 +7,7 @@
 "blue": "Question, Understanding, Vocabulary",
 "purple": "Reference, Term to lookup later",
 "pink": "pink - undefined",
-"orange": "orange - undefined",
+"orange": "Internally Important",
 "gray": "gray - undefined"
 }-%}
 

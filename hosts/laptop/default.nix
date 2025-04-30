@@ -1,4 +1,4 @@
-{ dotfiles, ... }:
+{ pkgs, dotfiles, ... }:
 {
   imports = [ ./hardware-configuration.nix ];
 
@@ -16,4 +16,10 @@
 
   # Power Management
   services.upower.enable = true;
+
+  # Printing
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [ brlaser ];
+  }
 }

@@ -148,7 +148,7 @@
       IdleActionSec=5min
     '';
   };
-  systemd.sleep.extraConfig = "HibernateDelaySec=2h";
+  systemd.sleep.extraConfig = "HibernateDelaySec=1h";
 
   system.stateVersion = "24.11";
 

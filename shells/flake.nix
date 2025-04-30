@@ -1,4 +1,4 @@
-# Shells: dotfiles zip python rust cpp js cryptopt write neuralnet ags
+# Shells: dotfiles zip python rust cpp js cryptopt write neuralnet ags constraint
 {
   # TODO: Automate above
   description = "Various Development Shells";
@@ -159,12 +159,25 @@
               texliveSmall # Latex
             ];
           };
-          constraint = pkgs.mkShell {
-            packages = with pkgs; [
-              minizinc
-              minizincide
-            ];
-          };
+          constraint =
+            let
+              chuffed = (pkgs.callPackage ../packages/chuffed { });
+              mzn = pkgs.minizinc.overrideAttrs (oldAttrs: {
+                postInstall =
+                  (oldAttrs.postInstall or "")
+                  + ''
+                    mkdir -p $out/share/minizinc/solvers
+                    cp ${chuffed}/share/minizinc/solvers/chuffed.msc $out/share/minizinc/solvers/
+                  '';
+              });
+            in
+            pkgs.mkShell {
+              buildInputs = [ chuffed ];
+              packages = with pkgs; [
+                mzn
+                minizincide
+              ];
+            };
         };
       }
     );
