@@ -70,7 +70,7 @@
   nix.settings.allowed-users = [ "@wheel" ];
 
   # Location Properties
-  time.timeZone = "Australia/Melbourne";
+  time.timeZone = "Europe/Berlin";
 
   i18n.defaultLocale = "en_AU.UTF-8";
   i18n.extraLocaleSettings = {
@@ -151,5 +151,6 @@
   systemd.sleep.extraConfig = "HibernateDelaySec=1h";
 
   system.stateVersion = "24.11";
+  system.stateVersion = "25.05";
 
 }

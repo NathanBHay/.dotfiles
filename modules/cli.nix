@@ -51,10 +51,11 @@ in
   # Symlinks
   home.file = {
     # ZSH config & plugins
-    ".zshrc".source = "${dotfiles}/zshrc";
+    ".zshrc".source = "${dotfiles}/zshrc.sh";
     ".zshsrc".text =
       readShells "/shells"
       + ''
+        source "${../shells/shellcommands.sh}"
         source "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
         source "${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
         source "${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh"

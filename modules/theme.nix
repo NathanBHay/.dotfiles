@@ -21,6 +21,8 @@ in
       accent = "light";
     };
     kvantum.enable = true;
+    gtk.enable = true;
+    mpv.enable = true;
   };
   # TODO: Perhaps delete this part?
   qt = {

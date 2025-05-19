@@ -28,6 +28,8 @@
               nixd # Nix LSP
               lua-language-server # LUA LSP
               nixfmt-rfc-style # Nix Formatter
+              shfmt # Shell Formatter
+              stylua # Lua Formatter
             ];
           };
 
@@ -81,6 +83,7 @@
             packages = with pkgs; [
               cargo # Package manager
               rust-analyzer # LSP
+              rustfmt # Formatter
             ];
           };
 
@@ -141,6 +144,7 @@
               cpp
               python
               js
+              rust
             ];
             packages = with pkgs; [
               lcov # Code Coverage
@@ -157,8 +161,14 @@
             packages = with pkgs; [
               pandoc # Text Converter
               texliveSmall # Latex
+              texlab
+
+              # Mermaid charts with auto reload
+              nodePackages.mermaid-cli # Graphing
+              entr # File Watcher
             ];
           };
+
           constraint =
             let
               chuffed = (pkgs.callPackage ../packages/chuffed { });

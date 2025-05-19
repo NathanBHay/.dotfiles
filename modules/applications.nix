@@ -21,7 +21,7 @@ in
     vesktop # Messaging
     flameshot # Screenshot
     kitty # Terminal Emulator
-    megasync # Drive Sync
+    megacmd # Drive Sync
     mpv # Media Player
     neovim # Text Editor
     obsidian # Notes App
@@ -48,6 +48,7 @@ in
     bun # JS Bundler
     dart-sass # CSS Compiler
     nodejs # JS Backend
+    tree-sitter # Syntax Highlighter
 
     # Fonts
     fira
@@ -66,6 +67,7 @@ in
     "${obsidianVault}/Zotero Template.md".source = "${dotfiles}/obsidian/zotero-template.md";
     "${obsidianVaultConf}/plugins/obsidian-zotero-desktop-connector/pdfannots2json".source =
       "${pkgs.pdfannots2json}/bin/pdfannots2json";
+    "Pictures/.avatar.jpg".source = "${dotfiles}/.avatar.jpg";
   };
 
   # Configs located in .config
