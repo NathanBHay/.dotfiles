@@ -28,6 +28,7 @@ alias mv='mv -v'
 alias cp='cp -v'
 alias rm='rm -v'
 alias rt='trash-put -v'
+alias find=fd
 alias cat='bat --theme="Catppuccin Mocha"'
 alias grep='grep --color=auto'
 alias pandoc='pandoc -V geometry:margin=3cm'
@@ -48,7 +49,7 @@ function md() {
   udisksctl mount -b "/dev/$device"
 }
 # Nix Commands
-local NIX_LOC="$HOME/.nixos"
+NIX_LOC="$HOME/.nixos"
 alias nixup="sudo nix flake update --flake '$NIX_LOC'"
 alias nixup_shells="sudo nix flake update --flake $NIX_LOC/shells"
 alias nixpack='nix-build -E "with import <nixpkgs> {}; callPackage ./default.nix {}"'

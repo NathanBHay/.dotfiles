@@ -23,7 +23,6 @@ in
     kitty # Terminal Emulator
     megacmd # Drive Sync
     mpv # Media Player
-    neovim # Text Editor
     obsidian # Notes App
     pavucontrol # Audio Control
     qalculate-qt # Calculator

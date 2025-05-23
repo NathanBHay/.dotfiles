@@ -15,7 +15,10 @@ rec {
     alias nix-${y}='nix develop ''$${y}_shell -c zsh'
   '';
   shellEnvrc = y: ''
-    alias envrc-${y}='echo use flake ''$${y}_shell > .envrc'
+    alias envrc-${y}='echo "use flake ''$${y}_shell
+    if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+      onefetch
+    fi" > .envrc'
   '';
   shellLink = x: y: (shellPath x y) + (shellAlias y) + (shellEnvrc y) + "\n";
   regex = "^# Shells:([[:alnum:][:blank:]]*).*";

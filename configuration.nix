@@ -100,7 +100,7 @@
   # Packages
   home-manager = {
     useGlobalPkgs = true;
-    extraSpecialArgs = { inherit inputs dotfiles; };
+    extraSpecialArgs = { inherit inputs dotfiles user; };
     users."${user}" = {
       home = {
         username = "${user}";
@@ -140,17 +140,6 @@
     };
   };
 
-  services.logind = {
-    lidSwitch = "suspend-then-hibernate";
-    extraConfig = ''
-      HandlePowerKey=suspend-then-hibernate
-      IdleAction=suspend-then-hibernate
-      IdleActionSec=5min
-    '';
-  };
-  systemd.sleep.extraConfig = "HibernateDelaySec=1h";
-
-  system.stateVersion = "24.11";
   system.stateVersion = "25.05";
 
 }

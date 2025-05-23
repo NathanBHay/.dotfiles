@@ -7,6 +7,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     ags.url = "github:Aylur/ags";
+    pwndgb.url = "github:pwndbg/pwndbg";
   };
 
   outputs =
@@ -30,6 +31,7 @@
               nixfmt-rfc-style # Nix Formatter
               shfmt # Shell Formatter
               stylua # Lua Formatter
+              bash-language-server # Bash LSP
             ];
           };
 
@@ -92,7 +94,7 @@
               ccls # LSP
               gdb # Debugger
               valgrind # Memory Profiler
-
+              inputs.pwndgb.packages.${x86}.default # Fancy GDB
               mpi # Process Parallelization
             ];
             nativeBuildInputs = with pkgs; [
@@ -102,7 +104,6 @@
               pkg-config
             ];
           };
-
           js = pkgs.mkShell {
             packages = with pkgs; [
               nodejs # Language

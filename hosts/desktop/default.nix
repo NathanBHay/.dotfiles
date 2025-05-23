@@ -26,6 +26,16 @@ in
     };
   };
 
+  services.logind = {
+    lidSwitch = "suspend-then-hibernate";
+    extraConfig = ''
+      HandlePowerKey=suspend-then-hibernate
+      IdleAction=suspend-then-hibernate
+      IdleActionSec=5min
+    '';
+  };
+  systemd.sleep.extraConfig = "HibernateDelaySec=1h";
+
   environment.systemPackages = with pkgs; [
     v4l-utils # Webcam
     streamdeck-ui # Streamdeck

@@ -1,0 +1,13 @@
+# History Settings
+set history save on
+set history remove-duplicates 100
+set history filename ~/.gdb_history
+
+set pagination off
+set confirm off
+
+set tui compact-source on
+set tui mouse-events on
+
+# Allow local .gdbinit
+set auto-load local-gdbinit

@@ -1,4 +1,4 @@
-{ pkgs, dotfiles, ... }:
+{ pkgs, dotfiles, user, ... }:
 let
   readShells = (import ./functions.nix).readShells;
   windowDup = pkgs.writeShellScriptBin "windowdup" ''
@@ -24,15 +24,19 @@ in
     eza # Ls Replacement
     fd # Find Replacement
     fzf # Fuzzy-Finder
+    helix-gpt # AI LSP
+    helix # Text Editor
     lazygit # Git GUI
     libqalculate # Calculator
     lsof # Process Finder
     neofetch # Fetch
+    neovim # Text Editor
     nmap # Internet Scanner
+    onefetch # Git Fetch
     playerctl # Control media players
     ripgrep # Recursive Grep
-    trash-cli # Trash
     tldr # Help Pages
+    trash-cli # Trash
     unzip # Unzip Files
     wget # Internet Download
     wl-clipboard # Clipboard Manager
@@ -55,6 +59,7 @@ in
     ".zshsrc".text =
       readShells "/shells"
       + ''
+        source "/home/${user}/.copilot_key.zsh"
         source "${../shells/shellcommands.sh}"
         source "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
         source "${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
@@ -66,11 +71,13 @@ in
     ".gitconfig".source = "${dotfiles}/git/.gitconfig";
     ".p10k.zsh".source = "${dotfiles}/.p10k.zsh";
     ".ssh/config".source = "${dotfiles}/ssh/config";
+    ".gdbinit".source = "${dotfiles}/gdbinit";
   };
 
   # Configs located in .config
   xdg.configFile = {
     bat.source = "${dotfiles}/bat";
+    "direnv/direnv.toml".source = "${dotfiles}/direnv.toml";
     ".gitignore".source = "${dotfiles}/git/.gitignore";
     nvim = {
       source = "${dotfiles}/nvim";
