@@ -17,7 +17,7 @@ rec {
   shellEnvrc = y: ''
     alias envrc-${y}='echo "use flake ''$${y}_shell
     if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
-      onefetch
+      onefetch -d churn
     fi" > .envrc'
   '';
   shellLink = x: y: (shellPath x y) + (shellAlias y) + (shellEnvrc y) + "\n";

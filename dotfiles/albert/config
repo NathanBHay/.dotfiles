@@ -30,7 +30,7 @@ command_reboot=sudo reboot
 enabled=false
 
 [websearch]
-enabled=true
+enabled=false
 
 [widgetsboxmodel]
 alwaysOnTop=true

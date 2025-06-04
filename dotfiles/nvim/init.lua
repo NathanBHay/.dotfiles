@@ -1,27 +1,3 @@
---[[
-
-=====================================================================
-=====================================================================
-========                                    .-----.          ========
-========         .----------------------.   | === |          ========
-========         |.-""""""""""""""""""-.|   |-----|          ========
-========         ||                    ||   | === |          ========
-========         ||   KICKSTART.NVIM   ||   |-----|          ========
-========         ||                    ||   | === |          ========
-========         ||                    ||   |-----|          ========
-========         ||:Gamer              ||   |:::::|          ========
-========         |'-..................-'|   |____o|          ========
-========         `"")----------------(""`   ___________      ========
-========        /::::::::::|  |::::::::::\  \ no mouse \     ========
-========       /:::========|  |==hjkl==:::\  \ required \    ========
-========      '""""""""""""'  '""""""""""""'  '""""""""""'   ========
-========                                                     ========
-=====================================================================
-=====================================================================
-
-Keymap "<space>sh" to [s]earch the [h]elp documentation.
---]]
-
 -- Set <space> as the leader key
 -- See `:help mapleader`
 vim.g.mapleader = ' '
@@ -90,8 +66,8 @@ vim.api.nvim_create_autocmd('ColorScheme', {
   desc = 'Transparent background',
   group = vim.api.nvim_create_augroup('kickstart-transparent-background', { clear = true }),
   callback = function()
-    vim.cmd('highlight Normal guibg=none')
-    vim.cmd('highlight NonText guibg=none')
+    vim.cmd 'highlight Normal guibg=none'
+    vim.cmd 'highlight NonText guibg=none'
   end,
 })
 
@@ -128,12 +104,6 @@ vim.keymap.set('i', '<C-DEL>', '<C-o>dw', { desc = 'Delete forwards word' })
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
--- TIP: Disable arrow keys in normal mode
-vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
-vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
-vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
-vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
-
 -- Keybinds to make split navigation easier.
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
@@ -164,18 +134,19 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup {
-  {                     -- Useful plugin to show you pending keybinds.
+  { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     opts = {
+      preset = 'helix',
       spec = {
-        { '<leader>c', group = '[C]ode',     mode = { 'n', 'x' } },
-        { '<leader>d', group = '[D]ebuuger' },
+        { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
+        -- { '<leader>d', group = '[D]ebuuger' },
         { '<leader>r', group = '[R]ename' },
         { '<leader>s', group = '[S]earch' },
         { '<leader>w', group = '[W]orkspace' },
-        { '<leader>t', group = '[T]oggle' },
-        { '<leader>h', group = '[L]azyGit',  mode = { 'n', 'v' } },
+        -- { '<leader>t', group = '[T]oggle' },
+        { '<leader>h', group = '[L]azyGit', mode = { 'n', 'v' } },
       },
     },
   },
@@ -186,8 +157,7 @@ require('lazy').setup {
   require 'plugins.lsp',
   require 'plugins.git',
   require 'plugins.navigation',
-  require 'plugins.debug',
-  -- require 'plugins.lint',
+  -- require 'plugins.debug',
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`

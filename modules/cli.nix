@@ -1,4 +1,9 @@
-{ pkgs, dotfiles, user, ... }:
+{
+  pkgs,
+  dotfiles,
+  user,
+  ...
+}:
 let
   readShells = (import ./functions.nix).readShells;
   windowDup = pkgs.writeShellScriptBin "windowdup" ''
@@ -59,7 +64,6 @@ in
     ".zshsrc".text =
       readShells "/shells"
       + ''
-        source "/home/${user}/.copilot_key.zsh"
         source "${../shells/shellcommands.sh}"
         source "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
         source "${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"

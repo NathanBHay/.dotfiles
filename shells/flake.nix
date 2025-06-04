@@ -86,6 +86,7 @@
               cargo # Package manager
               rust-analyzer # LSP
               rustfmt # Formatter
+              clippy # Linter
             ];
           };
 
@@ -167,6 +168,7 @@
               # Mermaid charts with auto reload
               nodePackages.mermaid-cli # Graphing
               entr # File Watcher
+              presenterm
             ];
           };
 

@@ -8,7 +8,6 @@ export EDITOR=nvim
 export VISUAL=nvim
 export BROWSER='brave'
 export WORDCHARS=${WORDCHARS/\/}
-export DIRENV_LOG_FORMAT=
 export FZF_DEFAULT_COMMAND='fd . --hidden --exclude ".git"'
 export FZF_DEFAULT_OPTS=" \
   --height=40% --layout=reverse --border --filepath-word --bind ctrl-z:ignore \
