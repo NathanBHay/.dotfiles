@@ -1,48 +1,86 @@
 -- Code completion and LSP integration
 return {
-  -- { -- AI tools
-  --   'zbirenbaum/copilot.lua',
-  --   cmd = 'Copilot',
-  --   event = 'InsertEnter',
-  --   config = function()
-  --     require('copilot').setup {
-  --       suggestion = {
-  --         enabled = true,
-  --         auto_trigger = true,
-  --         debounce = 75,
-  --         keymap = {
-  --           accept = '<S-TAB>',
-  --           accept_word = false,
-  --           accept_line = false,
-  --           next = '<M-]>',
-  --           prev = '<M-[>',
-  --           dismiss = '<C-]>',
-  --         },
-  --       },
-  --     }
-  --   end,
-  -- },
-
-  {
-    'CopilotC-Nvim/CopilotChat.nvim',
-    branch = 'canary',
-    dependencies = {
-      { 'zbirenbaum/copilot.lua' }, -- or github/copilot.vim
-      { 'nvim-lua/plenary.nvim' },  -- for curl, log wrapper
-    },
-    opts = {},
-    keys = {
-      --stylua: ignore
-      { '<S-TAB>', function() require('CopilotChat').toggle { window = { layout = 'float' } } end, desc = 'Toggle Copilot Chat' },
-    },
+  { -- AI tools
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
+    config = function()
+      require('copilot').setup {
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          debounce = 75,
+          keymap = {
+            accept = '<S-TAB>',
+            accept_word = false,
+            accept_line = false,
+            next = '<M-]>',
+            prev = '<M-[>',
+            dismiss = '<C-]>',
+          },
+        },
+      }
+    end,
   },
   {
-    ft = 'lua',
+    'yetone/avante.nvim',
+    event = 'VeryLazy',
+    version = false, -- Never set this value to "*"! Never!
     opts = {
-      library = {
-        -- Load luvit types when the `vim.uv` word is found
-        { path = 'luvit-meta/library', words = { 'vim%.uv' } },
+      -- add any opts here
+      -- for example
+      provider = 'copilot',
+      suggestion = {
+        debounce = 2000,
       },
+      hints = {
+        enabled = false,
+      },
+      mappings = {
+        -- you can change the default keymaps here
+        ask = '<leader>Aa',
+        refresh = '<leader>Ar',
+        edit = '<leader>Ae',
+        new_ask = '<leader>An',
+        focus = '<leader>Af',
+        stop = '<leader>As',
+        toggle = {
+          default = '<leader>At',
+          debug = '<leader>Ad',
+          hint = '<leader>Ah',
+          suggestion = '<leader>As',
+          repomap = '<leader>AR',
+        },
+        select_model = '<leader>A?',
+        select_history = '<leader>AH',
+        files = {
+          add_current = '<leader>Ac',
+          add_all_buffers = '<leader>AB',
+        },
+      },
+    },
+    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+    build = 'make',
+    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'stevearc/dressing.nvim',
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      --- The below dependencies are optional,
+      'nvim-telescope/telescope.nvim', -- for file_selector provider telescope
+      'saghen/blink.cmp', -- autocompletion for avante commands and mentions
+      -- 'ibhagwan/fzf-lua', -- for file_selector provider fzf
+      'nvim-tree/nvim-web-devicons', -- or echasnovski/mini.icons
+      'zbirenbaum/copilot.lua', -- for providers='copilot'
+      -- {
+      --   -- Make sure to set this up properly if you have lazy=true
+      --   'MeanderingProgrammer/render-markdown.nvim',
+      --   opts = {
+      --     file_types = { 'markdown', 'Avante' },
+      --   },
+      --   ft = { 'markdown', 'Avante' },
+      -- },
     },
   },
   {
@@ -194,6 +232,9 @@ return {
             ['rust-analyzer'] = {
               cargo = {
                 allFeatures = true,
+              },
+              check = {
+                command = 'clippy',
               },
             },
           },
