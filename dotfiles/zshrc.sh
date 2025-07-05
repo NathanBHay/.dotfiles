@@ -28,6 +28,7 @@ alias cp='cp -v'
 alias rm='rm -v'
 alias rt='trash-put -v'
 alias find=fd
+alias rcat="$(which cat)" # Just in case
 alias cat='bat --theme="Catppuccin Mocha"'
 alias grep='grep --color=auto'
 alias pandoc='pandoc -V geometry:margin=3cm'
@@ -70,23 +71,35 @@ nixiso () {
   nix run nixpkgs#nixos-generators -- --format "$f" --flake "$NIX_LOC#$1" -o "$NIX_LOC/result"
 }
 
-# Ctrl-Binds
+# Keybindings
 bindkey -e
-bindkey  "^[[H"   beginning-of-line
-bindkey  "^[[F"   end-of-line
-bindkey  "^[[3~"  delete-char
-bindkey '^[[1;5D' backward-word
-bindkey '^[[1;5C' forward-word
-bindkey '^H' backward-kill-word
-bindkey '5~' kill-word
+typeset -A keybinds
+keybinds=(
+  khome   beginning-of-line
+  kend    end-of-line
+  kich1   overwrite-mode
+  kdch1   delete-char
+  kcuu1   history-beginning-search-backward
+  kcud1   history-beginning-search-forward
+  kcub1   backward-char
+  kcuf1   forward-char
+  kpp     beginning-of-buffer-or-history
+  knp     end-of-buffer-or-history
+)
 
-# Search History
-bindkey "^[[A" history-search-backward
-bindkey "^[[B" history-search-forward
+for k in "${(@k)keybinds}"; do
+  [[ -n "${terminfo[$k]}" ]] && bindkey "${terminfo[$k]}" "${keybinds[$k]}"
+done
+
+# Keys not included in terminfo
+bindkey "^[[1;5D"   backward-word         # Ctrl+Left
+bindkey "^[[1;5C"   forward-word          # Ctrl+Right
+bindkey "^H"        backward-kill-word    # Ctrl+Backspace
+bindkey "5~"        kill-word
 
 # History
 HISTFILE=~/.zsh_history
-HISTS=32000
+HISTSIZE=32000
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
 setopt appendhistory
@@ -97,10 +110,17 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 setopt globdots
 
+# Allows # to be used in comments
+setopt interactivecomments
 
 # Completions
 eval "$(dircolors -b)"
 autoload -Uz compinit && compinit
+
+# Cache
+zstyle ':completion::complete:*' use-cache 1
+zstyle ':completion::complete:*' cache-path ${XDG_CACHE_HOME:-$HOME/.cache}/zsh/
+
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion::complete:*' gain-privileges 1
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}

@@ -1,3 +1,7 @@
+# shellcommands.sh - A collection of shell commands used inside shells
+
+# Mermaod diagram generator
+# Usage: mdiagram <input.mmd> [output.svg]
 mdiagram() {
   local input="$1"
   local output="${2:-${input%.*}.svg}"
@@ -9,11 +13,16 @@ mdiagram() {
 
   # Check if the input file exists
   if [ ! -f "$input" ]; then
-    echo "\`\`\`mermaid\n\n\`\`\`" > "$input"
+    echo "❌ Please ensure input file exists" >"$input"
   fi
-  echo $input
-  echo $output
 
   # Start entr to watch the .mmd file and regenerate the .svg
-  echo "$input" | entr -c sh -c 'mmdc -i "$0" -o "$1" && $2 "$1"' "$input" "$output" "$BROWSER"
+  $BROWSER "$output"
+  echo "$input" | entr -c sh -c 'mmdc -i "$0" -o "$1"' "$input" "$output"
+}
+
+# Run pwndbg for a specific test case, setting a breakpoint when it starts
+# Usage: pwntest <binary> <function>
+pwntest() {
+  pwndbg $1 --ex "rbreak $2" --ex "set args $2"
 }

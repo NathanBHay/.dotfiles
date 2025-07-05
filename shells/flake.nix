@@ -1,4 +1,4 @@
-# Shells: dotfiles zip python rust cpp js cryptopt write neuralnet ags constraint
+# Shells: dotfiles zip python rust cpp js cryptopt write neuralnet ags constraint game
 {
   # TODO: Automate above
   description = "Various Development Shells";
@@ -11,15 +11,11 @@
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      ...
-    }@inputs:
+    inputs:
     inputs.flake-utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = import nixpkgs { inherit system; };
+        pkgs = import inputs.nixpkgs { inherit system; };
         x86 = "x86_64-linux";
       in
       {
@@ -78,16 +74,22 @@
               python312Packages.torchvision # Vision
               python312Packages.pydicom # Dicom Files
               python312Packages.nibabel # Medical Imaging
+              python312Packages.opencv4
             ];
           };
 
           rust = pkgs.mkShell {
             packages = with pkgs; [
+              rustc # Language
               cargo # Package manager
               rust-analyzer # LSP
               rustfmt # Formatter
               clippy # Linter
+              mdbook # Documentation
+              cargo-expand # Macro Expander
             ];
+
+            RUST_SRC_PATH = "${pkgs.rustPlatform.rustLibSrc}";
           };
 
           cpp = pkgs.mkShell {
@@ -97,6 +99,7 @@
               valgrind # Memory Profiler
               inputs.pwndgb.packages.${x86}.default # Fancy GDB
               mpi # Process Parallelization
+              bc
             ];
             nativeBuildInputs = with pkgs; [
               autoconf
@@ -171,26 +174,6 @@
               presenterm
             ];
           };
-
-          constraint =
-            let
-              chuffed = (pkgs.callPackage ../packages/chuffed { });
-              mzn = pkgs.minizinc.overrideAttrs (oldAttrs: {
-                postInstall =
-                  (oldAttrs.postInstall or "")
-                  + ''
-                    mkdir -p $out/share/minizinc/solvers
-                    cp ${chuffed}/share/minizinc/solvers/chuffed.msc $out/share/minizinc/solvers/
-                  '';
-              });
-            in
-            pkgs.mkShell {
-              buildInputs = [ chuffed ];
-              packages = with pkgs; [
-                mzn
-                minizincide
-              ];
-            };
         };
       }
     );
