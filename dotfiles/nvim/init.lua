@@ -151,7 +151,6 @@ require('lazy').setup {
     },
   },
 
-  -- require 'kickstart.plugins.debug',
   require 'plugins.editor',
   require 'plugins.theme',
   require 'plugins.lsp',

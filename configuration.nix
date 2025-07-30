@@ -70,7 +70,7 @@
   nix.settings.allowed-users = [ "@wheel" ];
 
   # Location Properties
-  time.timeZone = "Europe/Berlin";
+  time.timeZone = "Australia/Melbourne";
 
   i18n.defaultLocale = "en_AU.UTF-8";
   i18n.extraLocaleSettings = {

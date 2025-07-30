@@ -15,7 +15,7 @@ in
   ];
   home.packages = with pkgs; [
     # Apps
-    albert # Application Launcher
+    rofi # Application Launcher
     bitwarden # Password Manager
     brave # Browser
     vesktop # Messaging
@@ -42,6 +42,7 @@ in
     # Processes
     hyprlock # Screen Lock
     hypridle # Screen Idle
+    hyprpanel
 
     # Compilers
     bun # JS Bundler

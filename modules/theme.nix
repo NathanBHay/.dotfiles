@@ -3,6 +3,9 @@ let
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in
 {
+  home.packages = with pkgs; [
+    gtk-engine-murrine
+  ];
   programs = {
     spicetify = {
       enable = true;
@@ -21,6 +24,7 @@ in
       accent = "light";
     };
     kvantum.enable = true;
+    rofi.enable = true;
     mpv.enable = true;
   };
   # TODO: Perhaps delete this part?
@@ -31,6 +35,9 @@ in
   };
   gtk = {
     enable = true;
+    theme = {
+      name = "Catppuccin-Dark";
+    };
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.catppuccin-papirus-folders.override {

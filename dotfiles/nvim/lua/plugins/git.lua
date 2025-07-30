@@ -51,15 +51,15 @@ return {
         map('n', '<leader>ls', gitsigns.stage_hunk, { desc = '[L]azygit Hunk [S]tage' })
         map('n', '<leader>lr', gitsigns.reset_hunk, { desc = '[L]azygit Hunk [R]eset' })
         map('n', '<leader>lS', gitsigns.stage_buffer, { desc = '[L]azygit Hunk [S]tage Buffer' })
-        map('n', '<leader>lu', gitsigns.undo_stage_hunk, { desc = '[L]azygit Hunk [U]ndo Stage' })
+        map('n', '<leader>lu', gitsigns.stage_hunk, { desc = '[L]azygit Hunk [U]ndo Stage' })
         map('n', '<leader>lR', gitsigns.reset_buffer, { desc = '[L]azygit Hunk [R]eset Buffer' })
         map('n', '<leader>lp', gitsigns.preview_hunk, { desc = '[L]azygit Hunk [P]review' })
         map('n', '<leader>lb', function()
           gitsigns.blame_line { full = true }
         end, { desc = '[L]azygit Hunk [B]lame' })
-        map('n', '<leader>ltb', gitsigns.toggle_current_line_blame, { desc = '[L]azygit Hunk [S]tage' })
+        map('n', '<leader>ltb', gitsigns.toggle_current_line_blame, { desc = '[L]azygit [B]lame' })
         map('n', '<leader>ld', gitsigns.diffthis, { desc = '[L]azygit Hunk [D]iff' })
-        map('n', '<leader>ltd', gitsigns.toggle_deleted, { desc = '[L]azygit Hunk [S]tage' })
+        map('n', '<leader>ltd', gitsigns.preview_hunk_inline, { desc = '[L]azygit Hunk [S]tage' })
 
         -- Text object
         map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')

@@ -16,7 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
   };
 
   outputs =
@@ -24,9 +23,6 @@
     let
       user = "nathan";
       dotfiles = ./dotfiles;
-      overlays = {
-        nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
-      };
       coreModules =
         x:
         [ x ]
@@ -40,7 +36,6 @@
         ++ [
           ./modules/display.nix
           inputs.catppuccin.nixosModules.catppuccin
-          overlays
         ];
     in
     {

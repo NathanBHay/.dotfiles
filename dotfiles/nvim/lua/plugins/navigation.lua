@@ -3,7 +3,6 @@ return {
   { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
-    branch = '0.1.x',
     deendencies = {
       'nvim-lua/plenary.nvim',
       { -- If encountering errors, see telescope-fzf-native README for install instructions
@@ -31,14 +30,13 @@ return {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
-        -- },
-        -- pickers = {}
-        extensions = {
+        defaults = {
+          mappings = {
+            i = { ['<c-enter>'] = 'to_fuzzy_refine', ['<esc>'] = 'close' },
+          },
         },
+        -- pickers = {}
+        extensions = {},
       }
 
       -- Enable telescope extensions, if they are installed
@@ -47,6 +45,7 @@ return {
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
+      vim.keymap.set('n', '<leader>q', builtin.quickfix, { desc = 'Search [Q]uick Fix' })
       vim.keymap.set('n', '<leader>h', builtin.help_tags, { desc = 'Search [H]elp' })
       vim.keymap.set('n', '<leader>k', builtin.keymaps, { desc = 'Search [K]eymaps' })
       vim.keymap.set('n', '<leader>f', builtin.find_files, { desc = 'Search [F]iles' })

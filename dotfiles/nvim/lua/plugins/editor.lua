@@ -7,14 +7,11 @@ return {
     config = function()
       -- maybe mini.ai, splitojoin
       require('mini.comment').setup()
+      require('mini.splitjoin').setup()
+      require('mini.bracketed').setup()
       require('mini.jump').setup {
         delay = {
           highlight = 1500,
-        },
-      }
-      require('mini.jump2d').setup {
-        mappings = {
-          start_jumping = 'gw',
         },
       }
       require('mini.surround').setup {
