@@ -19,7 +19,7 @@
   };
 
   outputs =
-    { self, nixpkgs, ... }@inputs:
+    { nixpkgs, ... }@inputs:
     let
       user = "nathan";
       dotfiles = ./dotfiles;

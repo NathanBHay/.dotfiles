@@ -10,7 +10,7 @@ Host opi0 opi1 opi2
 	User nathan
 	AddKeysToAgent yes
 	IdentityFile ~/.ssh/id_opi
-Host nathandesktop nathanlaptop
+Host nathandesktop nathanlaptop 192.168.13.250 192.168.13.153
 	User nathan
 	AddKeysToAgent yes
 	IdentityFile ~/.ssh/id_nathan

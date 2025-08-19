@@ -1,4 +1,4 @@
-# Shells: dotfiles zip python rust cpp js cryptopt write neuralnet ags constraint game
+# Shells: dotfiles zip python rust cpp js cryptopt write neuralnet ags constraint game java sage
 {
   # TODO: Automate above
   description = "Various Development Shells";
@@ -6,7 +6,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    ags.url = "github:Aylur/ags";
     pwndgb.url = "github:pwndbg/pwndbg";
   };
 
@@ -66,6 +65,15 @@
             ];
           };
 
+          sagemath = pkgs.mkShell {
+            inputsFrom = [ python ];
+            packages = with pkgs; [
+              python312Packages.sage # SageMath
+              python312Packages.sage-shell # Sage Shell
+              python312Packages.sage-plot # Plotting
+            ];
+          };
+
           neuralnet = pkgs.mkShell {
             inputsFrom = [ python ];
             packages = with pkgs; [
@@ -75,6 +83,7 @@
               python312Packages.pydicom # Dicom Files
               python312Packages.nibabel # Medical Imaging
               python312Packages.opencv4
+              python312Packages.scikit-learn # Machine Learning
             ];
           };
 
@@ -108,6 +117,7 @@
               pkg-config
             ];
           };
+
           js = pkgs.mkShell {
             packages = with pkgs; [
               nodejs # Language
@@ -116,32 +126,6 @@
               typescript-language-server # LSP
               dart-sass # SCSS
             ];
-          };
-
-          ags = pkgs.mkShell {
-            inputsFrom = [ js ];
-            GI_TYPELIB_PATH = "/run/current-system/sw/lib/girepository-1.0/";
-            packages = [
-              pkgs.python3
-              pkgs.libgtop
-              (inputs.ags.packages.${x86}.default.override {
-                extraPackages = with inputs.ags.packages.${x86}; [
-                  io
-                  battery
-                  hyprland
-                  mpris
-                  wireplumber
-                  network
-                  bluetooth
-                  notifd
-                  powerprofiles
-                  cava
-                  tray
-                ];
-              })
-            ];
-            buildInputs = [ pkgs.glib ];
-            nativeBuildInputs = [ pkgs.gobject-introspection ];
           };
 
           cryptopt = pkgs.mkShell {
@@ -159,6 +143,14 @@
               calc # Calculator
               jq # JSON Processor
               (pkgs.callPackage ../packages/assemblyline { })
+            ];
+          };
+
+          java = pkgs.mkShell {
+            packages = with pkgs; [
+              jdk24 # Java Development Kit
+              jdt-language-server
+              jetbrains.idea-community
             ];
           };
 
