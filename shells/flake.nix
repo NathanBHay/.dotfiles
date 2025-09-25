@@ -1,4 +1,4 @@
-# Shells: dotfiles zip python rust cpp js cryptopt write neuralnet ags constraint game java sage
+# Shells: dotfiles zip python rust cpp js cryptopt write neuralnet ags constraint game java sagemath
 {
   # TODO: Automate above
   description = "Various Development Shells";
@@ -68,9 +68,7 @@
           sagemath = pkgs.mkShell {
             inputsFrom = [ python ];
             packages = with pkgs; [
-              python312Packages.sage # SageMath
-              python312Packages.sage-shell # Sage Shell
-              python312Packages.sage-plot # Plotting
+              sage
             ];
           };
 

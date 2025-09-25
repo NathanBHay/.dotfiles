@@ -20,7 +20,6 @@ in
     brave # Browser
     vesktop # Messaging
     flameshot # Screenshot
-    jellyfin-media-player # Media Server Client
     kitty # Terminal Emulator
     megacmd # Drive Sync
     mpv # Media Player

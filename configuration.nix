@@ -88,8 +88,9 @@
   # Core Packages
   environment.systemPackages = with pkgs; [
     git
-    systemd
+    nextdns
     nfs-utils
+    systemd
   ];
 
   fonts.packages = with pkgs.nerd-fonts; [
@@ -139,6 +140,19 @@
       AllowUsers = [ "nathan" ];
     };
   };
+
+  # DNS
+  services.nextdns = {
+    enable = true;
+    arguments = [
+      "-config"
+      ""
+      "-cache-size"
+      "10MB"
+    ];
+  };
+
+  networking.nameservers = [ "127.0.0.1" ];
 
   programs.nix-ld.enable = true;
 

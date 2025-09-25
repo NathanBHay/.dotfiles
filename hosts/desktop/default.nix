@@ -26,7 +26,7 @@ in
     };
   };
 
-  services.logind = {
+  services.logind.settings.Login = {
     lidSwitch = "suspend-then-hibernate";
     extraConfig = ''
       HandlePowerKey=suspend-then-hibernate

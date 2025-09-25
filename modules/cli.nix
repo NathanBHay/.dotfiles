@@ -23,7 +23,6 @@ in
     aspell # Spell Correction
     bat # Cat Replacment
     btop # Resource Monitor
-    cliphist # Clipboard History
     dust # Folder Storage
     efibootmgr # Boot Entry Manager
     eza # Ls Replacement
@@ -61,15 +60,13 @@ in
   home.file = {
     # ZSH config & plugins
     ".zshrc".source = "${dotfiles}/zshrc.sh";
-    ".zshsrc".text =
-      readShells "/shells"
-      + ''
-        source "${../shells/shellcommands.sh}"
-        source "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-        source "${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-        source "${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh"
-        source "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
-      '';
+    ".zshsrc".text = readShells "/shells" + ''
+      source "${../shells/shellcommands.sh}"
+      source "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+      source "${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+      source "${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh"
+      source "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
+    '';
 
     # Misc configs
     ".gitconfig".source = "${dotfiles}/git/.gitconfig";
