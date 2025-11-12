@@ -11,7 +11,8 @@
     "relative-numbers",
     "custom-rainbow-colors",
     "filehide",
-    "borders"
+    "borders",
+    "citations"
   ],
   "textFontFamily": "IBM Plex Sans"
 }

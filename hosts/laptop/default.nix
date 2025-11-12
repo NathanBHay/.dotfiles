@@ -22,7 +22,7 @@
 
   # Printing
   services.printing = {
-    enable = true;
+    enable = false;
     drivers = with pkgs; [ brlaser ];
   };
 }

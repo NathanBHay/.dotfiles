@@ -1,3 +1,4 @@
-div[data-path$='README.md']{
-	display: none;
+div[data-path$='README.md'],
+div[data-path$='Zotero Template.md'] {
+  display: none;
 }

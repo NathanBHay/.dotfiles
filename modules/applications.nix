@@ -16,7 +16,6 @@ in
   home.packages = with pkgs; [
     # Apps
     rofi # Application Launcher
-    bitwarden # Password Manager
     brave # Browser
     vesktop # Messaging
     flameshot # Screenshot
@@ -29,7 +28,7 @@ in
     qbittorrent # Torrent Client
     ticktick # Calendar
     tor-browser # Anonymous Browser
-    zotero-beta # Research Manager
+    zotero # Research Manager
 
     # CLI Tools
     brightnessctl # Control Brightness
