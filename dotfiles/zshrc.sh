@@ -117,6 +117,11 @@ setopt interactivecomments
 eval "$(dircolors -b)"
 autoload -Uz compinit && compinit
 
+# Open current line in editor
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^N' edit-command-line
+
 # Cache
 zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion::complete:*' cache-path ${XDG_CACHE_HOME:-$HOME/.cache}/zsh/

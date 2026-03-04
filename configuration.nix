@@ -156,6 +156,11 @@
 
   programs.nix-ld.enable = true;
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  hardware.enableRedistributableFirmware = true;
+
+  services.avahi.enable = true;
+
   system.stateVersion = "25.05";
 
 }

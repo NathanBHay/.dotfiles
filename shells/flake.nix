@@ -1,4 +1,4 @@
-# Shells: dotfiles zip python rust cpp js cryptopt write neuralnet ags constraint game java sagemath
+# Shells: dotfiles zip python rust cpp js cryptopt write neuralnet ags constraint game java sagemath webscrape
 {
   # TODO: Automate above
   description = "Various Development Shells";
@@ -47,22 +47,41 @@
 
           python = pkgs.mkShell {
             packages = with pkgs; [
-              python312 # Language
+              python313 # Language
               black # Linter
               isort # Linter
               pyright # LSP
 
               # Packages
-              python312Packages.jupyterlab # Juptyer
-              python312Packages.matplotlib # Graphing
-              python312Packages.numpy # Math
-              python312Packages.pandas # Data Analysis
-              python312Packages.scipy # Math
-              python312Packages.tqdm # Progress Bar
-              python312Packages.snakeviz # Profiler
-              python312Packages.tkinter # GUI
-              python312Packages.tabulate # Table
+              python313Packages.jupyterlab # Juptyer
+              python313Packages.matplotlib # Graphing
+              python313Packages.numpy # Math
+              python313Packages.pandas # Data Analysis
+              python313Packages.scipy # Math
+              python313Packages.tqdm # Progress Bar
+              python313Packages.snakeviz # Profiler
+              python313Packages.tkinter # GUI
+              python313Packages.tabulate # Table
+              python313Packages.requests # HTTP Requests
+              python313Packages.beautifulsoup4 # Web Scraping
+              marp-cli
             ];
+          };
+
+          webscrape = pkgs.mkShell {
+            inputsFrom = [ python ];
+            nativeBuildInputs = with pkgs; [
+              playwright-driver.browsers
+            ];
+            packages = with pkgs; [
+              python313Packages.playwright # Web Testing
+            ];
+            shellHook = ''
+              export PLAYWRIGHT_BROWSERS_PATH=${pkgs.playwright-driver.browsers}
+              export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=true
+              export PLAYWRIGHT_HOST_PLATFORM_OVERRIDE="ubuntu-24.04"
+            '';
+
           };
 
           sagemath = pkgs.mkShell {
@@ -76,12 +95,12 @@
             inputsFrom = [ python ];
             packages = with pkgs; [
               kaggle # Data
-              python312Packages.torch # Neural Nets
-              python312Packages.torchvision # Vision
-              python312Packages.pydicom # Dicom Files
-              python312Packages.nibabel # Medical Imaging
-              python312Packages.opencv4
-              python312Packages.scikit-learn # Machine Learning
+              python313Packages.torch # Neural Nets
+              python313Packages.torchvision # Vision
+              python313Packages.pydicom # Dicom Files
+              python313Packages.nibabel # Medical Imaging
+              python313Packages.opencv4
+              python313Packages.scikit-learn # Machine Learning
             ];
           };
 

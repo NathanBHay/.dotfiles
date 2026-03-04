@@ -28,8 +28,6 @@ in
     eza # Ls Replacement
     fd # Find Replacement
     fzf # Fuzzy-Finder
-    helix-gpt # AI LSP
-    helix # Text Editor
     lazygit # Git GUI
     libqalculate # Calculator
     lsof # Process Finder
