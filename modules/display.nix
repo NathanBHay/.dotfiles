@@ -1,5 +1,12 @@
-{ pkgs, user, ... }:
 {
+  pkgs,
+  dotfiles,
+  user,
+  ...
+}:
+{
+  # Stylix Theme
+  imports = [ ./stylix.nix ];
 
   # Home Manager Modules
   home-manager.users."${user}".imports = [
@@ -35,8 +42,6 @@
     XDG_CURRENT_DESKTOP = "hyprland";
     XDG_SESSION_DESKTOP = "hyprland";
     XDG_SESSION_TYPE = "wayland";
-    QT_QPA_PLATFORMTHEME = "qt5ct";
-    QT_STYLE_OVERRIDE = "kvantum";
     GDK_BACKEND = "wayland";
     NIXOS_OZONE_WL = "1";
   };
@@ -52,7 +57,4 @@
       pkgs.xdg-desktop-portal-gtk
     ];
   };
-
-  # Bootloader Theme
-  catppuccin.grub.enable = true;
 }

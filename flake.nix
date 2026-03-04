@@ -9,7 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    catppuccin.url = "github:catppuccin/nix";
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -35,7 +38,7 @@
         (coreModules x)
         ++ [
           ./modules/display.nix
-          inputs.catppuccin.nixosModules.catppuccin
+          inputs.stylix.nixosModules.stylix
         ];
     in
     {

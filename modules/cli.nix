@@ -75,13 +75,11 @@ in
 
   # Configs located in .config
   xdg.configFile = {
-    bat.source = "${dotfiles}/bat";
     "direnv/direnv.toml".source = "${dotfiles}/direnv.toml";
     ".gitignore".source = "${dotfiles}/git/.gitignore";
     nvim = {
       source = "${dotfiles}/nvim";
       recursive = true;
     };
-    yazi.source = "${dotfiles}/yazi";
   };
 }

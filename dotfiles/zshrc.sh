@@ -29,7 +29,7 @@ alias rm='rm -v'
 alias rt='trash-put -v'
 alias find=fd
 alias rcat="$(which cat)" # Just in case
-alias cat='bat --theme="Catppuccin Mocha"'
+alias cat='bat --theme="base16"'
 alias grep='grep --color=auto'
 alias pandoc='pandoc -V geometry:margin=3cm'
 alias neofetch='neofetch --ascii_distro nixos_old'
