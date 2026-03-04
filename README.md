@@ -15,4 +15,5 @@ This is my system's configuration files for [NixOS](https://nixos.org/) and some
 There are various unique commands that have been added to the ZSH config. Some of these include:
 - `nixup`, update nix flakes.
 - `nixre`, rebuild nix with option argument for host.
+- `nix-clean`, run both the nix clean commands.
 - `md`, mount the most recent drive, or optionally mount a specific drive.

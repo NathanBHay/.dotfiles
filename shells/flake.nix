@@ -23,7 +23,7 @@
             packages = with pkgs; [
               nixd # Nix LSP
               lua-language-server # LUA LSP
-              nixfmt-rfc-style # Nix Formatter
+              nixfmt # Nix Formatter
               shfmt # Shell Formatter
               stylua # Lua Formatter
               bash-language-server # Bash LSP

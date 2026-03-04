@@ -41,6 +41,7 @@ in
     hyprlock # Screen Lock
     hypridle # Screen Idle
     hyprpanel
+    hyprsunset # Blue Light Filter
 
     # Compilers
     bun # JS Bundler
@@ -49,9 +50,7 @@ in
     tree-sitter # Syntax Highlighter
 
     # Fonts
-    fira
     ibm-plex
-    noto-fonts
   ];
 
   fonts.fontconfig.enable = true;
@@ -70,7 +69,6 @@ in
 
   # Configs located in .config
   xdg.configFile = {
-    albert.source = "${dotfiles}/albert";
     hypr.source = "${dotfiles}/hypr";
     swappy.source = "${dotfiles}/swappy";
   };
