@@ -1,7 +1,6 @@
 {
   pkgs,
   dotfiles,
-  user,
   ...
 }:
 let
@@ -22,6 +21,7 @@ in
     # CLI Tools
     aspell # Spell Correction
     bat # Cat Replacment
+    bluetui # Bluetooth Manager
     btop # Resource Monitor
     dust # Folder Storage
     efibootmgr # Boot Entry Manager
@@ -31,12 +31,13 @@ in
     lazygit # Git GUI
     libqalculate # Calculator
     lsof # Process Finder
-    neofetch # Fetch
+    fastfetch # Fetch
     neovim # Text Editor
     nmap # Internet Scanner
     onefetch # Git Fetch
     playerctl # Control media players
     ripgrep # Recursive Grep
+    sops # Secret Manager
     tldr # Help Pages
     trash-cli # Trash
     unzip # Unzip Files

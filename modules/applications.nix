@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   dotfiles,
+  secrets,
   ...
 }:
 let
@@ -33,6 +34,7 @@ in
     brightnessctl # Control Brightness
     pdfannots2json # For Obsidian Zotero Plugin
     slurp # Screenshot Area Selector
+    sops
     swappy # Screenshot Modifier
     swww # Wallpaper
     wayshot # Screenshot

@@ -32,7 +32,7 @@ alias rcat="$(which cat)" # Just in case
 alias cat='bat --theme="base16"'
 alias grep='grep --color=auto'
 alias pandoc='pandoc -V geometry:margin=3cm'
-alias neofetch='neofetch --ascii_distro nixos_old'
+alias fastfetch='fastfetch --ascii_distro nixos_old'
 alias ssh='kitty +kitten ssh'
 alias du=dust
 alias df='df -h'

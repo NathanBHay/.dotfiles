@@ -34,7 +34,6 @@ in
       IdleActionSec=5min
     '';
   };
-  systemd.sleep.extraConfig = "HibernateDelaySec=1h";
 
   environment.systemPackages = with pkgs; [
     v4l-utils # Webcam

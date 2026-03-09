@@ -1,0 +1,3 @@
+creation_rules:
+  - path_regex: 'dotfiles/.secrets.json$'
+    age: "age15v90k7nnq9yn0medfwcecferul0s4r94v9sdw3k7wm3t8lfkx9xqttd6t6"

@@ -1,4 +1,4 @@
-{ ... }:
+{ secrets, dotfiles, ... }:
 {
   programs.hyprpanel.settings = {
     bar = {
@@ -52,7 +52,7 @@
       clock = {
         weather = {
           interval = 1000000;
-          key = "/home/nathan/.config/.weather.json"; # TODO: Make secret
+          key = secrets.weather_api;
           location = "Melbourne";
           unit = "metric";
         };
@@ -63,7 +63,7 @@
           command = "bash -c \"xdg-open $HOME/MEGA/\"";
           label = "󰚝 MEGA";
         };
-        powermenu.avatar.image = "/home/nathan/Pictures/.avatar.jpg";
+        powermenu.avatar.image = "${dotfiles}/.avatar.jpg";
         shortcuts.enabled = false;
       };
       power.lowBatteryNotification = true;

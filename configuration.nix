@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   inputs,
   dotfiles,
   user,
@@ -64,7 +65,7 @@
     ];
     initialPassword = "1234";
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGWmSH7SLD2WH4ii1eW4oDMsBycOhq02LQP2z2Wq8JqS nathan"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGWmSH7SLD2WH4ii1eW4oDMsBycOhq02LQP2z2Wq8JqS nathan@nathandesktop"
     ];
   };
   nix.settings.allowed-users = [ "@wheel" ];
@@ -101,7 +102,12 @@
   # Packages
   home-manager = {
     useGlobalPkgs = true;
-    extraSpecialArgs = { inherit inputs dotfiles user; };
+    extraSpecialArgs = {
+      secrets = {
+        weather_api = config.sops.secrets.weather_api.path;
+      };
+      inherit inputs dotfiles user;
+    };
     users."${user}" = {
       home = {
         username = "${user}";
@@ -110,6 +116,15 @@
       };
       imports = [ ./modules/cli.nix ];
       programs.home-manager.enable = true;
+    };
+  };
+
+  sops = {
+    defaultSopsFile = "${dotfiles}/.secrets.json";
+    age.keyFile = "/home/${user}/.config/.agekey";
+    secrets = {
+      nextdns = { };
+      weather_api = { };
     };
   };
 
@@ -146,7 +161,7 @@
     enable = true;
     arguments = [
       "-config"
-      ""
+      config.sops.secrets.nextdns.path
       "-cache-size"
       "10MB"
     ];

@@ -9,6 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,23 +44,25 @@
         ++ [
           ./modules/display.nix
           inputs.stylix.nixosModules.stylix
+          inputs.sops-nix.nixosModules.sops
         ];
+      specialArgs = { inherit inputs dotfiles user; };
     in
     {
       nixosConfigurations = {
         NathanDesktop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs dotfiles user; };
+          specialArgs = specialArgs;
           modules = desktopModules ./hosts/desktop;
         };
         NathanLaptop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs dotfiles user; };
+          specialArgs = specialArgs;
           modules = desktopModules ./hosts/laptop;
         };
         rpi0 = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
-          specialArgs = { inherit inputs dotfiles user; };
+          specialArgs = specialArgs;
           modules = coreModules ./hosts/pi;
         };
         NathanInstall = nixpkgs.nixos {
