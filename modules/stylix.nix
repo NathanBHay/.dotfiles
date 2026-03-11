@@ -45,5 +45,11 @@
         accent = "lavender";
       };
     };
+
+    targets = {
+      console.enable = false;
+      grub.enable = false;
+    };
   };
+  boot.loader.grub.theme = pkgs.catppuccin-grub;
 }

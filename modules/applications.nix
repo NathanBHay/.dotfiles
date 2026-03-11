@@ -2,12 +2,12 @@
   pkgs,
   inputs,
   dotfiles,
-  secrets,
   ...
 }:
 let
   obsidianVault = "MEGA/Obsidian Vault/";
   obsidianVaultConf = "${obsidianVault}.obsidian/";
+  hyprConf = x: "${dotfiles}/hypr/${x}.conf";
 in
 {
   imports = [
@@ -71,7 +71,9 @@ in
 
   # Configs located in .config
   xdg.configFile = {
-    hypr.source = "${dotfiles}/hypr";
+    "hypr/hypridle.conf".source = hyprConf "hypridle";
+    "hypr/hyprlock.conf".source = hyprConf "hyprlock";
+    "hypr/hyprsunset.conf".source = hyprConf "hyprsunset";
     swappy.source = "${dotfiles}/swappy";
   };
 }
