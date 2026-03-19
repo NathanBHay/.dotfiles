@@ -11,6 +11,7 @@ let
 in
 {
   imports = [
+    inputs.spicetify-nix.homeManagerModules.default
     ./hyprpanel.nix
   ];
 
@@ -46,4 +47,6 @@ in
     yazi.enable = true;
     hyprpanel.enable = true;
   };
+
+  stylix.targets.zen-browser.profileNames = [ "Default Profile" ];
 }

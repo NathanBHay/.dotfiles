@@ -10,9 +10,7 @@ let
   hyprConf = x: "${dotfiles}/hypr/${x}.conf";
 in
 {
-  imports = [
-    inputs.spicetify-nix.homeManagerModules.default
-  ];
+  imports = [ inputs.zen-browser.homeModules.default ];
   home.packages = with pkgs; [
     # Apps
     rofi # Application Launcher
@@ -56,6 +54,8 @@ in
   ];
 
   fonts.fontconfig.enable = true;
+
+  programs.zen-browser.enable = true;
 
   # Configs located in $HOME
   home.file = {

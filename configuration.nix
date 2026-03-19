@@ -88,7 +88,6 @@
 
   # Core Packages
   environment.systemPackages = with pkgs; [
-    git
     nextdns
     nfs-utils
     systemd
@@ -135,11 +134,15 @@
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
-  # Directory Environments
-  programs.direnv = {
-    enable = true;
-    silent = true;
-    nix-direnv.enable = true;
+  programs = {
+    git.enable = true;
+
+    # Directory Environments
+    direnv = {
+      enable = true;
+      silent = true;
+      nix-direnv.enable = true;
+    };
   };
 
   # Automount USB

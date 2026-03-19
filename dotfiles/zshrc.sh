@@ -6,7 +6,7 @@ fi
 # Exports
 export EDITOR=nvim
 export VISUAL=nvim
-export BROWSER='brave'
+export BROWSER='zen-beta'
 export WORDCHARS=${WORDCHARS/\/}
 export FZF_DEFAULT_COMMAND='fd . --hidden --exclude ".git"'
 export FZF_DEFAULT_OPTS=" \

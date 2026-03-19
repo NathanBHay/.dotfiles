@@ -3,7 +3,10 @@ let
   gpu = "amdgpu";
 in
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/gaming.nix
+  ];
 
   # Networking & Bluetooth
   networking.hostName = "NathanDesktop";
@@ -15,7 +18,6 @@ in
     enable = true;
     enable32Bit = true;
   };
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   # Keyboard Configuration
   services.kanata = {
