@@ -16,7 +16,6 @@ in
     rofi # Application Launcher
     brave # Browser
     vesktop # Messaging
-    flameshot # Screenshot
     kitty # Terminal Emulator
     megacmd # Drive Sync
     mpv # Media Player
@@ -31,9 +30,8 @@ in
     # CLI Tools
     brightnessctl # Control Brightness
     pdfannots2json # For Obsidian Zotero Plugin
-    slurp # Screenshot Area Selector
     sops
-    swappy # Screenshot Modifier
+    # swappy # Screenshot Modifier
     swww # Wallpaper
     wayshot # Screenshot
 

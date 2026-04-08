@@ -37,6 +37,8 @@ in
     '';
   };
 
+  zramSwap.enable = true;
+
   environment.systemPackages = with pkgs; [
     v4l-utils # Webcam
     streamdeck-ui # Streamdeck

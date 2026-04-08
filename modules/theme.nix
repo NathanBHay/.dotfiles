@@ -48,5 +48,6 @@ in
     hyprpanel.enable = true;
   };
 
+  xdg.configFile."rofi/rofi.rasi".source = "${dotfiles}/rofi.rasi";
   stylix.targets.zen-browser.profileNames = [ "Default Profile" ];
 }

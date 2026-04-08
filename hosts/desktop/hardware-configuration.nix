@@ -47,7 +47,7 @@
   swapDevices = [
     {
       device = "/var/.swap";
-      size = 18 * 1024;
+      size = 32 * 1024;
     }
   ];
 
@@ -55,7 +55,7 @@
   boot.resumeDevice = "/dev/disk/by-uuid/897fdd9b-934d-4927-9b25-2d05f590291d";
   boot.kernelParams = [
     "mem_sleep_default=deep"
-    "resume_offset=220606464"
+    "resume_offset=33665024"
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
