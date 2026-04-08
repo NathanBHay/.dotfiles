@@ -25,10 +25,12 @@ in
     qbittorrent # Torrent Client
     ticktick # Calendar
     tor-browser # Anonymous Browser
+    zathura # PDF Viewer
     zotero # Research Manager
 
     # CLI Tools
     brightnessctl # Control Brightness
+    opencode # AI Agent
     pdfannots2json # For Obsidian Zotero Plugin
     sops
     # swappy # Screenshot Modifier

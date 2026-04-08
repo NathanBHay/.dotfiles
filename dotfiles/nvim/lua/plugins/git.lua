@@ -40,18 +40,12 @@ return {
 
         -- Actions
         -- Visual mode
-        map('v', '<leader>ls', function()
-          gitsigns.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
-        end, { desc = '[L]azygit Hunk [S]tage' })
         map('v', '<leader>lr', function()
           gitsigns.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
         end, { desc = '[L]azygit Hunk [R]eset' })
 
         -- Normal mode
-        map('n', '<leader>ls', gitsigns.stage_hunk, { desc = '[L]azygit Hunk [S]tage' })
         map('n', '<leader>lr', gitsigns.reset_hunk, { desc = '[L]azygit Hunk [R]eset' })
-        map('n', '<leader>lS', gitsigns.stage_buffer, { desc = '[L]azygit Hunk [S]tage Buffer' })
-        map('n', '<leader>lu', gitsigns.stage_hunk, { desc = '[L]azygit Hunk [U]ndo Stage' })
         map('n', '<leader>lR', gitsigns.reset_buffer, { desc = '[L]azygit Hunk [R]eset Buffer' })
         map('n', '<leader>lp', gitsigns.preview_hunk, { desc = '[L]azygit Hunk [P]review' })
         map('n', '<leader>lb', function()

@@ -174,13 +174,12 @@
           write = pkgs.mkShell {
             packages = with pkgs; [
               pandoc # Text Converter
-              texliveSmall # Latex
-              texlab
+              texliveFull # Latex
+              texlab # Latex LSP
 
               # Mermaid charts with auto reload
               nodePackages.mermaid-cli # Graphing
               entr # File Watcher
-              presenterm
             ];
           };
         };

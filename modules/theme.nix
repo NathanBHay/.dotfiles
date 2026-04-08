@@ -46,6 +46,7 @@ in
     vesktop.enable = true;
     yazi.enable = true;
     hyprpanel.enable = true;
+    zathura.enable = true;
   };
 
   xdg.configFile."rofi/rofi.rasi".source = "${dotfiles}/rofi.rasi";

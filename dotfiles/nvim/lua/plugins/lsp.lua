@@ -19,56 +19,15 @@ return {
             dismiss = '<C-]>',
           },
         },
+        filetypes = {
+          markdown = false,
+          tex = false,
+        },
       }
     end,
   },
-  {
-    'yetone/avante.nvim',
-    event = 'VeryLazy',
-    version = false, -- Never set this value to "*"! Never!
-    opts = {
-      -- add any opts here
-      -- for example
-      provider = 'copilot',
-      suggestion = {
-        debounce = 2000,
-      },
-      hints = {
-        enabled = false,
-      },
-      mappings = {
-        -- these require a mapping
-        ask = '',
-        refresh = '',
-        edit = '<leader>A',
-      },
-    },
-    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-    build = 'make',
-    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-      'stevearc/dressing.nvim',
-      'nvim-lua/plenary.nvim',
-      'MunifTanjim/nui.nvim',
-      --- The below dependencies are optional,
-      'nvim-telescope/telescope.nvim', -- for file_selector provider telescope
-      'saghen/blink.cmp', -- autocompletion for avante commands and mentions
-      -- 'ibhagwan/fzf-lua', -- for file_selector provider fzf
-      'nvim-tree/nvim-web-devicons', -- or echasnovski/mini.icons
-      'zbirenbaum/copilot.lua', -- for providers='copilot'
-      -- {
-      --   -- Make sure to set this up properly if you have lazy=true
-      --   'MeanderingProgrammer/render-markdown.nvim',
-      --   opts = {
-      --     file_types = { 'markdown', 'Avante' },
-      --   },
-      --   ft = { 'markdown', 'Avante' },
-      -- },
-    },
-  },
-  {
-    -- Main LSP Configuration
+
+  { -- Main LSP Configuration
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Useful status updates for LSP.
@@ -139,37 +98,6 @@ return {
         end,
       })
 
-      -- Diagnostic Config
-      -- See :help vim.diagnostic.Opts
-      vim.diagnostic.config {
-        severity_sort = true,
-        float = { border = 'rounded', source = 'if_many' },
-        underline = { severity = vim.diagnostic.severity.ERROR },
-        signs = vim.g.have_nerd_font and {
-          text = {
-            [vim.diagnostic.severity.ERROR] = '󰅚 ',
-            [vim.diagnostic.severity.WARN] = '󰀪 ',
-            [vim.diagnostic.severity.INFO] = '󰋽 ',
-            [vim.diagnostic.severity.HINT] = '󰌶 ',
-          },
-        } or {},
-        virtual_text = {
-          source = 'if_many',
-          spacing = 2,
-          format = function(diagnostic)
-            local diagnostic_message = {
-              [vim.diagnostic.severity.ERROR] = diagnostic.message,
-              [vim.diagnostic.severity.WARN] = diagnostic.message,
-              [vim.diagnostic.severity.INFO] = diagnostic.message,
-              [vim.diagnostic.severity.HINT] = diagnostic.message,
-            }
-            return diagnostic_message[diagnostic.severity]
-          end,
-        },
-      }
-
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
-
       local servers = {
         -- See `:help lspconfig-all` for a list of all the pre-configured LSPs
         pyright = {},
@@ -196,6 +124,7 @@ return {
         },
         nixd = {},
         ts_ls = {},
+        texlab = {},
         lua_ls = {
           settings = {
             Lua = {
@@ -219,7 +148,8 @@ return {
 
       -- Add LSP servers to the setup
       for server, config in pairs(servers) do
-        require('lspconfig')[server].setup(config)
+        vim.lsp.config(server, config)
+        vim.lsp.enable(server)
       end
     end,
   },
@@ -244,8 +174,6 @@ return {
           --     require('luasnip.loaders.from_vscode').lazy_load()
           --   end,
           -- },
-          'Kaiser-Yang/blink-cmp-avante', -- Required for Avante support in blink.cmp
-          'saghen/blink.compat', -- Required for blink.cmp to work with Avante
         },
         opts = {},
       },
@@ -259,7 +187,7 @@ return {
       },
 
       appearance = {
-        nerd_font_variant = 'mono',
+        nerd_font_variant = 'normal',
       },
 
       -- Autoview documentation
@@ -268,27 +196,7 @@ return {
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'avante_commands', 'avante_mentions', 'avante_files' },
-        providers = {
-          avante_commands = {
-            name = 'avante_commands',
-            module = 'blink.compat.source',
-            score_offset = 90, -- show at a higher priority than lsp
-            opts = {},
-          },
-          avante_files = {
-            name = 'avante_files',
-            module = 'blink.compat.source',
-            score_offset = 100, -- show at a higher priority than lsp
-            opts = {},
-          },
-          avante_mentions = {
-            name = 'avante_mentions',
-            module = 'blink.compat.source',
-            score_offset = 1000, -- show at a higher priority than lsp
-            opts = {},
-          },
-        },
+        default = { 'lsp', 'path', 'snippets' },
       },
 
       snippets = { preset = 'luasnip' },
@@ -301,6 +209,15 @@ return {
     },
   },
 
+  { -- LaTeX support
+    'lervag/vimtex',
+    lazy = false, -- Already lazy loads
+    init = function()
+      vim.g.vimtex_view_method = 'zathura'
+      vim.g.vimtex_syntax_nospell_comments = true
+    end,
+  },
+
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
@@ -309,10 +226,13 @@ return {
 
       ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup {
-        ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc', 'latex' },
+        ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc' },
         -- Autoinstall languages that are not installed
         auto_install = true,
-        highlight = { enable = true },
+        highlight = {
+          enable = true,
+          disable = { 'latex' },
+        },
         indent = { enable = true },
       }
     end,
