@@ -178,7 +178,7 @@
               texlab # Latex LSP
 
               # Mermaid charts with auto reload
-              nodePackages.mermaid-cli # Graphing
+              mermaid-cli # Graphing
               entr # File Watcher
             ];
           };

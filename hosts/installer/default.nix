@@ -18,7 +18,6 @@
     device = "nodev";
     useOSProber = true;
     efiSupport = true;
-    configurationLimit = 50;
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -60,6 +59,6 @@
   # SSH Daemon
   services.openssh.enable = true;
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.05";
 
 }

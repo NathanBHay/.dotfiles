@@ -5,17 +5,12 @@
   ...
 }:
 let
-  obsidianVault = "MEGA/Obsidian Vault/";
-  obsidianVaultConf = "${obsidianVault}.obsidian/";
   hyprConf = x: "${dotfiles}/hypr/${x}.conf";
 in
 {
   imports = [ inputs.zen-browser.homeModules.default ];
   home.packages = with pkgs; [
     # Apps
-    rofi # Application Launcher
-    brave # Browser
-    vesktop # Messaging
     kitty # Terminal Emulator
     megacmd # Drive Sync
     mpv # Media Player
@@ -23,8 +18,10 @@ in
     pavucontrol # Audio Control
     qalculate-qt # Calculator
     qbittorrent # Torrent Client
-    ticktick # Calendar
+    rofi # Application Launcher
+    super-productivity # Task Manager
     tor-browser # Anonymous Browser
+    vesktop # Messaging
     zathura # PDF Viewer
     zotero # Research Manager
 
@@ -34,7 +31,7 @@ in
     pdfannots2json # For Obsidian Zotero Plugin
     sops
     # swappy # Screenshot Modifier
-    swww # Wallpaper
+    awww # Wallpaper
     wayshot # Screenshot
 
     # Processes
@@ -58,22 +55,12 @@ in
   programs.zen-browser.enable = true;
 
   # Configs located in $HOME
-  home.file = {
-    "${obsidianVaultConf}" = {
-      source = "${dotfiles}/obsidian";
-      recursive = true;
-    };
-    "${obsidianVault}/Zotero Template.md".source = "${dotfiles}/obsidian/zotero-template.md";
-    "${obsidianVaultConf}/plugins/obsidian-zotero-desktop-connector/pdfannots2json".source =
-      "${pkgs.pdfannots2json}/bin/pdfannots2json";
-    "Pictures/.avatar.jpg".source = "${dotfiles}/.avatar.jpg";
-  };
+  home.file."Pictures/.avatar.jpg".source = "${dotfiles}/.avatar.jpg";
 
   # Configs located in .config
   xdg.configFile = {
     "hypr/hypridle.conf".source = hyprConf "hypridle";
     "hypr/hyprlock.conf".source = hyprConf "hyprlock";
     "hypr/hyprsunset.conf".source = hyprConf "hyprsunset";
-    swappy.source = "${dotfiles}/swappy";
   };
 }

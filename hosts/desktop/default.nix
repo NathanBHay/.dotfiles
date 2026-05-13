@@ -20,21 +20,25 @@ in
   };
 
   # Keyboard Configuration
-  services.kanata = {
-    enable = true;
-    keyboards.internalKeyboard = {
-      devices = [ "/dev/input/by-id/usb-ROYUAN_Akko_keyboard-event-kbd" ];
-      configFile = "${dotfiles}/kanata.kbd";
+  services = {
+    kanata = {
+      enable = true;
+      keyboards.internalKeyboard = {
+        devices = [ "/dev/input/by-id/usb-ROYUAN_Akko_keyboard-event-kbd" ];
+        configFile = "${dotfiles}/kanata.kbd";
+      };
     };
-  };
 
-  services.logind.settings.Login = {
-    lidSwitch = "suspend-then-hibernate";
-    extraConfig = ''
-      HandlePowerKey=suspend-then-hibernate
-      IdleAction=suspend-then-hibernate
-      IdleActionSec=5min
-    '';
+    logind.settings.Login = {
+      lidSwitch = "suspend-then-hibernate";
+      extraConfig = ''
+        HandlePowerKey=suspend-then-hibernate
+        IdleAction=suspend-then-hibernate
+        IdleActionSec=5min
+      '';
+    };
+
+    hardware.openrgb.enable = true;
   };
 
   zramSwap.enable = true;
@@ -43,6 +47,4 @@ in
     v4l-utils # Webcam
     streamdeck-ui # Streamdeck
   ];
-
-  services.hardware.openrgb.enable = true;
 }
