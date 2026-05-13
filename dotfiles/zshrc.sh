@@ -27,7 +27,6 @@ alias mv='mv -v'
 alias cp='cp -v'
 alias rm='rm -v'
 alias rt='trash-put -v'
-alias find=fd
 alias rcat="$(which cat)" # Just in case
 alias cat='bat --theme="base16"'
 alias grep='grep --color=auto'
