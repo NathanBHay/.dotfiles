@@ -19,12 +19,20 @@ in
     enable = true;
     package = null;
     portalPackage = null;
+    configType = "lua";
     extraConfig = ''
-      source = ${dotfiles}/hypr/hyprland.conf
-      source = ${dotfiles}/hypr/bindings.conf
-      general {
-         col.active_border = 0xbb${c.base0D} 0xaa${c.base0E} 45deg
-         col.inactive_border = 0xff${c.base01}
+      require 'visuals'
+      require 'bindings'
+      hl.config {
+        general = {
+          col = {
+            active_border = {
+              colors = {'0xbb${c.base0D}', '0xaa${c.base0E}'},
+              angle = 45,
+            },
+            inactive_border = '0xff${c.base01}',
+          },
+        },
       }
     '';
   };
@@ -49,6 +57,10 @@ in
     zathura.enable = true;
   };
 
-  xdg.configFile."rofi/rofi.rasi".source = "${dotfiles}/rofi.rasi";
+  xdg.configFile = {
+    "rofi/rofi.rasi".source = "${dotfiles}/rofi.rasi";
+    "hypr/visuals.lua".source = "${dotfiles}/hypr/hyprland.lua";
+    "hypr/bindings.lua".source = "${dotfiles}/hypr/bindings.lua";
+  };
   stylix.targets.zen-browser.profileNames = [ "Default Profile" ];
 }
