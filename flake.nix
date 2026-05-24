@@ -67,11 +67,6 @@
           specialArgs = specialArgs;
           modules = desktopModules ./hosts/laptop;
         };
-        rpi0 = nixpkgs.lib.nixosSystem {
-          system = "aarch64-linux";
-          specialArgs = specialArgs;
-          modules = coreModules ./hosts/pi;
-        };
         NathanInstall = nixpkgs.nixos {
           specialArgs = { inherit inputs user; };
           modules = [ ./hosts/installer ];

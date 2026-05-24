@@ -1,3 +1,6 @@
+-- -- Faster Loading
+vim.loader.enable()
+
 -- Set <space> as the leader key
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -151,23 +154,17 @@ require('lazy').setup {
     opts = {
       preset = 'helix',
       spec = {
-        { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
-        -- { '<leader>d', group = '[D]ebuuger' },
-        { '<leader>r', group = '[R]ename' },
-        { '<leader>s', group = '[S]earch' },
-        { '<leader>w', group = '[W]orkspace' },
-        -- { '<leader>t', group = '[T]oggle' },
-        { '<leader>h', group = '[L]azyGit', mode = { 'n', 'v' } },
+        { 'gs', group = '[S]urround', mode = { 'n', 'v' } },
+        { '<leader>l', group = '[L]azyGit', mode = { 'n', 'v' } },
       },
     },
   },
 
-  require 'plugins.editor',
-  require 'plugins.theme',
-  require 'plugins.lsp',
-  require 'plugins.git',
-  require 'plugins.navigation',
-  -- require 'plugins.debug',
+  require 'editor',
+  require 'theme',
+  require 'lsp',
+  require 'git',
+  require 'navigation',
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`

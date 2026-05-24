@@ -45,6 +45,10 @@ hl.config {
 --- KEYBINDINGSS ---
 --------------------
 
+local function browserWindow(window)
+  return browser .. ' --new-window "' .. window .. '"'
+end
+
 local function bindCMD(key, cmd, is_locked_repeating)
   local flags = {}
   if is_locked_repeating then
@@ -80,8 +84,9 @@ bindCMD('Print', screenshot)
 bindModCMD('P', screenshot)
 bindModCMD('Print', screenshot5)
 
-bindCMD('F1', 'browser --new-window "https://search.nixos.org/options')
-bindModCMD('F1', 'browser --new-window "https://search.nixos.org/packages')
+bindCMD('F1', browserWindow 'https://search.nixos.org/options')
+bindModCMD('F1', browserWindow 'https://search.nixos.org/packages')
+bindModCMD('SHIFT + CTRL + ALT + L', browserWindow 'https://www.linkedin.com/')
 bindCMD('XF86Calculator', calculator)
 
 -- Escape Bindings
@@ -97,7 +102,7 @@ bindModCMD('R', launcher)
 bindModCMD('T', calendar)
 bindModCMD('Y', zotero)
 
-hl.bind(mainMod .. ' + C', hl.dsp.window.close())
+bindMod(mainMod .. ' + C', hl.dsp.window.close())
 hl.bind('ALT + F4', hl.dsp.window.close())
 
 -- Change Layout
@@ -109,10 +114,10 @@ bindMod('S', hl.dsp.workspace.toggle_special 'magic')
 bindMod('SHIFT + S', hl.dsp.window.move { workspace = 'special:magic' })
 
 local directions = {
-  { 'left', 'H', { 1, 0 } },
-  { 'down', 'J', { -1, 0 } },
+  { 'left', 'H', { -1, 0 } },
+  { 'down', 'J', { 0, 1 } },
   { 'up', 'k', { 0, -1 } },
-  { 'right', 'L', { 0, 1 } },
+  { 'right', 'L', { 1, 0 } },
 }
 
 for _, value in ipairs(directions) do
@@ -124,8 +129,8 @@ for _, value in ipairs(directions) do
   bindMod('SHIFT + ' .. value[2], hl.dsp.window.move { direction = value[1] })
 
   -- Resize window
-  bindMod('SHIFT + ' .. value[1], hl.dsp.window.resize { x = value[3][1] * 15, y = value[3][2] * 15 })
-  bindMod('CTRL + SHIFT + ' .. value[1], hl.dsp.window.resize { x = value[3][1] * 60, y = value[3][2] * 60 })
+  bindMod('SHIFT + ' .. value[1], hl.dsp.window.resize { x = value[3][1] * 15, y = value[3][2] * 15, relative = true })
+  bindMod('CTRL + SHIFT + ' .. value[1], hl.dsp.window.resize { x = value[3][1] * 60, y = value[3][2] * 60, relative = true })
 end
 -- hl.bind("ALT + TAB", focuscurrentorlast)
 
@@ -137,16 +142,16 @@ for i = 1, 10 do
 end
 
 bindMod('GRAVE', hl.dsp.window.move { workspace = 'empty' })
+bindMod('SHIFT + GRAVE', hl.dsp.window.move { workspace = 'empty', follow = false })
 
 -- Relative Workspace Switch
 bindMod('mouse_down', hl.dsp.focus { workspace = 'e+1' })
 bindMod('mouse_up', hl.dsp.focus { workspace = 'e-1' })
 
--- Relative Workspace Move
-bindMod(' + SHIFT + mouse_down', hl.dsp.window.move { workspace = 'r+', follow = false })
-bindMod(' + SHIFT + mouse_up', hl.dsp.window.move { workspace = 'r-', follow = false })
-bindMod(' + SHIFT + EQUAL', hl.dsp.window.move { workspace = 'r+', follow = false })
-bindMod(' + SHIFT + MINUS', hl.dsp.window.move { workspace = 'r-', follow = false })
+bindMod('SHIFT + mouse_down', hl.dsp.window.move { workspace = 'r+', follow = false })
+bindMod('SHIFT + mouse_up', hl.dsp.window.move { workspace = 'r-', follow = false })
+bindMod('SHIFT + EQUAL', hl.dsp.window.move { workspace = 'r+', follow = false })
+bindMod('SHIFT + MINUS', hl.dsp.window.move { workspace = 'r-', follow = false })
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 bindMod('mouse:272', hl.dsp.window.drag(), { mouse = true })

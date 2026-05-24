@@ -2,7 +2,7 @@
 return {
   {
     'catppuccin/nvim',
-    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- Load the colorscheme here
@@ -69,8 +69,7 @@ return {
         callback = function()
           local stats = require('lazy').stats()
           local ms = math.floor(stats.startuptime * 100) / 100
-          dashboard.section.footer.val = '\nLoaded ' ..
-          stats.loaded .. '/' .. stats.count .. ' plugins in ' .. ms .. 'ms'
+          dashboard.section.footer.val = '\nLoaded ' .. stats.loaded .. '/' .. stats.count .. ' plugins in ' .. ms .. 'ms'
           pcall(vim.cmd.AlphaRedraw)
         end,
       })

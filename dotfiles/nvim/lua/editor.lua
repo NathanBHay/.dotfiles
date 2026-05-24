@@ -5,10 +5,11 @@ return {
   {
     'echasnovski/mini.nvim',
     config = function()
-      -- maybe mini.ai, splitojoin
+      -- maybe mini.ai
       require('mini.comment').setup()
       require('mini.splitjoin').setup()
       require('mini.bracketed').setup()
+      require('mini.trailspace').setup()
       require('mini.jump').setup {
         delay = {
           highlight = 1500,
@@ -65,12 +66,12 @@ return {
         if disable_filetypes[vim.bo[bufnr].filetype] then
           return nil
         else
-          return {
-            timeout_ms = 500,
-            lsp_format = 'fallback',
-          }
+          return { timeout_ms = 500 }
         end
       end,
+      default_format_opts = {
+        lsp_format = 'fallback',
+      },
       formatters_by_ft = {
         lua = { 'stylua' },
         python = { 'isort', 'black' },
@@ -78,6 +79,8 @@ return {
         rust = { 'rustfmt' },
         nix = { 'nixfmt' },
         sh = { 'shfmt', args = { '-i', '2' } },
+        tex = { 'tex-fmt' },
+        json = { 'jq' },
       },
     },
   },
