@@ -37,6 +37,8 @@ in
     '';
   };
 
+  gtk.gtk4.theme = null; # Suppress Warning
+
   programs = {
     bat.enable = true;
     btop.enable = true;

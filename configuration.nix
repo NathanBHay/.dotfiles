@@ -62,6 +62,7 @@
       "lp"
       "scanner"
       "libvirtd"
+      "uinput"
     ];
     initialPassword = "1234";
     openssh.authorizedKeys.keys = [
@@ -176,6 +177,11 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   hardware.enableRedistributableFirmware = true;
+
+  zramSwap = {
+    enable = true;
+    memoryPercent = 25;
+  };
 
   services.avahi.enable = true;
 

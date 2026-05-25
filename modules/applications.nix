@@ -26,12 +26,12 @@ in
     zotero # Research Manager
 
     # CLI Tools
-    brightnessctl # Control Brightness
-    opencode # AI Agent
-    pdfannots2json # For Obsidian Zotero Plugin
-    sops
-    # swappy # Screenshot Modifier
     awww # Wallpaper
+    brightnessctl # Control Brightness
+    nodejs # For tree-sitter
+    sops # Secret Manager
+    tree-sitter # Syntax Highlighter
+    usbutils # For bug fixing
     wayshot # Screenshot
 
     # Processes
@@ -39,12 +39,6 @@ in
     hypridle # Screen Idle
     hyprpanel
     hyprsunset # Blue Light Filter
-
-    # Compilers
-    bun # JS Bundler
-    dart-sass # CSS Compiler
-    nodejs # JS Backend
-    tree-sitter # Syntax Highlighter
 
     # Fonts
     ibm-plex

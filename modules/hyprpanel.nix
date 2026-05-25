@@ -3,6 +3,7 @@
   programs.hyprpanel.settings = {
     bar = {
       bluetooth.label = false;
+      clock.format = "%a %b %d  %X";
       customModules.weather.unit = "metric";
       launcher.icon = "";
       layouts = {

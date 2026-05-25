@@ -5,9 +5,6 @@
 }:
 let
   readShells = (import ./functions.nix).readShells;
-  windowDup = pkgs.writeShellScriptBin "windowdup" ''
-    ${dotfiles}/bin/windowdup.sh
-  ''; # TODO: auto script to add binaries from folder
 in
 {
   home.packages = with pkgs; [
@@ -23,6 +20,7 @@ in
     bat # Cat Replacment
     bluetui # Bluetooth Manager
     btop # Resource Monitor
+    claude-code # AI Agent
     dust # Folder Storage
     efibootmgr # Boot Entry Manager
     eza # Ls Replacement
@@ -46,9 +44,6 @@ in
     yazi # File Explorer
     zip # Zip Files
     zoxide # CD Replacement
-
-    # User Scripts
-    windowDup # Window Duplication
 
     # Compilers
     gcc # C++ Compiler

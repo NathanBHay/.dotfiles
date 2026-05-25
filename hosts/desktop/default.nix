@@ -1,4 +1,4 @@
-{ dotfiles, pkgs, ... }:
+{ pkgs, ... }:
 let
   gpu = "amdgpu";
 in
@@ -21,14 +21,6 @@ in
 
   # Keyboard Configuration
   services = {
-    kanata = {
-      enable = true;
-      keyboards.internalKeyboard = {
-        devices = [ "/dev/input/by-id/usb-ROYUAN_Akko_keyboard-event-kbd" ];
-        configFile = "${dotfiles}/kanata.kbd";
-      };
-    };
-
     logind.settings.Login = {
       lidSwitch = "suspend-then-hibernate";
       extraConfig = ''
@@ -40,8 +32,6 @@ in
 
     hardware.openrgb.enable = true;
   };
-
-  zramSwap.enable = true;
 
   environment.systemPackages = with pkgs; [
     v4l-utils # Webcam

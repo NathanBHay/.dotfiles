@@ -17,24 +17,14 @@
     kanata = {
       enable = true;
       keyboards.internalKeyboard = {
-        devices = [
-          "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
-          "/dev/input/by-id/usb-Usb_KeyBoard_Usb_KeyBoard-event-kbd"
-        ];
+        devices = [ "/dev/input/by-path/platform-i8042-serio-0-event-kbd" ];
         configFile = "${dotfiles}/kanata.kbd";
       };
     };
 
     # Power Management
     upower.enable = true;
-
     tlp.enable = true;
-
-    # Printing
-    printing = {
-      enable = false;
-      drivers = with pkgs; [ brlaser ];
-    };
 
     # VPN
     mullvad-vpn = {
@@ -44,8 +34,12 @@
   };
 
   hardware.logitech.wireless.enable = true;
+  hardware.keyboard.qmk.enable = true;
+
+  services.udev.packages = with pkgs; [ qmk-udev-rules ];
 
   environment.systemPackages = with pkgs; [
     solaar
+    via
   ];
 }
