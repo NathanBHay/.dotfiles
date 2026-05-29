@@ -1,7 +1,11 @@
 {
   pkgs,
+  config,
   ...
 }:
+let
+  c = config.lib.stylix.colors;
+in
 {
   # Theming
   stylix = {
@@ -22,34 +26,54 @@
 
     fonts = {
       monospace = {
-        package = pkgs.nerd-fonts.fira-code;
         name = "FiraCode Nerd Font";
       };
 
       sizes.applications = 11;
     };
 
-    cursor = {
-      name = "Catppuccin-Mocha-Light-Cursors";
-      package = pkgs.catppuccin-cursors.mochaLight;
-      size = 24;
-    };
-
-    # Could maybe remove or find nicer icons
-    icons = {
-      enable = true;
-      dark = "Papirus-Dark";
-      light = "Papirus-Light";
-      package = pkgs.catppuccin-papirus-folders.override {
-        flavor = "mocha";
-        accent = "lavender";
-      };
-    };
+    icons.enable = false;
 
     targets = {
-      console.enable = false;
-      grub.enable = false;
+      bat.enable = true;
+      blender.enable = false;
+      btop.enable = true;
+      font-packages.enable = false;
+      gnome.enable = false;
+      gtk.enable = true;
+      hyprland.enable = true;
+      hyprpanel.enable = true;
+      kde.enable = false;
+      kitty.enable = true;
+      mpv.enable = true;
+      qt.enable = false;
+      rofi.enable = true;
+      vesktop.enable = true;
+      xresources.enable = false;
+      yazi.enable = true;
+      zathura.enable = true;
     };
   };
-  boot.loader.grub.theme = pkgs.catppuccin-grub;
+  wayland.windowManager.hyprland = {
+    enable = true;
+    package = null;
+    portalPackage = null;
+    configType = "lua";
+    extraConfig = ''
+      require 'visuals'
+      require 'bindings'
+      hl.config {
+        general = {
+          col = {
+            active_border = {
+              colors = {'0xbb${c.base0D}', '0xaa${c.base0E}'},
+              angle = 45,
+            },
+            inactive_border = '0xff${c.base01}',
+          },
+        },
+      }
+    '';
+  };
+
 }

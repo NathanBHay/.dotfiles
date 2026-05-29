@@ -1,5 +1,5 @@
 {
-  description = "Nathan's Nixos Config Flake";
+  description = "Nathan's Nix user config and development shells";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -9,69 +9,39 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
-    };
-
-    claude-code.url = "github:sadjow/claude-code-nix";
   };
 
   outputs =
-    { nixpkgs, ... }@inputs:
+    {
+      nixpkgs,
+      home-manager,
+      stylix,
+      ...
+    }@inputs:
     let
       user = "nathan";
       dotfiles = ./dotfiles;
-      coreModules =
-        x:
-        [ x ]
-        ++ [
-          ./configuration.nix
-          inputs.home-manager.nixosModules.default
-        ];
-      desktopModules =
-        x:
-        (coreModules x)
-        ++ [
-          ./modules/display.nix
-          inputs.stylix.nixosModules.stylix
-          inputs.sops-nix.nixosModules.sops
-        ];
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
       specialArgs = { inherit inputs dotfiles user; };
     in
     {
-      nixosConfigurations = {
-        NathanDesktop = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = specialArgs;
-          modules = desktopModules ./hosts/desktop;
-        };
-        NathanLaptop = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = specialArgs;
-          modules = desktopModules ./hosts/laptop;
-        };
-        NathanInstall = nixpkgs.nixos {
-          specialArgs = { inherit inputs user; };
-          modules = [ ./hosts/installer ];
+      homeConfigurations = {
+        "${user}" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = specialArgs;
+          modules = [
+            stylix.homeModules.stylix
+            ./home.nix
+          ];
         };
       };
     };

@@ -1,68 +1,59 @@
-{
-  inputs,
-  pkgs,
-  config,
-  dotfiles,
-  ...
-}:
+{ pkgs, dotfiles, ... }:
 let
-  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-  c = config.lib.stylix.colors;
+  systemPackage =
+    pkgs.runCommandLocal "system-package-placeholder"
+      {
+        meta.mainProgram = "system-package-placeholder";
+      }
+      ''
+        mkdir -p "$out/bin"
+        printf '%s\n' '#!/bin/sh' 'exit 127' > "$out/bin/system-package-placeholder"
+        chmod +x "$out/bin/system-package-placeholder"
+      '';
 in
 {
-  imports = [
-    inputs.spicetify-nix.homeManagerModules.default
-    ./hyprpanel.nix
-  ];
-
-  wayland.windowManager.hyprland = {
-    enable = true;
-    package = null;
-    portalPackage = null;
-    configType = "lua";
-    extraConfig = ''
-      require 'visuals'
-      require 'bindings'
-      hl.config {
-        general = {
-          col = {
-            active_border = {
-              colors = {'0xbb${c.base0D}', '0xaa${c.base0E}'},
-              angle = 45,
-            },
-            inactive_border = '0xff${c.base01}',
-          },
-        },
-      }
-    '';
-  };
-
   gtk.gtk4.theme = null; # Suppress Warning
 
   programs = {
-    bat.enable = true;
-    btop.enable = true;
-    kitty.enable = true;
-    kitty.extraConfig = builtins.readFile "${dotfiles}/kitty.conf";
-    mpv.enable = true;
-    rofi.enable = true;
-    spicetify = {
+    bat = {
       enable = true;
-      enabledExtensions = with spicePkgs.extensions; [
-        keyboardShortcut
-        songStats
-      ];
+      package = systemPackage;
     };
-    vesktop.enable = true;
-    yazi.enable = true;
-    hyprpanel.enable = true;
-    zathura.enable = true;
-  };
 
-  xdg.configFile = {
-    "rofi/rofi.rasi".source = "${dotfiles}/rofi.rasi";
-    "hypr/visuals.lua".source = "${dotfiles}/hypr/hyprland.lua";
-    "hypr/bindings.lua".source = "${dotfiles}/hypr/bindings.lua";
+    btop = {
+      enable = true;
+      package = null;
+    };
+
+    kitty = {
+      enable = true;
+      package = null;
+      extraConfig = builtins.readFile "${dotfiles}/kitty.conf";
+    };
+
+    mpv = {
+      enable = true;
+      package = systemPackage;
+    };
+
+    rofi = {
+      enable = true;
+      package = systemPackage;
+    };
+
+    vesktop = {
+      enable = true;
+      package = null;
+    };
+
+    yazi = {
+      enable = true;
+      package = null;
+    };
+
+    zathura = {
+      enable = true;
+      package = systemPackage;
+    };
   };
-  stylix.targets.zen-browser.profileNames = [ "Default Profile" ];
 }
