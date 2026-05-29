@@ -132,7 +132,6 @@ for _, value in ipairs(directions) do
   bindMod('SHIFT + ' .. value[1], hl.dsp.window.resize { x = value[3][1] * 15, y = value[3][2] * 15, relative = true })
   bindMod('CTRL + SHIFT + ' .. value[1], hl.dsp.window.resize { x = value[3][1] * 60, y = value[3][2] * 60, relative = true })
 end
--- hl.bind("ALT + TAB", focuscurrentorlast)
 
 -- Workspace Switch
 for i = 1, 10 do

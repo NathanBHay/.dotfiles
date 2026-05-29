@@ -17,7 +17,6 @@ in
     obsidian # Notes App
     pavucontrol # Audio Control
     qalculate-qt # Calculator
-    qbittorrent # Torrent Client
     rofi # Application Launcher
     super-productivity # Task Manager
     tor-browser # Anonymous Browser

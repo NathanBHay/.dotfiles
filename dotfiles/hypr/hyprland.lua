@@ -40,6 +40,11 @@ hl.on('hyprland.start', function()
   hl.exec_cmd 'sleep 5 && mega-sync'
 end)
 
+-- Assume monitor added means logitech mouse is connected.
+hl.on('monitor.added', function()
+  hl.exec_cmd 'solaar --window=hide'
+end)
+
 -----------------------------
 --- ENVIRONMENT VARIABLES ---
 -----------------------------

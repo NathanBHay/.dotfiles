@@ -31,6 +31,8 @@
         home-manager.follows = "home-manager";
       };
     };
+
+    claude-code.url = "github:sadjow/claude-code-nix";
   };
 
   outputs =

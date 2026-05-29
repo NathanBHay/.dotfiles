@@ -21,6 +21,7 @@ in
     bluetui # Bluetooth Manager
     btop # Resource Monitor
     claude-code # AI Agent
+    codex # Second AI Agent
     dust # Folder Storage
     efibootmgr # Boot Entry Manager
     eza # Ls Replacement

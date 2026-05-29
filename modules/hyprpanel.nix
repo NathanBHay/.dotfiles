@@ -1,4 +1,4 @@
-{ secrets, dotfiles, ... }:
+{ dotfiles, ... }:
 {
   programs.hyprpanel.settings = {
     bar = {
@@ -52,10 +52,7 @@
     menus = {
       clock = {
         weather = {
-          interval = 1000000;
-          key = secrets.weather_api;
-          location = "Melbourne";
-          unit = "metric";
+          enabled = false;
         };
       };
       dashboard = {
