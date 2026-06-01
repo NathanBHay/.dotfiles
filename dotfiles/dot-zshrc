@@ -148,3 +148,4 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 eval "$(zoxide init zsh --cmd cd)"
 eval "$(fzf --zsh)"
 eval "$(direnv hook zsh)"
+eval "$(~/.dotfiles/shells/gen-shells.sh ~/.dotfiles/shells)"

@@ -1,12 +1,9 @@
-# Shells: dotfiles zip python rust cpp js cryptopt write neuralnet ags constraint game java sagemath webscrape
 {
-  # TODO: Automate above
   description = "Various Development Shells";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    pwndgb.url = "github:pwndbg/pwndbg";
   };
 
   outputs =
@@ -15,7 +12,6 @@
       system:
       let
         pkgs = import inputs.nixpkgs { inherit system; };
-        x86 = "x86_64-linux";
       in
       {
         devShells = rec {
@@ -27,21 +23,6 @@
               shfmt # Shell Formatter
               stylua # Lua Formatter
               bash-language-server # Bash LSP
-            ];
-          };
-
-          zip = pkgs.mkShell {
-            packages = with pkgs; [
-              unzip # Unzip
-              zip # Zip
-              unrar # Rar
-              p7zip # 7zip
-              tar # Tar
-              gzip # Gzip
-              bzip2 # Bzip
-              xz # XZ
-              lz4 # LZ4
-              zstd # Zstd
             ];
           };
 
@@ -65,29 +46,6 @@
               python313Packages.requests # HTTP Requests
               python313Packages.beautifulsoup4 # Web Scraping
               marp-cli
-            ];
-          };
-
-          webscrape = pkgs.mkShell {
-            inputsFrom = [ python ];
-            nativeBuildInputs = with pkgs; [
-              playwright-driver.browsers
-            ];
-            packages = with pkgs; [
-              python313Packages.playwright # Web Testing
-            ];
-            shellHook = ''
-              export PLAYWRIGHT_BROWSERS_PATH=${pkgs.playwright-driver.browsers}
-              export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=true
-              export PLAYWRIGHT_HOST_PLATFORM_OVERRIDE="ubuntu-24.04"
-            '';
-
-          };
-
-          sagemath = pkgs.mkShell {
-            inputsFrom = [ python ];
-            packages = with pkgs; [
-              sage
             ];
           };
 
@@ -123,7 +81,6 @@
               ccls # LSP
               gdb # Debugger
               valgrind # Memory Profiler
-              inputs.pwndgb.packages.${x86}.default # Fancy GDB
               mpi # Process Parallelization
               bc
             ];
@@ -159,7 +116,8 @@
               gnuplot # Graphing
               calc # Calculator
               jq # JSON Processor
-              (pkgs.callPackage ../packages/assemblyline { })
+              # TODO: Fix This
+              # (pkgs.callPackage ./packages/assemblyline { })
             ];
           };
 
