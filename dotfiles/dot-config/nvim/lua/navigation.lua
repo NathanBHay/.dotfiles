@@ -71,7 +71,7 @@ do
   end, { desc = 'Search [/] in Open Files' })
 
   -- Shortcut for searching your dotfiles
-  local nixos = os.getenv 'HOME' .. '/.nixos/'
+  local nixos = os.getenv 'HOME' .. '/.dotfiles/'
   vim.keymap.set('n', '<leader>n', function()
     builtin.find_files { cwd = nixos }
   end, { desc = 'Search [N]ixos Config' })

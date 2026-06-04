@@ -1,7 +1,15 @@
 -- Code completion and LSP integration
 do
+  vim.pack.add {
+    GH 'zbirenbaum/copilot.lua',
+    GH 'j-hui/fidget.nvim',
+    GH 'neovim/nvim-lspconfig',
+    { src = GH 'L3MON4D3/LuaSnip', version = vim.version.range '2.*' },
+    { src = GH 'saghen/blink.cmp', version = vim.version.range '1.*' },
+    GH 'lervag/vimtex' ,
+  }
+
   -- AI Tools
-  vim.pack.add { GH 'zbirenbaum/copilot.lua' }
   require('copilot').setup {
     suggestion = {
       enabled = true,
@@ -23,10 +31,6 @@ do
   }
 
   -- Main LSP Configuration
-  vim.pack.add {
-    GH 'j-hui/fidget.nvim',
-    GH 'neovim/nvim-lspconfig',
-  }
   require('fidget').setup {} -- Show LSP (and other processes) progress
 
   vim.api.nvim_create_autocmd('LspAttach', {
@@ -144,10 +148,8 @@ do
   end
 
   -- [[ Snippet Engine ]]
-  vim.pack.add { { src = GH 'L3MON4D3/LuaSnip', version = vim.version.range '2.*' } }
 
   -- [[ Autocomplete Engine ]]
-  vim.pack.add { { src = GH 'saghen/blink.cmp', version = vim.version.range '1.*' } }
   require('blink.cmp').setup {
     keymap = {
       preset = 'super-tab',
@@ -177,7 +179,6 @@ do
   }
 
   -- LaTeX support
-  vim.pack.add { GH 'lervag/vimtex' }
   vim.g.vimtex_view_method = 'zathura'
   vim.g.vimtex_syntax_nospell_comments = true
 end

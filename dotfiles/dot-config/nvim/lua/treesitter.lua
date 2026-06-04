@@ -1,5 +1,9 @@
 do
-  vim.pack.add { { src = GH 'nvim-treesitter/nvim-treesitter', version = 'main' } }
+  vim.pack.add {
+   { src = GH 'nvim-treesitter/nvim-treesitter', version = 'main' },
+   GH 'nvim-treesitter/nvim-treesitter-context',
+   GH 'windwp/nvim-ts-autotag',
+  }
 
   -- Ensure basic parsers are installed
   local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
@@ -55,7 +59,6 @@ do
   })
 
   -- Displays the function/class at top of the screen
-  vim.pack.add { GH 'nvim-treesitter/nvim-treesitter-context' }
   require('treesitter-context').setup {
     enable = true,
     max_lines = 6,
@@ -63,7 +66,6 @@ do
   }
 
   -- Allow editing of opening and closing tags in HTML/XML files
-  vim.pack.add { GH 'windwp/nvim-ts-autotag' }
   require('nvim-ts-autotag').setup {
     opts = {
       enable_close = true,

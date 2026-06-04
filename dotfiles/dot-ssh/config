@@ -1,3 +1,4 @@
+Include ~/.ssh/config.local
 Host github.com
 	User git
 	AddKeysToAgent yes
@@ -10,7 +11,7 @@ Host opi0 opi1 opi2
 	User nathan
 	AddKeysToAgent yes
 	IdentityFile ~/.ssh/id_opi
-Host nathandesktop nathanlaptop 192.168.13.250 192.168.13.153
+Host nathandesktop nathanlaptop
 	User nathan
 	AddKeysToAgent yes
 	IdentityFile ~/.ssh/id_nathan

@@ -145,7 +145,15 @@ do
     return 'https://github.com/' .. repo
   end
 
-  vim.pack.add { GH 'folke/which-key.nvim' }
+  vim.pack.add {
+    GH 'folke/which-key.nvim',
+    GH 'catppuccin/nvim',
+    GH 'nvim-lualine/lualine.nvim',
+    GH 'nvim-lua/plenary.nvim', -- Also used in telescope & lazygit.
+    GH 'folke/todo-comments.nvim',
+    GH 'kdheepak/lazygit.nvim',
+  }
+
   require('which-key').setup {
     preset = 'helix',
     spec = {
@@ -155,20 +163,13 @@ do
     },
   }
 
-  vim.pack.add { GH 'catppuccin/nvim' }
   require('catppuccin').setup()
   vim.cmd.colorscheme 'catppuccin'
   vim.cmd.hi 'Comment gui=none' -- TODO: Check what this does
 
-  vim.pack.add { GH 'nvim-lualine/lualine.nvim' }
   require('lualine').setup { theme = 'catppuccin' }
 
   -- Highlight todo, notes, perf, hack, fix, warning
-  vim.pack.add {
-    GH 'nvim-lua/plenary.nvim', -- Also used in telescope & lazygit.
-    GH 'folke/todo-comments.nvim',
-    GH 'kdheepak/lazygit.nvim',
-  }
   require('todo-comments').setup { signs = false }
 
   -- Open lazygit in a floating window

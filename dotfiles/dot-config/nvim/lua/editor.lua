@@ -1,9 +1,9 @@
 -- Changes to basic editing functionality
 do
-  -- Detect tabstop and shiftwidth automatically
-  vim.pack.add { GH 'tpope/vim-sleuth' }
-
-  vim.pack.add { GH 'echasnovski/mini.nvim' }
+  vim.pack.add {
+    GH 'tpope/vim-sleuth', -- Detect tabstop and shiftwidth
+    GH 'echasnovski/mini.nvim'
+  }
   -- require('mini.ai').setup() TODO: Enable
   require('mini.comment').setup()
   require('mini.diff').setup {
