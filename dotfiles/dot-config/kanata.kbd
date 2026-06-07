@@ -1,0 +1,16 @@
+;; Caps to escape/control configuration, for internal keyboard
+(defcfg
+  linux-dev /dev/input/by-path/platform-i8042-serio-0-event-kbd
+)
+
+(defsrc
+  caps
+)
+
+(defalias
+  escctrl (tap-hold 200 200 esc lctl)
+)
+
+(deflayer base
+  @escctrl
+)

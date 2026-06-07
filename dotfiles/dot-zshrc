@@ -7,6 +7,7 @@ fi
 export EDITOR=nvim
 export VISUAL=nvim
 export BROWSER='zen-beta'
+export PATH="$HOME/.local/bin:$PATH"
 export WORDCHARS=${WORDCHARS/\/}
 export FZF_DEFAULT_COMMAND='fd . --hidden --exclude ".git"'
 export FZF_DEFAULT_OPTS=" \
@@ -33,44 +34,14 @@ alias grep='grep --color=auto'
 alias pandoc='pandoc -V geometry:margin=3cm'
 alias ssh='kitty +kitten ssh'
 alias du=dust
-alias df='df -h'
+alias df='duf'
 alias yy=yazi
-alias rip="expac --timefmt='%Y-%m-%d %T' '%l%n %v' | sort | tail -200 | nl"
 alias jctl="journalctl -p 3 -xb"
 alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"
 
-# Drive Mount
-function md() {
-  if [[ -z "$1" ]]; then
-    device=$(dmesg | grep -i 'sd' | grep -o 'sd[b-z]' | tail -n 1)
-    device="${device}1"
-  else
-    device="$1"
-  fi
-  udisksctl mount -b "/dev/$device"
-}
 # Nix Commands
-NIX_LOC="$HOME/.nixos"
-alias nixup="sudo nix flake update --flake '$NIX_LOC'"
-alias nixup_shells="sudo nix flake update --flake $NIX_LOC/shells"
-alias nixpack='nix-build -E "with import <nixpkgs> {}; callPackage ./default.nix {}"'
+alias nixup="sudo nix flake update --flake $HOME/.dotfiles/shells"
 alias nix-clean="sudo nix-collect-garbage -d && sudo nix-store --optimise"
-nixre() {
-  if [[ "$1" == "-b" || "$2" == "-b" ]]; then
-    sudo nixos-rebuild boot --flake "$NIX_LOC"
-  else
-    sudo nixos-rebuild switch --flake "$NIX_LOC"
-  fi
-
-  # Rebuild GUI
-  if [[ "$1" == "-g" || "$2" == "-g" ]]; then
-    ags -q; nohup ags > /dev/null 2>&1 &
-  fi
-}
-nixiso () {
-  local f=${2:-iso}
-  nix run nixpkgs#nixos-generators -- --format "$f" --flake "$NIX_LOC#$1" -o "$NIX_LOC/result"
-}
 
 # Keybindings
 bindkey -e
@@ -136,7 +107,6 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 -T --color=always $realpath'
 zstyle ':fzf-tab:complete:*' fzf-preview 'bat -p --color=always $realpath'
 
 # Plugins
-
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -145,7 +115,9 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Commands
-eval "$(zoxide init zsh --cmd cd)"
+if [[ "$CLAUDECODE" != "1" ]]; then
+    eval "$(zoxide init --cmd cd zsh)"
+fi
 eval "$(fzf --zsh)"
 eval "$(direnv hook zsh)"
 eval "$(~/.dotfiles/shells/gen-shells.sh ~/.dotfiles/shells)"
