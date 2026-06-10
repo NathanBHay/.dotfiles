@@ -2,7 +2,7 @@ local mainMod = 'SUPER' -- Sets "Windows" key as main modifier
 
 -- Applications
 local terminal = 'kitty'
-local launcher = 'rofi -show drun -theme ~/.config/rofi/rofi.rasi'
+local launcher = 'noctalia msg panel-toggle launcher'
 local notes = 'obsidian'
 local browser = 'zen-beta'
 local calendar = 'super-productivity'
@@ -22,8 +22,8 @@ local audioPrev = 'playerctl previous'
 local audioStop = 'playerctl stop'
 
 -- Actions
-local escape = 'hyprpanel t powerdropdownmenu'
-local screenshot = 'screeny="$HOME/Pictures/Screenshots/$(date \'+%Y-%m-%d_%H-%M-%S\').png" && wayshot -g --clipboard "$screeny"'
+local lock = 'noctalia msg screen-lock'
+local screenshot = 'noctalia msg screenshot-region'
 local screenshot5 = 'sleep 5; ' .. screenshot
 
 -------------

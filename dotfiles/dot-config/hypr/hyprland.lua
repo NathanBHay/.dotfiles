@@ -2,6 +2,8 @@
 --- Nathan's Hyprland Config ---
 --------------------------------
 
+require 'bindings'
+
 ----------------
 --- MONITORS ---
 ----------------
@@ -32,11 +34,8 @@ hl.monitor {
 -----------------
 
 hl.on('hyprland.start', function()
-  hl.exec_cmd 'hyprlock'
-  hl.exec_cmd 'hypridle'
-  hl.exec_cmd 'hyprpanel'
-  hl.exec_cmd 'awww-daemon'
-  hl.exec_cmd 'hyprsunset'
+  hl.exec_cmd 'noctalia'
+  hl.exec_cmd 'noctalia msg screen-lock'
   hl.exec_cmd 'sleep 5 && mega-sync'
 end)
 
@@ -148,12 +147,6 @@ floatRule { title = '^(File Operation Progress)$' }
 floatRule { title = '^MEGA*' }
 floatRule { title = '^(Bitwarden)$' }
 floatRule { title = '^(Discord Popout)$' }
-
-hl.layer_rule {
-  name = 'no-anim-overlay',
-  match = { namespace = '^(rofi)$' },
-  no_anim = true,
-}
 
 -- "Smart gaps" / "No gaps when only"
 hl.workspace_rule { workspace = 'w[tv1]', gaps_out = 0, gaps_in = 0 }
