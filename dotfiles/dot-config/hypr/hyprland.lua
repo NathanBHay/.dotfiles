@@ -48,9 +48,14 @@ end)
 --- ENVIRONMENT VARIABLES ---
 -----------------------------
 
-hl.env('XCURSOR_SIZE', '24')
-hl.env('HYPRCURSOR_SIZE', '24')
-hl.env('XDG_CURRENT_DESKTOP', 'Hyprland')
+local cursor_theme = 'catppuccin-mocha-light-cursors'
+local cursor_size = '24'
+
+hl.env('XCURSOR_SIZE', cursor_size)
+hl.env('HYPRCURSOR_SIZE', cursor_size)
+hl.env('XCURSOR_THEME', cursor_theme)
+hl.env('HYPRCURSOR_THEME', cursor_theme)
+hl.env('QT_QPA_PLATFORMTHEME', 'qt6ct')
 
 ---------------------
 --- LOOK AND FEEL ---
@@ -80,8 +85,6 @@ hl.config {
       size = 3,
       passes = 2,
       ignore_opacity = true,
-      -- Test this out
-      -- vibrancy  = 0.1696,
     },
   },
 
@@ -94,6 +97,8 @@ hl.config {
     enable_swallow = true,
     focus_on_activate = true,
   },
+
+  cursor = { no_hardware_cursors = false },
 
   animations = { enabled = true },
 }
@@ -117,12 +122,49 @@ hl.animation { leaf = 'fadeShadow', enabled = true, speed = 10, bezier = 'easeOu
 hl.animation { leaf = 'fadeDim', enabled = true, speed = 4, bezier = 'fluent_decel' } -- the easing of the dimming of inactive windows
 hl.animation { leaf = 'border', enabled = true, speed = 2.7, bezier = 'easeOutCirc' } -- for animating the border's color switch speed
 hl.animation { leaf = 'borderangle', enabled = true, speed = 30, bezier = 'fluent_decel', style = 'once' } -- gradient move (once or loop)
-hl.animation { leaf = 'workspaces', enabled = true, speed = 4, bezier = 'easeOutCubic', style = 'fade' } -- worksapce transistion
+hl.animation { leaf = 'workspaces', enabled = true, speed = 3.5, bezier = 'easeOutCubic', style = 'fade' } -- workspace transistion
 
 ------------------------------
 --- WINDOWS AND WORKSPACES ---
 ------------------------------
+-- Persistent workspaces. With two monitors the first gets 6 and the second 4;
+-- with any other count they're split evenly across the connected monitors.
+local TWO_MONITOR_SPLIT = { 6, 4 }
 
+-- Connected monitors, primary first then left-to-right by x position.
+local function ordered_monitors()
+  local mons = {}
+  for _, m in ipairs(hl.get_monitors()) do
+    if not m.is_mirror then
+      mons[#mons + 1] = m
+    end
+  end
+  table.sort(mons, function(a, b)
+    return a.x < b.x -- This is kinda a heuristic
+  end)
+  return mons
+end
+
+-- Two monitors use the explicit 6/4 split
+local function assign_workspaces()
+  local monitors = ordered_monitors()
+  if #monitors == 1 or #monitors == 2 then
+    local ws = 1
+    for i, mon in ipairs(monitors) do
+      for _ = 1, TWO_MONITOR_SPLIT[i] do
+        hl.workspace_rule { monitor = mon.name, workspace = tostring(ws), persistent = true }
+        ws = ws + 1
+      end
+    end
+  end
+end
+
+hl.on('hyprland.start', assign_workspaces)
+hl.on('monitor.added', assign_workspaces)
+hl.on('monitor.removed', assign_workspaces)
+hl.on('config.reloaded', assign_workspaces)
+
+-- Rule to make a window of a title and class float
 local function floatRule(opts)
   hl.window_rule {
     name = ('float-%s-%s'):format(opts.title or '', opts.class or ''),
@@ -163,3 +205,33 @@ hl.window_rule {
   border_size = 0,
   rounding = 0,
 }
+hl.window_rule {
+  name = 'suppress-maximize-events',
+  match = { class = '.*' },
+  suppress_event = 'maximize',
+}
+local fs_prev = nil
+
+hl.on('window.fullscreen', function(w)
+  local cur = w.fullscreen
+  local prev = fs_prev
+  fs_prev = cur
+
+  if prev == 2 and cur == 0 then
+    -- left real fullscreen; the bogus maximize lands within a ms.
+    hl.timer(function()
+      fs_prev = nil
+    end, { timeout = 1, type = 'oneshot' })
+  elseif cur == 1 and fs_prev then
+    -- Bogus maximize; unset fullscreen
+    fs_prev = nil
+    hl.dispatch(hl.dsp.window.fullscreen_state {
+      internal = 0,
+      client = 0,
+      action = 'set',
+      window = w,
+    })
+  end
+end)
+
+require 'noctalia'

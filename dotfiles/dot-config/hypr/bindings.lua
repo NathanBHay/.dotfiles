@@ -1,10 +1,11 @@
+-- Variables
 local mainMod = 'SUPER' -- Sets "Windows" key as main modifier
 
 -- Applications
 local terminal = 'kitty'
 local launcher = 'noctalia msg panel-toggle launcher'
 local notes = 'obsidian'
-local browser = 'zen-beta'
+local browser = 'brave-origin-beta'
 local calendar = 'super-productivity'
 local calculator = 'qalculate-qt'
 local zotero = 'zotero'
@@ -81,22 +82,22 @@ bindCMD('XF86AudioPrev', audioPrev, true)
 bindCMD('XF86AudioStop', audioStop, true)
 
 bindCMD('Print', screenshot)
+bindCMD('SHIFT + Print', screenshot5)
 bindModCMD('P', screenshot)
-bindModCMD('Print', screenshot5)
+bindModCMD('SHIFT + P', screenshot5)
 
-bindCMD('F1', browserWindow 'https://search.nixos.org/options')
-bindModCMD('F1', browserWindow 'https://search.nixos.org/packages')
+bindCMD('F1', browserWindow 'https://archlinux.org/packages/')
+bindModCMD('F1', browserWindow 'https://aur.archlinux.org/')
 bindModCMD('SHIFT + CTRL + ALT + L', browserWindow 'https://www.linkedin.com/')
 bindCMD('XF86Calculator', calculator)
 
 -- Escape Bindings
-bindModCMD('Escape', escape)
-bindModCMD('SHIFT + Escape', 'hyprlock')
+bindModCMD('SHIFT + Escape', lock)
 
 -- Launchers
 bindModCMD('Q', terminal)
 bindModCMD('W', browser)
-bindModCMD('SHIFT + W', browser .. ' --private-window')
+bindModCMD('SHIFT + W', browser .. ' --incognito')
 bindModCMD('E', notes)
 bindModCMD('R', launcher)
 bindModCMD('T', calendar)
@@ -108,29 +109,26 @@ hl.bind('ALT + F4', hl.dsp.window.close())
 -- Change Layout
 bindMod('SEMICOLON', hl.dsp.layout 'togglesplit')
 bindMod('F', hl.dsp.window.float { action = 'toggle' })
--- hl.bind(mainMod .. " + B", togglegroup)
-
-bindMod('S', hl.dsp.workspace.toggle_special 'magic')
-bindMod('SHIFT + S', hl.dsp.window.move { workspace = 'special:magic' })
 
 local directions = {
-  { 'left', 'H', { -1, 0 } },
-  { 'down', 'J', { 0, 1 } },
-  { 'up', 'k', { 0, -1 } },
-  { 'right', 'L', { 1, 0 } },
+  { 'left', 'H', -1, 0 },
+  { 'down', 'J', 0, 1 },
+  { 'up', 'k', 0, -1 },
+  { 'right', 'L', 1, 0 },
 }
 
 for _, value in ipairs(directions) do
+  local dir, key, dx, dy = table.unpack(value)
   -- Move Focus
-  bindMod(value[2], hl.dsp.focus { direction = value[1] })
-  bindMod(value[1], hl.dsp.focus { direction = value[1] })
+  bindMod(key, hl.dsp.focus { direction = value[1] })
 
   -- Move window
-  bindMod('SHIFT + ' .. value[2], hl.dsp.window.move { direction = value[1] })
+  bindMod(dir, hl.dsp.window.move { direction = dir })
+  bindMod('SHIFT + ' .. key, hl.dsp.window.move { direction = value[1] })
 
   -- Resize window
-  bindMod('SHIFT + ' .. value[1], hl.dsp.window.resize { x = value[3][1] * 15, y = value[3][2] * 15, relative = true })
-  bindMod('CTRL + SHIFT + ' .. value[1], hl.dsp.window.resize { x = value[3][1] * 60, y = value[3][2] * 60, relative = true })
+  bindMod('SHIFT + ' .. dir, hl.dsp.window.resize { x = dx * 15, y = dy * 15, relative = true })
+  bindMod('CTRL + SHIFT + ' .. dir, hl.dsp.window.resize { x = dx * 60, y = dy * 60, relative = true })
 end
 
 -- Workspace Switch
