@@ -4,18 +4,7 @@ do
     GH 'tpope/vim-sleuth', -- Detect tabstop and shiftwidth
     GH 'echasnovski/mini.nvim'
   }
-  -- require('mini.ai').setup() TODO: Enable
   require('mini.comment').setup()
-  require('mini.diff').setup {
-    view = {
-      style = 'sign',
-      signs = {
-        add = '┃',
-        change = '┃',
-        delete = '_',
-      },
-    },
-  }
   require('mini.splitjoin').setup()
   require('mini.bracketed').setup()
   require('mini.trailspace').setup()
@@ -54,6 +43,7 @@ do
     pattern = { 'rust', 'html' },
     callback = function()
       MiniPairs.map_buf(0, 'i', '<', { action = 'open', pair = '<>', neigh_pattern = pattern })
+      MiniPairs.map_buf(0, 'i', '>', { action = 'close', pair = '<>', neigh_pattern = '[^\\].' })
       MiniPairs.map_buf(0, 'i', "'", { action = 'closeopen', pair = "''", neigh_pattern = '[^%a\\&<][^%w>]' })
     end,
   })

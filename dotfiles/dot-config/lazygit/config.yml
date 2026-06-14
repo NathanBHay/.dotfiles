@@ -1,3 +1,6 @@
+git:
+  pagers:
+    - pager: delta --dark --paging=never --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
 customCommands:
   # Create worktree from current branch (when in worktrees view)
   - key: "N"

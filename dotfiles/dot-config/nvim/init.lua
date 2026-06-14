@@ -151,7 +151,7 @@ do
     GH 'nvim-lualine/lualine.nvim',
     GH 'nvim-lua/plenary.nvim', -- Also used in telescope & lazygit.
     GH 'folke/todo-comments.nvim',
-    GH 'kdheepak/lazygit.nvim',
+    GH 'folke/snacks.nvim',
   }
 
   require('which-key').setup {
@@ -159,6 +159,7 @@ do
     spec = {
       { 'gs', group = '[S]urround', mode = { 'n', 'v' } },
       { '<leader>l', group = '[L]azyGit', mode = { 'n', 'v' } },
+      { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       { '<leader>t', group = '[T]oggleables', mode = { 'n', 'v' } },
     },
   }
@@ -172,10 +173,27 @@ do
   -- Highlight todo, notes, perf, hack, fix, warning
   require('todo-comments').setup { signs = false }
 
-  -- Open lazygit in a floating window
-  vim.keymap.set('n', '<leader>l', '<cmd>LazyGit<CR>', { desc = '[L]azyGit', silent = true })
+  require('snacks').setup {
+    lazygit = {
+      config = {
+        os = {
+          edit = "nvim --server $NVIM --remote-send 'q' && nvim --server $NVIM --remote {{filename}}",
+          editAtLine = "nvim --server $NVIM --remote-send 'q' && nvim --server $NVIM --remote +{{line}} {{filename}}",
+          editInTerminal = false,
+        },
+      },
+    },
+
+    styles = {
+      lazygit = {
+        height = 0,
+        width = 0,
+      },
+    },
+  }
 
   require 'editor'
+  require 'git'
   require 'lsp'
   require 'navigation'
   require 'treesitter'
