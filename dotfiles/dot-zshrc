@@ -121,3 +121,4 @@ fi
 eval "$(fzf --zsh)"
 eval "$(direnv hook zsh)"
 eval "$(~/.dotfiles/shells/gen-shells.sh ~/.dotfiles/shells)"
+eval "$(keychain --eval --quiet)"
