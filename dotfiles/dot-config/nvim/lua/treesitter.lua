@@ -1,12 +1,12 @@
 do
   vim.pack.add {
-   { src = GH 'nvim-treesitter/nvim-treesitter', version = 'main' },
-   GH 'nvim-treesitter/nvim-treesitter-context',
-   GH 'windwp/nvim-ts-autotag',
+    { src = GH 'nvim-treesitter/nvim-treesitter', version = 'main' },
+    GH 'nvim-treesitter/nvim-treesitter-context',
+    GH 'windwp/nvim-ts-autotag',
   }
 
   -- Ensure basic parsers are installed
-  local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
+  local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query' }
   require('nvim-treesitter').install(parsers)
 
   local function treesitter_try_attach(buf, language)
@@ -20,6 +20,7 @@ do
     -- Enable treesitter based folds
     vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
     vim.wo.foldmethod = 'expr'
+    vim.opt.foldlevel = 99 -- Avoids folding everything by default
 
     -- Check if treesitter indentation is available for this language, and if so enable it
     -- in case there is no indent query, the indentexpr will fallback to the vim's built in one
@@ -31,13 +32,15 @@ do
     end
   end
 
+  local treesitter_disabled = { latex = true, bibtex = true }
+
   local available_parsers = require('nvim-treesitter').get_available()
   vim.api.nvim_create_autocmd('FileType', {
     callback = function(args)
       local buf, filetype = args.buf, args.match
 
       local language = vim.treesitter.language.get_lang(filetype)
-      if not language then
+      if not language or treesitter_disabled[language] then
         return
       end
 
@@ -60,16 +63,10 @@ do
 
   -- Displays the function/class at top of the screen
   require('treesitter-context').setup {
-    enable = true,
     max_lines = 6,
     min_window_height = 32,
   }
 
   -- Allow editing of opening and closing tags in HTML/XML files
-  require('nvim-ts-autotag').setup {
-    opts = {
-      enable_close = true,
-      enable_rename = true,
-    },
-  }
+  require('nvim-ts-autotag').setup()
 end

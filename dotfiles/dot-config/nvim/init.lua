@@ -67,9 +67,6 @@ do
 
   vim.opt.winborder = 'rounded'
 
-  -- Avoid folding by default
-  vim.opt.foldlevel = 99
-
   -- Auto enable transparent background
   vim.api.nvim_create_autocmd('ColorScheme', {
     pattern = '*',
@@ -149,8 +146,8 @@ do
     GH 'folke/which-key.nvim',
     GH 'catppuccin/nvim',
     GH 'nvim-lualine/lualine.nvim',
-    GH 'nvim-lua/plenary.nvim', -- Also used in telescope & lazygit.
     GH 'folke/todo-comments.nvim',
+    GH 'nvim-tree/nvim-web-devicons',
     GH 'folke/snacks.nvim',
   }
 
@@ -174,6 +171,21 @@ do
   require('todo-comments').setup { signs = false }
 
   require('snacks').setup {
+    profiler = { enabled = true },
+    image = { enabled = true }, -- I swear this is auto on
+    -- bigfile = { enabled = true },
+    -- quickfile = { enabled = true },
+    words = { enabled = true },
+    picker = {
+      enabled = true,
+      win = {
+        input = {
+          keys = {
+            ['<Esc>'] = { 'close', mode = { 'n', 'i' } },
+          },
+        },
+      },
+    },
     lazygit = {
       config = {
         os = {

@@ -1,12 +1,14 @@
 -- Code completion and LSP integration
 do
   vim.pack.add {
+    GH 'monkoose/neocodeium',
     GH 'zbirenbaum/copilot.lua',
     GH 'j-hui/fidget.nvim',
     GH 'neovim/nvim-lspconfig',
     { src = GH 'L3MON4D3/LuaSnip', version = vim.version.range '2.*' },
+    GH 'rafamadriz/friendly-snippets',
     { src = GH 'saghen/blink.cmp', version = vim.version.range '1.*' },
-    GH 'lervag/vimtex' ,
+    GH 'lervag/vimtex',
   }
 
   -- AI Tools
@@ -30,6 +32,11 @@ do
     },
   }
 
+  -- local neocodeium = require 'neocodeium'
+  -- neocodeium.setup {
+  -- }
+  -- vim.keymap.set('i', '<A-f>', neocodeium.accept)
+
   -- Main LSP Configuration
   require('fidget').setup {} -- Show LSP (and other processes) progress
 
@@ -52,6 +59,7 @@ do
         end
       end
 
+      map('<leader>R', Snacks.rename.rename_file, '[R]ename')
       map('<leader>r', vim.lsp.buf.rename, '[R]ename')
       map('<leader>x', vim.lsp.codelens.run, 'Codelens E[X]ecute')
       map('<leader>a', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
@@ -95,6 +103,9 @@ do
 
   local servers = {
     -- See `:help lspconfig-all` for a list of all the pre-configured LSPs
+    bashls = {
+      filetypes = { 'sh', 'bash', 'zsh' },
+    },
     pyright = {},
     rust_analyzer = {
       settings = {
@@ -130,6 +141,7 @@ do
             -- for your neovim configuration.
             library = {
               '${3rd}/luv/library',
+              '/usr/share/hypr/stubs',
               unpack(vim.api.nvim_get_runtime_file('', true)),
             },
           },
@@ -146,8 +158,6 @@ do
     vim.lsp.config(server, config)
     vim.lsp.enable(server)
   end
-
-  -- [[ Snippet Engine ]]
 
   -- [[ Autocomplete Engine ]]
   require('blink.cmp').setup {
@@ -177,6 +187,8 @@ do
     -- Shows a signature help window while you type arguments for a function
     signature = { enabled = true },
   }
+
+  require('luasnip.loaders.from_vscode').lazy_load()
 
   -- LaTeX support
   vim.g.vimtex_view_method = 'zathura'
